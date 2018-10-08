@@ -3,18 +3,16 @@
 #include <crtdbg.h>  
 
 #include <iostream>
-#include "dungeon.h"
-#include "room.h"
+#include "gamemanager.h"
 
 int main()
 {
-	Dungeon<12, 16> *dungeon = new Dungeon<12,16>();
-	dungeon->Coord(1, 1) = new Room();
+	GameManager manager;
+	manager.init();
 
-	Room *room = dungeon->Coord(1, 1);
-	std::cout << room->Description() << std::endl;
-	delete dungeon;
-	system("pause");
+	//memory leak detection
 	_CrtDumpMemoryLeaks();
+
+	//exit
 	return 0;
 }

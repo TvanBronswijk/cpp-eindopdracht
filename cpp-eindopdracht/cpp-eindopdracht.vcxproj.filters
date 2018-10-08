@@ -13,21 +13,75 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Models">
+      <UniqueIdentifier>{a9a8a75f-e669-42ec-9625-807b2450c77c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Models">
+      <UniqueIdentifier>{995105cb-0553-4960-aae7-d3555fd48ec9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Managers">
+      <UniqueIdentifier>{cd118257-94ee-4147-ab64-de3881604cd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers">
+      <UniqueIdentifier>{ac0b8a2b-0eca-4100-9b21-f6a4389d88b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Views">
+      <UniqueIdentifier>{5b84403c-bc62-4004-abc6-c63eb735b36f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Views">
+      <UniqueIdentifier>{e45757ac-7a46-4a76-b1cb-4b75ec6da36c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Services">
+      <UniqueIdentifier>{f9d1087f-4b97-49bd-bddb-9b7e8c659cef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Services">
+      <UniqueIdentifier>{807b50ab-7ea2-4764-bc87-006f9949b677}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="room.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="statemanager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="dungeongeneration.cpp">
+      <Filter>Source Files\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="mainview.cpp">
+      <Filter>Source Files\Views</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dungeon.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Models</Filter>
     </ClInclude>
     <ClInclude Include="room.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="dungeongeneration.h">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="view.h">
+      <Filter>Header Files\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="mainview.h">
+      <Filter>Header Files\Views</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

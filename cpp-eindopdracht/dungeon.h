@@ -2,7 +2,7 @@
 #include "room.h"
 
 template <size_t w, size_t h>
-class Dungeon 
+struct Dungeon 
 {
 private:
 	Room* rooms[w*h];

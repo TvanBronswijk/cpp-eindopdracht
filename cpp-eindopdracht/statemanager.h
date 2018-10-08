@@ -1,6 +1,7 @@
 #pragma once
 
-struct Room {
+class StateManager
+{
 private:
 
 public:
