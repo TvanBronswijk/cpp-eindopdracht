@@ -2,18 +2,14 @@
 #include <stdlib.h>  
 #include <crtdbg.h>  
 #include <iostream>
-#include <random>
-#include <ctime>
 #include "gamemanager.h"
 #include "monstergenerator.h"
 
 int main()
 {
-	std::default_random_engine generator;
-	generator.seed(time(0));
-
-	GameManager* manager = new GameManager(generator);
+	GameManager* manager = new GameManager();
 	manager->init();
+	manager->run();
 	delete manager;
 
 	//memory leak detection

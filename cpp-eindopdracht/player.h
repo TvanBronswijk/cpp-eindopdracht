@@ -18,4 +18,7 @@ public:
 	~Player();
 	void push(Item* i);
 
+	const char* to_string() {
+		return this->_name;
+	}
 };

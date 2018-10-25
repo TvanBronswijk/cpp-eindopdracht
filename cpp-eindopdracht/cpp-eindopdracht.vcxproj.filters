@@ -37,6 +37,21 @@
     <Filter Include="Header Files\Services">
       <UniqueIdentifier>{807b50ab-7ea2-4764-bc87-006f9949b677}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Models\View">
+      <UniqueIdentifier>{3685aaa9-dbec-434b-8f20-facd1ac87a8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Models\Game">
+      <UniqueIdentifier>{27c3a7fb-eef8-4a90-911a-c71b1c46291e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Models\Game\Items">
+      <UniqueIdentifier>{7c363569-6419-422e-918a-8db476d5d033}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Models\Game">
+      <UniqueIdentifier>{22dc6a77-2f59-41aa-ba82-d3d9fda4588f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Models\View">
+      <UniqueIdentifier>{8badaea8-1c69-40ec-be08-47f387710b23}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -75,20 +90,17 @@
     <ClCompile Include="roombuilder.cpp">
       <Filter>Source Files\Services</Filter>
     </ClCompile>
-    <ClCompile Include="room.cpp">
-      <Filter>Source Files\Models</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Models</Filter>
+      <Filter>Source Files\Models\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="room.cpp">
+      <Filter>Source Files\Models\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="roomview.cpp">
+      <Filter>Source Files\Views</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="dungeon.h">
-      <Filter>Header Files\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="room.h">
-      <Filter>Header Files\Models</Filter>
-    </ClInclude>
     <ClInclude Include="GameManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
@@ -113,15 +125,6 @@
     <ClInclude Include="roombuilder.h">
       <Filter>Header Files\Services</Filter>
     </ClInclude>
-    <ClInclude Include="monster.h">
-      <Filter>Header Files\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="player.h">
-      <Filter>Header Files\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="item.h">
-      <Filter>Header Files\Models</Filter>
-    </ClInclude>
     <ClInclude Include="filereader.h">
       <Filter>Header Files\Services</Filter>
     </ClInclude>
@@ -133,6 +136,30 @@
     </ClInclude>
     <ClInclude Include="stringutil.h">
       <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="dungeon.h">
+      <Filter>Header Files\Models\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="item.h">
+      <Filter>Header Files\Models\Game\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>Header Files\Models\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="room.h">
+      <Filter>Header Files\Models\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="roomview.h">
+      <Filter>Header Files\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="mapview.h">
+      <Filter>Header Files\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="inventoryview.h">
+      <Filter>Header Files\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="combatview.h">
+      <Filter>Header Files\Views</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

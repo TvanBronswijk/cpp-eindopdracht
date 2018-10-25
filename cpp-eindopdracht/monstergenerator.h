@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <random>
+#include <ctime>
 #include "stringutil.h"
 #include "filereader.h"
 #include "monster.h"
@@ -11,9 +12,8 @@ private:
 
 	int monster_count;
 	Monster** templates;
-	FileReader* fr;
 public:
-	MonsterGenerator(std::default_random_engine generator);
+	MonsterGenerator();
 	~MonsterGenerator();
 
 	void init();

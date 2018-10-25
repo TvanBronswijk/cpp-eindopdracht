@@ -1,7 +1,8 @@
-#include "ViewManager.h"
+#include "viewmanager.h"
 
 ViewManager::ViewManager()
 {
+	this->_size = 0;
 	this->_current = -1;
 	view_stack = new View*[MAX_VIEWS];
 }
@@ -13,7 +14,7 @@ View* ViewManager::current()
 
 View* ViewManager::pop()
 {
-	if (this->_current > 0)
+	if (this->_current >= 0)
 	{
 		auto v = view_stack[this->_current];
 		this->_current--;
@@ -32,6 +33,8 @@ void ViewManager::push(View* v)
 		this->_current++;
 		view_stack[this->_current] = v;
 
+		if (_current > _size)
+			_size = _current;
 	}
 	else 
 	{
@@ -51,14 +54,19 @@ void ViewManager::display(View* v)
 	this->display();
 }
 
-void ViewManager::handle_input()
+bool ViewManager::handle_input()
 {
-	view_stack[this->_current]->handle_input();
+	return view_stack[this->_current]->handle_input();
+}
+
+bool ViewManager::is_empty()
+{
+	return _current < 0;
 }
 
 ViewManager::~ViewManager()
 {
-	for (int i = 0; i <= _current; i++)
+	for (int i = 0; i <= _size; i++)
 		delete view_stack[i];
 	delete[] view_stack;
 }

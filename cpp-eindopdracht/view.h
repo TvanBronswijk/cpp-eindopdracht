@@ -8,6 +8,6 @@ protected:
 	GameContext* context;
 public:
 	View(GameContext* context);
-	virtual void display() = 0;
-	virtual void handle_input() = 0;
+	virtual std::ostream& display() = 0;
+	virtual bool handle_input() = 0;
 };

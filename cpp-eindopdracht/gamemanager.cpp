@@ -1,23 +1,28 @@
 #include "gamemanager.h"
 
-GameManager::GameManager(std::default_random_engine generator)
+GameManager::GameManager()
 {
 	context = new GameContext();
-
-	monster_generator = new MonsterGenerator(generator);
-	room_builder = new RoomBuilder(generator, monster_generator);
-	monster_generator->init();
 }
 
 void GameManager::init()
 {
-	context->view_manager->display(new MainView(context));
-	context->view_manager->handle_input();
+	context->view_manager->push(new MainView(context));
+}
+
+void GameManager::run()
+{
+	while (1)
+	{
+		context->view_manager->display();
+		while (!context->view_manager->handle_input());
+		if (context->view_manager->is_empty()) {
+			break;
+		}
+	}
 }
 
 GameManager::~GameManager()
 {
 	delete context;
-	delete monster_generator;
-	delete room_builder;
 }

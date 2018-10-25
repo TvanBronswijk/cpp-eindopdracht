@@ -1,14 +1,12 @@
 #include "monstergenerator.h"
 
-MonsterGenerator::MonsterGenerator(std::default_random_engine generator)
+MonsterGenerator::MonsterGenerator()
 {
-	this->generator = generator;
-	fr = new FileReader();
+	generator.seed(time(0));
 }
 
 MonsterGenerator::~MonsterGenerator()
 {
-	delete fr;
 	for (int i = 0; i < monster_count; i++)
 		delete templates[i];
 	delete[] templates;
@@ -16,8 +14,9 @@ MonsterGenerator::~MonsterGenerator()
 
 void MonsterGenerator::init()
 {
-	monster_count = fr->count("monsters.txt");
-	char** lines = fr->read("monsters.txt", monster_count);
+	FileReader fr;
+	monster_count = fr.count("monsters.txt");
+	char** lines = fr.read("monsters.txt", monster_count);
 
 	templates = new Monster*[monster_count];
 	for (int i = 0; i < monster_count; i++)

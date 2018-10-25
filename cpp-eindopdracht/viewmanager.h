@@ -5,6 +5,7 @@ class ViewManager
 {
 private:
 	const static int MAX_VIEWS = 32;
+	size_t _size;
 	int _current;
 	View** view_stack;
 public:
@@ -14,6 +15,7 @@ public:
 	void push(View* v);
 	void display();
 	void display(View* v);
-	void handle_input();
+	bool handle_input();
+	bool is_empty();
 	~ViewManager();
 };

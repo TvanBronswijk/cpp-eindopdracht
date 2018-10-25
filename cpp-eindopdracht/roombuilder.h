@@ -15,7 +15,7 @@ private:
 	const char*  _bigness[3];
 	const char*  _surroundings[3];
 public:
-	RoomBuilder(std::default_random_engine generator, MonsterGenerator* monster_generator);
+	RoomBuilder(MonsterGenerator* monster_generator);
 	~RoomBuilder();
 	Room CreateRoom(int min, int max);
 };

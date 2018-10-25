@@ -1,40 +1,29 @@
 #include "mainview.h"
-#include "gamemanager.h"
+#include "gamecontext.h"
 
-MainView::MainView(GameContext * context) : View(context)
+MainView::MainView(GameContext* context) : View(context)
 {
-	this->context = context;
 }
 
-void MainView::display()
+std::ostream& MainView::display()
 {
-	std::cout << "Hello, do i know you?(yes/no)" << std::endl;
-
+	return std::cout 
+		<< "Hello, and welcome to Kerkers & Draken! Would you like to start a new game? [y]es/[n]o?" 
+		<< std::endl;
 }
 
-void MainView::handle_input()
+bool MainView::handle_input()
 {
-	char answer[4];
+	char a;
+	std::cin >> a;
 
-	std::cin.getline(answer, 4);
-
-	if (strcmp(answer, "yes") == 0){
-		context->gamestate->push(new Player("rick"));
-		context->gamestate->push(new Player("jos"));
-		Player** players = context->gamestate->getallPlayers();
-		int size = context->gamestate->getamountofplayers();
-		for (int i = 0; i <= size; i++) {
-			std::cout << "hmmm are you: " << players[i]->_name << " (yes/no)" << std::endl;
-			char answer[4];
-			std::cin.getline(answer, 4);
-			if (strcmp(answer, "yes") == 0) return; // new view pushen
-		}
+	switch (a) {
+	case 'y':
+		context->view_manager->push(new RoomView(context));
+		return true;
+	case 'n':
+		context->view_manager->pop();
+		return true;
 	}
-	std::cout << "Hello Stranger!, you are entering our dungeon. What is your name?" << std::endl;
-	char name[35];
-
-	std::cin.getline(name, 35);
-	context->gamestate->push(new Player(name));
-	std::cout << "Hello "<< context->gamestate->getPlayer(name)->_name <<"! get inside and prepare to dead!!!!!" << std::endl;
-	// new view pushen
+	return false;
 }

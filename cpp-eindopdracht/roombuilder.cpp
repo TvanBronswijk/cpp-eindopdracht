@@ -1,9 +1,9 @@
-#include "roomBuilder.h"
+#include "roombuilder.h"
 
 
-RoomBuilder::RoomBuilder(std::default_random_engine generator , MonsterGenerator* monster_generator)
+RoomBuilder::RoomBuilder(MonsterGenerator* monster_generator)
 {
-	this->generator = generator;
+	generator.seed(time(0));
 	this->monster_generator = monster_generator;
 	_surroundings[0] = "with a table in the middle with four chairs around it.";
 	_surroundings[1] = "with a bed in the corner off the room.";
@@ -16,8 +16,6 @@ RoomBuilder::RoomBuilder(std::default_random_engine generator , MonsterGenerator
 }
 
 int RoomBuilder::Rand(int min, int max) {
-	generator.seed(time(0));
-
 	std::uniform_int_distribution<int> distribution1(min, max);
     return distribution1(generator);
 }
