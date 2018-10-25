@@ -74,7 +74,10 @@ Monster* MonsterGenerator::generate(int min_level, int max_level)
 Monster* MonsterGenerator::clone(Monster* m)
 {
 	Monster* result = new Monster();
-	result->name = m->name;
+
+	result->name = new char[64];
+	strcpy_s(result->name, 64, m->name);
+
 	result->level = m->level;
 	result->hitchance = m->hitchance;
 	result->hitcount = m->hitcount;
@@ -82,6 +85,7 @@ Monster* MonsterGenerator::clone(Monster* m)
 	result->max_damage = m->max_damage;
 	result->defense = m->defense;
 	result->hp = m->hp;
+
 	return result;
 }
 

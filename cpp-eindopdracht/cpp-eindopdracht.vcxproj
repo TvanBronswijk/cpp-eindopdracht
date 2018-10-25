@@ -132,6 +132,7 @@
     <ClCompile Include="viewmanager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="collection.h" />
     <ClInclude Include="combatview.h" />
     <ClInclude Include="dungeon.h" />
     <ClInclude Include="dungeongenerator.h" />

@@ -19,10 +19,11 @@ Room* RoomBuilder::CreateRoom(int min, int max) {
 	int amount_of_monsters = this->Rand(0, 3);
 
 	Room* room = new Room(Room::SIZE(size), Room::STATE(state), Room::OBJECTS(objects));
+	
 	//need to add the monster in the Room
 	for (size_t i = 0; i < amount_of_monsters; i++)
 	{
-		room->push(monster_generator->generate(min, max));
+		room->monsters.push(monster_generator->generate(min, max));
 	}
 
 	return room;

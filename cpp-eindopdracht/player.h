@@ -1,13 +1,11 @@
 #pragma once
+#include "collection.h"
 #include "item.h"
 
 struct Player
 {
 private:
-	const static int MAX_ITEMS = 32;
-	int _current;
-	size_t _size;
-	Item** _items;
+
 public:
 	const char* name;
 	int level;
@@ -15,9 +13,9 @@ public:
 	int exp;
 	int attack;
 	int defence;
+	Collection<Item*, 32> items;
 	Player(const char* name);
 	~Player();
-	void push(Item* i);
 
 	const char* to_string();
 };

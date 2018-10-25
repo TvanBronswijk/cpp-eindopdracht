@@ -46,6 +46,15 @@
     <Filter Include="Source Files\Models\Game">
       <UniqueIdentifier>{22dc6a77-2f59-41aa-ba82-d3d9fda4588f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Models\Collections">
+      <UniqueIdentifier>{eb808b89-2b55-4cf8-b617-f0ea1ba5f784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Services\Generators">
+      <UniqueIdentifier>{6a102177-6570-49ec-8b02-4bcee65f9b74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Services\Generators">
+      <UniqueIdentifier>{79108d2b-beff-4d34-922f-125018041abe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -72,13 +81,7 @@
     <ClCompile Include="filereader.cpp">
       <Filter>Source Files\Services</Filter>
     </ClCompile>
-    <ClCompile Include="monstergenerator.cpp">
-      <Filter>Source Files\Services</Filter>
-    </ClCompile>
     <ClCompile Include="stringutil.cpp">
-      <Filter>Source Files\Services</Filter>
-    </ClCompile>
-    <ClCompile Include="roombuilder.cpp">
       <Filter>Source Files\Services</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
@@ -91,7 +94,13 @@
       <Filter>Source Files\Views</Filter>
     </ClCompile>
     <ClCompile Include="dungeongenerator.cpp">
-      <Filter>Source Files\Services</Filter>
+      <Filter>Source Files\Services\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="monstergenerator.cpp">
+      <Filter>Source Files\Services\Generators</Filter>
+    </ClCompile>
+    <ClCompile Include="roombuilder.cpp">
+      <Filter>Source Files\Services\Generators</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -113,17 +122,11 @@
     <ClInclude Include="gamecontext.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="roombuilder.h">
-      <Filter>Header Files\Services</Filter>
-    </ClInclude>
     <ClInclude Include="filereader.h">
       <Filter>Header Files\Services</Filter>
     </ClInclude>
     <ClInclude Include="monster.h">
       <Filter>Header Files\Models</Filter>
-    </ClInclude>
-    <ClInclude Include="monstergenerator.h">
-      <Filter>Header Files\Services</Filter>
     </ClInclude>
     <ClInclude Include="stringutil.h">
       <Filter>Header Files\Services</Filter>
@@ -152,8 +155,17 @@
     <ClInclude Include="combatview.h">
       <Filter>Header Files\Views</Filter>
     </ClInclude>
+    <ClInclude Include="collection.h">
+      <Filter>Header Files\Models\Collections</Filter>
+    </ClInclude>
     <ClInclude Include="dungeongenerator.h">
-      <Filter>Header Files\Services</Filter>
+      <Filter>Header Files\Services\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="monstergenerator.h">
+      <Filter>Header Files\Services\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="roombuilder.h">
+      <Filter>Header Files\Services\Generators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

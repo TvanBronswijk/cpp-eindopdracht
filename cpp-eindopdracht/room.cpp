@@ -1,29 +1,9 @@
 #include "room.h"
 
-Room::Room(SIZE room_size, STATE state, OBJECTS objects) {
-	_monsters = new Monster*[MAX_MONSTERS];
-	this->_current = -1;
-	this->_size = 0;
-	
+Room::Room(SIZE room_size, STATE state, OBJECTS objects) {	
 	this->_room_size = room_size;
 	this->_state = state;
 	this->_objects = objects;
-}
-
-void Room::push(Monster* v)
-{
-	if (this->_current < MAX_MONSTERS)
-	{
-		this->_current++;
-		_monsters[this->_current] = v;
-
-		if (_current > _size)
-			_size = _current;
-	}
-	else
-	{
-		throw -1;
-	}
 }
 
 char* Room::to_string()
@@ -71,7 +51,4 @@ char* Room::to_string()
 
 Room::~Room()
 {
-	for (int i = 0; i <= _size; i++)
-		delete _monsters[i];
-	delete[] _monsters;
 }

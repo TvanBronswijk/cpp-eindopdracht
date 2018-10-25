@@ -17,6 +17,6 @@ struct Monster {
 
 	~Monster() 
 	{
-		delete name;
+		delete[] name;
 	}
 };
