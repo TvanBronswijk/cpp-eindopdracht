@@ -57,11 +57,11 @@
     <ClCompile Include="gamestate.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="gamecontext.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="view.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="gamecontext.cpp">
+      <Filter>Source Files\Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -92,5 +92,10 @@
     <ClInclude Include="gamecontext.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="monsters.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

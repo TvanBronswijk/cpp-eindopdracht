@@ -2,10 +2,15 @@
 #include <stdlib.h>  
 #include <crtdbg.h>  
 #include <iostream>
+#include <random>
+#include <ctime>
 #include "gamemanager.h"
 
 int main()
 {
+	std::default_random_engine generator;
+	generator.seed(time(0));
+
 	GameManager* manager = new GameManager();
 	manager->init();
 	delete manager;
