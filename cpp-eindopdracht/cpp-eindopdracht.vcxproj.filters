@@ -125,9 +125,6 @@
     <ClInclude Include="filereader.h">
       <Filter>Header Files\Services</Filter>
     </ClInclude>
-    <ClInclude Include="monster.h">
-      <Filter>Header Files\Models</Filter>
-    </ClInclude>
     <ClInclude Include="stringutil.h">
       <Filter>Header Files\Services</Filter>
     </ClInclude>
@@ -166,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="roombuilder.h">
       <Filter>Header Files\Services\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="stack.h">
+      <Filter>Header Files\Models\Collections</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,13 +1,11 @@
 #pragma once
 #include "view.h"
+#include "stack.h"
 
 class ViewManager
 {
 private:
-	const static int MAX_VIEWS = 32;
-	size_t _size;
-	int _current;
-	View** view_stack;
+	Stack<View*, 32> view_stack;
 public:
 	ViewManager();
 	View* current();

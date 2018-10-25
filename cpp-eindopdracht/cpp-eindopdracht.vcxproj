@@ -149,6 +149,7 @@
     <ClInclude Include="gamestate.h" />
     <ClInclude Include="roombuilder.h" />
     <ClInclude Include="roomview.h" />
+    <ClInclude Include="stack.h" />
     <ClInclude Include="stringutil.h" />
     <ClInclude Include="view.h" />
     <ClInclude Include="viewmanager.h" />
