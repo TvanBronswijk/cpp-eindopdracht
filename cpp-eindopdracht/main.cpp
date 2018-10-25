@@ -8,11 +8,11 @@ int main()
 {
 	GameManager* manager = new GameManager();
 	manager->init();
+	delete manager;
 
 	//memory leak detection
 	_CrtDumpMemoryLeaks();
 
-	delete manager;
 	//exit
 	return 0;
 }
