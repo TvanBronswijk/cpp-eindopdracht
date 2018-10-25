@@ -5,6 +5,7 @@
 #include <random>
 #include <ctime>
 #include "gamemanager.h"
+#include "monstergenerator.h"
 
 int main()
 {
@@ -14,6 +15,13 @@ int main()
 	GameManager* manager = new GameManager();
 	manager->init();
 	delete manager;
+
+	MonsterGenerator* m = new MonsterGenerator();
+	m->init();
+	delete m;
+
+	char a;
+	std::cin >> a;
 
 	//memory leak detection
 	_CrtDumpMemoryLeaks();
