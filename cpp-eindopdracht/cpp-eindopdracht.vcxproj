@@ -122,11 +122,11 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainview.cpp" />
     <ClCompile Include="gamestate.cpp" />
-    <ClCompile Include="monstergenerator.cpp" />
-    <ClCompile Include="stringutil.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="room.cpp" />
     <ClCompile Include="roombuilder.cpp" />
+    <ClCompile Include="monstergenerator.cpp" />
+    <ClCompile Include="stringutil.cpp" />
     <ClCompile Include="view.cpp" />
     <ClCompile Include="viewmanager.cpp" />
   </ItemGroup>
