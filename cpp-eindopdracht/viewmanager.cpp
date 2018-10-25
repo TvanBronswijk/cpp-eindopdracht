@@ -39,9 +39,10 @@ void ViewManager::push(View* v)
 	}
 }
 
-void ViewManager::display() 
+void ViewManager::display()
 {
-	view_stack[this->_current]->display();
+	if (_current >= 0)
+		view_stack[this->_current]->display();
 }
 
 void ViewManager::display(View* v)

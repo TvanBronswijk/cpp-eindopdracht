@@ -116,11 +116,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dungeongeneration.cpp" />
+    <ClCompile Include="filereader.cpp" />
     <ClCompile Include="gamecontext.cpp" />
     <ClCompile Include="gamemanager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainview.cpp" />
     <ClCompile Include="gamestate.cpp" />
+    <ClCompile Include="monstergenerator.cpp" />
+    <ClCompile Include="stringutil.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="room.cpp" />
     <ClCompile Include="roombuilder.cpp" />
@@ -130,17 +133,24 @@
   <ItemGroup>
     <ClInclude Include="dungeon.h" />
     <ClInclude Include="dungeongeneration.h" />
+    <ClInclude Include="filereader.h" />
     <ClInclude Include="gamecontext.h" />
     <ClInclude Include="gamemanager.h" />
     <ClInclude Include="item.h" />
     <ClInclude Include="mainview.h" />
     <ClInclude Include="monster.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="monster.h" />
+    <ClInclude Include="monstergenerator.h" />
     <ClInclude Include="room.h" />
     <ClInclude Include="gamestate.h" />
     <ClInclude Include="roombuilder.h" />
+    <ClInclude Include="stringutil.h" />
     <ClInclude Include="view.h" />
     <ClInclude Include="viewmanager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="monsters.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

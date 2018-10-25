@@ -1,7 +1,22 @@
 #pragma once
 
 struct Monster {
-private:
+	char* name;
+	
+	int level;
 
-public:
+	int hitchance;
+	int hitcount;
+
+	int min_damage;
+	int max_damage;
+
+	int defense;
+
+	int hp;
+
+	~Monster() 
+	{
+		delete name;
+	}
 };

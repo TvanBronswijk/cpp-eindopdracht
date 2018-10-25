@@ -11,4 +11,6 @@ void MainView::display()
 }
 void MainView::handle_input()
 {
+	char c;
+	std::cin >> c;
 }

@@ -57,11 +57,20 @@
     <ClCompile Include="gamestate.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="gamecontext.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="view.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="gamecontext.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="filereader.cpp">
+      <Filter>Source Files\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="monstergenerator.cpp">
+      <Filter>Source Files\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="stringutil.cpp">
+      <Filter>Source Files\Services</Filter>
     </ClCompile>
     <ClCompile Include="roombuilder.cpp">
       <Filter>Source Files\Services</Filter>
@@ -113,5 +122,22 @@
     <ClInclude Include="item.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
+    <ClInclude Include="filereader.h">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="monster.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="monstergenerator.h">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="stringutil.h">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="monsters.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
