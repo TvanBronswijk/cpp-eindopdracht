@@ -2,8 +2,8 @@
 
 Room::Room(const char* bigness, const char* state, const char* enviroment) {
 	this->_current = -1;
-	this->_bigness = bigness;
-	this->_enviroment = enviroment;
+	this->_size = bigness;
+	this->_environment = enviroment;
 	this->_state = state;
 	_monsters = new Monster*[MAX_MONSTERS];
 }
