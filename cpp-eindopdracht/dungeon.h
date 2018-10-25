@@ -1,13 +1,20 @@
 #pragma once
 #include "room.h"
 
-template <size_t w, size_t h>
 struct Dungeon 
 {
 private:
-	Room* rooms[w*h];
+	size_t w;
+	size_t h;
+	Room** rooms;
 public:
-	Room*& Coord(int x, int y)
+	Dungeon(size_t w, size_t h)
+	{
+		this->w = w;
+		this->h = h;
+		this->rooms = new Room*[w*h];
+	}
+	Room* Coord(int x, int y)
 	{
 		return rooms[x * h + y];
 	}

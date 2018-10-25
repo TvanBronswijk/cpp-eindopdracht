@@ -116,19 +116,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dungeongeneration.cpp" />
+    <ClCompile Include="gamecontext.cpp" />
     <ClCompile Include="gamemanager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainview.cpp" />
-    <ClCompile Include="statemanager.cpp" />
+    <ClCompile Include="gamestate.cpp" />
+    <ClCompile Include="view.cpp" />
     <ClCompile Include="viewmanager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dungeon.h" />
     <ClInclude Include="dungeongeneration.h" />
+    <ClInclude Include="gamecontext.h" />
     <ClInclude Include="gamemanager.h" />
     <ClInclude Include="mainview.h" />
     <ClInclude Include="room.h" />
-    <ClInclude Include="statemanager.h" />
+    <ClInclude Include="gamestate.h" />
     <ClInclude Include="view.h" />
     <ClInclude Include="viewmanager.h" />
   </ItemGroup>

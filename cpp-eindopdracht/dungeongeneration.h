@@ -1,13 +1,12 @@
 #pragma once
 #include "dungeon.h"
 
-template<int w, int h>
 class DungeonGeneration 
 {
 private:
 
 public:
-	Dungeon<w, h> Generate();
+	Dungeon Generate(size_t w, size_t h);
 };
 
 

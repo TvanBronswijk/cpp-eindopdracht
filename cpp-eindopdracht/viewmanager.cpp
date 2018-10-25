@@ -2,8 +2,8 @@
 
 ViewManager::ViewManager()
 {
-	this->_current = 0;
-	view_stack = new View*[32];
+	this->_current = -1;
+	view_stack = new View*[MAX_VIEWS];
 }
 
 View* ViewManager::current()
@@ -31,6 +31,7 @@ void ViewManager::push(View* v)
 	{
 		this->_current++;
 		view_stack[this->_current] = v;
+
 	}
 	else 
 	{
@@ -49,7 +50,14 @@ void ViewManager::display(View* v)
 	this->display();
 }
 
-void ViewManager::clear()
+void ViewManager::handle_input()
 {
-	//TODO
+	view_stack[this->_current]->handle_input();
+}
+
+ViewManager::~ViewManager()
+{
+	for (int i = 0; i <= _current; i++)
+		delete view_stack[i];
+	delete[] view_stack;
 }

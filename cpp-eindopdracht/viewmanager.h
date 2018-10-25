@@ -14,5 +14,6 @@ public:
 	void push(View* v);
 	void display();
 	void display(View* v);
-	void clear();
+	void handle_input();
+	~ViewManager();
 };

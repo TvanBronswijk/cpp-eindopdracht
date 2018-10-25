@@ -1,7 +1,6 @@
 #include "dungeongeneration.h"
 
-template<int w, int h>
-Dungeon<w, h> DungeonGeneration<w, h>::Generate()
+Dungeon DungeonGeneration::Generate(size_t w, size_t h)
 {
-	return Dungeon<w, h>();
+	return Dungeon(10, 10);
 }

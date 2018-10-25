@@ -1,7 +1,17 @@
 #include "gamemanager.h"
 
-void GameManager::init() 
+GameManager::GameManager()
 {
-	MainView* mv = new MainView();
-	view_manager.display(mv);
+	context = new GameContext();
+}
+
+void GameManager::init()
+{
+	context->view_manager->display(new MainView(context));
+	context->view_manager->handle_input();
+}
+
+GameManager::~GameManager()
+{
+	delete context;
 }

@@ -1,14 +1,13 @@
 #pragma once
-#include "viewmanager.h"
-#include "statemanager.h"
-
+#include "gamecontext.h"
 #include "mainview.h"
 
-class GameManager 
+class GameManager
 {
 private:
-	ViewManager view_manager;
-	StateManager state_manager;
+	GameContext* context;
 public:
+	GameManager();
 	void init();
+	~GameManager();
 };

@@ -1,10 +1,13 @@
 #pragma once
 #include <iostream>
 
+class GameContext;
 class View
 {
-private:
-
+protected:
+	GameContext* context;
 public:
+	View(GameContext* context);
 	virtual void display() = 0;
+	virtual void handle_input() = 0;
 };
