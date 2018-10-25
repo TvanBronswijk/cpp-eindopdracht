@@ -124,6 +124,9 @@
     <ClCompile Include="gamestate.cpp" />
     <ClCompile Include="monstergenerator.cpp" />
     <ClCompile Include="stringutil.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="room.cpp" />
+    <ClCompile Include="roombuilder.cpp" />
     <ClCompile Include="view.cpp" />
     <ClCompile Include="viewmanager.cpp" />
   </ItemGroup>
@@ -133,11 +136,15 @@
     <ClInclude Include="filereader.h" />
     <ClInclude Include="gamecontext.h" />
     <ClInclude Include="gamemanager.h" />
+    <ClInclude Include="item.h" />
     <ClInclude Include="mainview.h" />
+    <ClInclude Include="monster.h" />
+    <ClInclude Include="player.h" />
     <ClInclude Include="monster.h" />
     <ClInclude Include="monstergenerator.h" />
     <ClInclude Include="room.h" />
     <ClInclude Include="gamestate.h" />
+    <ClInclude Include="roombuilder.h" />
     <ClInclude Include="stringutil.h" />
     <ClInclude Include="view.h" />
     <ClInclude Include="viewmanager.h" />
