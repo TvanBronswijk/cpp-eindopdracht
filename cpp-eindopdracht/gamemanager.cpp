@@ -5,6 +5,7 @@ GameManager::GameManager(std::default_random_engine generator)
 	context = new GameContext();
 
 	monster_generator = new MonsterGenerator(generator);
+	room_builder = new RoomBuilder(generator, monster_generator);
 	monster_generator->init();
 }
 
@@ -18,4 +19,5 @@ GameManager::~GameManager()
 {
 	delete context;
 	delete monster_generator;
+	delete room_builder;
 }

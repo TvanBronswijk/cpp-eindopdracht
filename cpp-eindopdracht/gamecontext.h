@@ -10,5 +10,6 @@ public:
 	GameState* gamestate;
 
 	GameContext();
+	GameContext(Player* player);
 	~GameContext();
 };
