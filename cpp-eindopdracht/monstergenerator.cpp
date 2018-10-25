@@ -24,8 +24,8 @@ void MonsterGenerator::init()
 		Monster* m = new Monster();
 		char** clms = StringUtil::split(lines[i], "[;]");
 		
-		m->name = new char[255];
-		strcpy_s(m->name, 255, clms[0]);
+		m->name = new char[64];
+		strcpy_s(m->name, 64, clms[0]);
 
 		m->level = atoi(clms[1]);
 
@@ -60,7 +60,7 @@ void MonsterGenerator::init()
 Monster* MonsterGenerator::generate(int min_level, int max_level)
 {
 	Monster* tmpl = nullptr;
-	std::uniform_int_distribution<int> d(0, monster_count);
+	std::uniform_int_distribution<int> d(0, monster_count-1);
 	while (tmpl == nullptr)
 	{
 		Monster* m = templates[d(generator)];

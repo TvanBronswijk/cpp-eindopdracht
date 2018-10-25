@@ -11,8 +11,8 @@ int FileReader::count(const char * filename)
 	std::ifstream file(filename);
 	if (file.is_open())
 	{
-		char* line = new char[100];
-		while (file.getline(line, 100))
+		char* line = new char[128];
+		while (file.getline(line, 128))
 		{
 			result++;
 		}
@@ -30,12 +30,12 @@ char** FileReader::read(const char* filename, size_t lc)
 	std::ifstream file(filename);
 	if (file.is_open())
 	{
-		char* line = new char[100];
+		char* line = new char[128];
 		for(int i = 0; i < lc; i++)
 		{
-			result[i] = new char[100];
-			file.getline(line, 100);
-			strcpy_s(result[i], 100, line);
+			result[i] = new char[128];
+			file.getline(line, 128);
+			strcpy_s(result[i], 128, line);
 		}
 		delete line;
 	}

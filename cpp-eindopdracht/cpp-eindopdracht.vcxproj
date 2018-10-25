@@ -115,7 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="dungeongeneration.cpp" />
+    <ClCompile Include="dungeongenerator.cpp" />
     <ClCompile Include="filereader.cpp" />
     <ClCompile Include="gamecontext.cpp" />
     <ClCompile Include="gamemanager.cpp" />
@@ -134,7 +134,7 @@
   <ItemGroup>
     <ClInclude Include="combatview.h" />
     <ClInclude Include="dungeon.h" />
-    <ClInclude Include="dungeongeneration.h" />
+    <ClInclude Include="dungeongenerator.h" />
     <ClInclude Include="filereader.h" />
     <ClInclude Include="gamecontext.h" />
     <ClInclude Include="gamemanager.h" />

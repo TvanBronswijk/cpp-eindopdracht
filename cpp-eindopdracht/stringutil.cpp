@@ -3,7 +3,7 @@
 char** StringUtil::split(char* str, const char* regex)
 {
 	char** result = new char*[64];
-	char** context = new char*[10];
+	char** context = new char*[16];
 
 	char* line = strtok_s(str, regex, context);
 	for (int i = 0; line != NULL; i++)

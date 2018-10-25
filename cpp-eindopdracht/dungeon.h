@@ -14,7 +14,7 @@ public:
 		this->h = h;
 		this->rooms = new Room*[w*h];
 	}
-	Room* Coord(int x, int y)
+	Room* Coord(size_t x, size_t y)
 	{
 		return rooms[x * h + y];
 	}

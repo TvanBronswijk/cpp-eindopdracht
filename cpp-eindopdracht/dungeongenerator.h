@@ -1,7 +1,7 @@
 #pragma once
 #include "dungeon.h"
 
-class DungeonGeneration 
+class DungeonGenerator 
 {
 private:
 

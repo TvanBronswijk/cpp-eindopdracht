@@ -4,21 +4,20 @@
 struct Player
 {
 private:
-	int _current;
 	const static int MAX_ITEMS = 32;
+	int _current;
+	size_t _size;
 	Item** _items;
 public:
-	const char* _name;
-	int _level;
-	int _health;
-	int _exp;
-	int _attack;
-	int _defence;
+	const char* name;
+	int level;
+	int health;
+	int exp;
+	int attack;
+	int defence;
 	Player(const char* name);
 	~Player();
 	void push(Item* i);
 
-	const char* to_string() {
-		return this->_name;
-	}
+	const char* to_string();
 };

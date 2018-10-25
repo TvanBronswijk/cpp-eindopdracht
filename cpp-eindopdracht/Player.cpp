@@ -1,15 +1,16 @@
 #include "player.h"
 
 Player::Player(const char* name) {
-	this->_name = name;
-	this->_level = 1;
-	this->_health = 100;
-	this->_attack = 10;
-	this->_defence = 10;
-	this->_exp = 0;
-
-	this->_current = -1;
 	_items = new Item*[MAX_ITEMS];
+	this->_current = -1;
+	this->_size = 0;
+
+	this->name = name;
+	this->level = 1;
+	this->health = 100;
+	this->attack = 10;
+	this->defence = 10;
+	this->exp = 0;
 }
 
 void Player::push(Item* i)
@@ -18,7 +19,8 @@ void Player::push(Item* i)
 	{
 		this->_current++;
 		_items[this->_current] = i;
-
+		if (_current > _size)
+			_size = _current;
 	}
 	else
 	{
@@ -26,9 +28,14 @@ void Player::push(Item* i)
 	}
 }
 
+const char* Player::to_string()
+{
+	return this->name;
+}
+
 
 Player::~Player() {
-	for (int i = 0; i <= _current; i++)
+	for (int i = 0; i <= _size; i++)
 		delete _items[i];
 	delete[] _items;
 }

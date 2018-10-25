@@ -8,7 +8,8 @@ MainView::MainView(GameContext* context) : View(context)
 std::ostream& MainView::display()
 {
 	return std::cout 
-		<< "Hello, and welcome to Kerkers & Draken! Would you like to start a new game? [y]es/[n]o?" 
+		<< "Hello, and welcome to Kerkers & Draken! Would you like to start a new game?"
+		<< "[Y]es/[N]o?"
 		<< std::endl;
 }
 
@@ -17,7 +18,7 @@ bool MainView::handle_input()
 	char a;
 	std::cin >> a;
 
-	switch (a) {
+	switch (tolower(a)) {
 	case 'y':
 		context->view_manager->push(new RoomView(context));
 		return true;

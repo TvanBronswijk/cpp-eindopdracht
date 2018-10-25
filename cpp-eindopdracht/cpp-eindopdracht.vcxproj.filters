@@ -37,9 +37,6 @@
     <Filter Include="Header Files\Services">
       <UniqueIdentifier>{807b50ab-7ea2-4764-bc87-006f9949b677}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Models\View">
-      <UniqueIdentifier>{3685aaa9-dbec-434b-8f20-facd1ac87a8d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Models\Game">
       <UniqueIdentifier>{27c3a7fb-eef8-4a90-911a-c71b1c46291e}</UniqueIdentifier>
     </Filter>
@@ -48,9 +45,6 @@
     </Filter>
     <Filter Include="Source Files\Models\Game">
       <UniqueIdentifier>{22dc6a77-2f59-41aa-ba82-d3d9fda4588f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Models\View">
-      <UniqueIdentifier>{8badaea8-1c69-40ec-be08-47f387710b23}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -62,9 +56,6 @@
     </ClCompile>
     <ClCompile Include="ViewManager.cpp">
       <Filter>Source Files\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="dungeongeneration.cpp">
-      <Filter>Source Files\Services</Filter>
     </ClCompile>
     <ClCompile Include="mainview.cpp">
       <Filter>Source Files\Views</Filter>
@@ -99,6 +90,9 @@
     <ClCompile Include="roomview.cpp">
       <Filter>Source Files\Views</Filter>
     </ClCompile>
+    <ClCompile Include="dungeongenerator.cpp">
+      <Filter>Source Files\Services</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -106,9 +100,6 @@
     </ClInclude>
     <ClInclude Include="ViewManager.h">
       <Filter>Header Files\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="dungeongeneration.h">
-      <Filter>Header Files\Services</Filter>
     </ClInclude>
     <ClInclude Include="view.h">
       <Filter>Header Files\Views</Filter>
@@ -160,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="combatview.h">
       <Filter>Header Files\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="dungeongenerator.h">
+      <Filter>Header Files\Services</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

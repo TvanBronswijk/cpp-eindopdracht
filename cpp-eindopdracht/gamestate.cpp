@@ -26,7 +26,7 @@ Player** GameState::getallPlayers() {
 
 Player* GameState::getPlayer(const char* name) {
 	for (int i = 0; i <= _current; i++) {
-		if (player_stack[i]->_name == name) return player_stack[i];
+		if (player_stack[i]->name == name) return player_stack[i];
 	}
 		return nullptr;
 }
