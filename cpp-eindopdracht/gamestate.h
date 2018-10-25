@@ -1,17 +1,14 @@
 #pragma once
+#include "collection.h"
 #include "player.h"
 
 class GameState
 {
 private:
-	const static int MAX_PLAYERS = 32;
-	int _current;
-	Player** player_stack;
+	Collection<Player*, 32> players;
 public:
 	GameState();
 	~GameState();
 	void push(Player* p);
-	int getamountofplayers();
-	Player** getallPlayers();
 	Player* getPlayer(const char* name);
 };

@@ -22,6 +22,9 @@ public:
 		if (index < this->_size)
 			return this->_arr[index];
 	}
+	virtual T* all() {
+		return _arr;
+	}
 	virtual size_t size() {
 		return this->_size;
 	}
