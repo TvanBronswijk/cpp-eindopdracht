@@ -1,7 +1,8 @@
 #include "monstergenerator.h"
 
-MonsterGenerator::MonsterGenerator()
+MonsterGenerator::MonsterGenerator(std::default_random_engine generator)
 {
+	this->generator = generator;
 	fr = new FileReader();
 }
 
@@ -55,14 +56,34 @@ void MonsterGenerator::init()
 		delete lines[i];
 	}
 	delete[] lines;
-
-	for (int i = 0; i < monster_count; i++)
-	{
-		std::cout << templates[i]->name << std::endl;
-	}
 }
 
-Monster* MonsterGenerator::generate()
+Monster* MonsterGenerator::generate(int min_level, int max_level)
 {
-	return nullptr;
+	Monster* tmpl = nullptr;
+	std::uniform_int_distribution<int> d(0, monster_count);
+	while (tmpl == nullptr)
+	{
+		Monster* m = templates[d(generator)];
+		if (m->level >= min_level && m->level <= max_level)
+			tmpl = m;
+
+	}
+	return clone(tmpl);
 }
+
+Monster* MonsterGenerator::clone(Monster* m)
+{
+	Monster* result = new Monster();
+	result->name = m->name;
+	result->level = m->level;
+	result->hitchance = m->hitchance;
+	result->hitcount = m->hitcount;
+	result->min_damage = m->min_damage;
+	result->max_damage = m->max_damage;
+	result->defense = m->defense;
+	result->hp = m->hp;
+	return result;
+}
+
+

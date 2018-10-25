@@ -1,8 +1,11 @@
 #include "gamemanager.h"
 
-GameManager::GameManager()
+GameManager::GameManager(std::default_random_engine generator)
 {
 	context = new GameContext();
+
+	monster_generator = new MonsterGenerator(generator);
+	monster_generator->init();
 }
 
 void GameManager::init()
@@ -14,4 +17,5 @@ void GameManager::init()
 GameManager::~GameManager()
 {
 	delete context;
+	delete monster_generator;
 }

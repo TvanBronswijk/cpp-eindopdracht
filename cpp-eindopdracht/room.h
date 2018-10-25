@@ -8,10 +8,10 @@ private:
 	Monster** _monsters;
 
 public:
-	const char* _bigness;
+	const char* _size;
 	const char* _state;
-	const char* _enviroment;
-	Room(const char* bigness, const char* state, const char* enviroment);
+	const char* _environment;
+	Room(const char* size, const char* state, const char* environment);
 	~Room();
 	void push(Monster* v);
 };
