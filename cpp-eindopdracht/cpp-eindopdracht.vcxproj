@@ -138,9 +138,7 @@
     <ClInclude Include="gamemanager.h" />
     <ClInclude Include="item.h" />
     <ClInclude Include="mainview.h" />
-    <ClInclude Include="monster.h" />
     <ClInclude Include="player.h" />
-    <ClInclude Include="monster.h" />
     <ClInclude Include="monstergenerator.h" />
     <ClInclude Include="room.h" />
     <ClInclude Include="gamestate.h" />

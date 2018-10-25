@@ -1,8 +1,6 @@
 #include "roomBuilder.h"
 
 
-using namespace std;
-
 RoomBuilder::RoomBuilder()
 {
 	_surroundings[0] = "with a table in the middle with four chairs around it.";

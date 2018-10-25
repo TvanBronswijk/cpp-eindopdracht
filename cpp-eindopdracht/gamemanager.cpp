@@ -17,4 +17,5 @@ void GameManager::init()
 GameManager::~GameManager()
 {
 	delete context;
+	delete monster_generator;
 }
