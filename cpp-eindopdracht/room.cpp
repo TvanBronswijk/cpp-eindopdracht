@@ -1,54 +1,48 @@
 #include "room.h"
 
 Room::Room(SIZE room_size, STATE state, OBJECTS objects) {	
-	this->_room_size = room_size;
-	this->_state = state;
-	this->_objects = objects;
-}
+	description = new char[512];
 
-char* Room::to_string()
-{
-	char* result = new char[512];
-
-	strcpy_s(result, 512, "You stand in a ");
-
-	switch (_state) {
+	strcpy_s(description, 512, "You stand in a ");
+	switch (state) {
 	case CLEAN:
-		strcat_s(result, 512, "clean, ");
+		strcat_s(description, 512, "clean, ");
 		break;
 	case MESSY:
-		strcat_s(result, 512, "messy, ");
+		strcat_s(description, 512, "messy, ");
 		break;
 	}
-	
-	switch (_room_size) {
+	switch (room_size) {
 	case SMALL:
-		strcat_s(result, 512, "small ");
+		strcat_s(description, 512, "small ");
 		break;
 	case MEDIUM:
-		strcat_s(result, 512, "medium ");
+		strcat_s(description, 512, "medium ");
 		break;
 	case LARGE:
-		strcat_s(result, 512, "large ");
+		strcat_s(description, 512, "large ");
 		break;
 	}
-	strcat_s(result, 512, "room. In the center of the room is ");
-
-	switch (_objects) {
+	strcat_s(description, 512, "room. In the center of the room is ");
+	switch (objects) {
 	case TABLE:
-		strcat_s(result, 512, "a large table with four chairs.");
+		strcat_s(description, 512, "a large table with four chairs.");
 		break;
 	case BED:
-		strcat_s(result, 512, "a small bed.");
+		strcat_s(description, 512, "a small bed.");
 		break;
 	case NOTHING:
-		strcat_s(result, 512, "nothing.");
+		strcat_s(description, 512, "nothing.");
 		break;
 	}
+}
 
-	return result;
+const char* Room::to_string()
+{
+	return this->description;
 }
 
 Room::~Room()
 {
+	delete[] description;
 }

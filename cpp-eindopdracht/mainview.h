@@ -5,6 +5,9 @@
 
 class MainView : public View
 {
+private:
+	void yes();
+	void no();
 public:
 	MainView(GameContext* context);
 	std::ostream& display() override;

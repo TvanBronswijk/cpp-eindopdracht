@@ -4,7 +4,7 @@ FileReader::FileReader()
 {
 }
 
-int FileReader::count(const char * filename)
+int FileReader::count(const char* filename)
 {
 	int result = 0;
 

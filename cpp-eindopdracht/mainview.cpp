@@ -20,11 +20,21 @@ bool MainView::handle_input()
 
 	switch (tolower(a)) {
 	case 'y':
-		context->view_manager->push(new RoomView(context));
+		yes();
 		return true;
 	case 'n':
-		context->view_manager->pop();
+		no();
 		return true;
 	}
 	return false;
+}
+
+void MainView::yes()
+{
+	context->view_manager->push(new RoomView(context, new Room(Room::LARGE, Room::CLEAN, Room::TABLE)));
+}
+
+void MainView::no()
+{
+	context->view_manager->pop();
 }

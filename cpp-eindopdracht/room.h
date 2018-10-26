@@ -9,13 +9,11 @@ struct Room {
 	enum OBJECTS {TABLE, BED, NOTHING};
 
 private:
-	SIZE _room_size;
-	STATE _state;
-	OBJECTS _objects;
+	char* description;
 public:
 	Collection<Monster*, 32> monsters;
 	Room(SIZE size, STATE state, OBJECTS objects);
 	~Room();
 	
-	char* to_string();
+	const char* to_string();
 };
