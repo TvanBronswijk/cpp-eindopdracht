@@ -11,9 +11,9 @@ View * ViewManager::current()
 }
 
 
-View* ViewManager::pop()
+void ViewManager::pop()
 {
-	return view_stack.pop();
+	delete view_stack.pop();
 }
 
 void ViewManager::push(View* v)
@@ -23,7 +23,7 @@ void ViewManager::push(View* v)
 
 void ViewManager::display()
 {
-	if (view_stack.current() >= 0)
+	if (view_stack.size() > 0)
 		view_stack.peek()->display();
 }
 
@@ -40,7 +40,7 @@ bool ViewManager::handle_input()
 
 bool ViewManager::is_empty()
 {
-	return view_stack.current() < 0;
+	return view_stack.size() == 0;
 }
 
 ViewManager::~ViewManager()

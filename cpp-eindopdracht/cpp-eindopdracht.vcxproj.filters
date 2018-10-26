@@ -158,9 +158,6 @@
     <ClInclude Include="combatview.h">
       <Filter>Header Files\Views</Filter>
     </ClInclude>
-    <ClInclude Include="collection.h">
-      <Filter>Header Files\Models\Collections</Filter>
-    </ClInclude>
     <ClInclude Include="dungeongenerator.h">
       <Filter>Header Files\Services\Generators</Filter>
     </ClInclude>
@@ -178,6 +175,12 @@
     </ClInclude>
     <ClInclude Include="roomgenerator.h">
       <Filter>Header Files\Services\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="array.h">
+      <Filter>Header Files\Models\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="ptrarray.h">
+      <Filter>Header Files\Models\Collections</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include "monster.h"
-#include "collection.h"
+#include "ptrarray.h"
 
 struct Room {
 	enum SIZE {SMALL, MEDIUM, LARGE};
@@ -11,7 +11,7 @@ struct Room {
 private:
 	char* description;
 public:
-	Collection<Monster, 32> monsters;
+	PtrArray<Monster, 32> monsters;
 	Room(char* description);
 	~Room();
 	

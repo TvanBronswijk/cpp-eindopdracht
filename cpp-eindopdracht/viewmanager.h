@@ -9,7 +9,7 @@ private:
 public:
 	ViewManager();
 	View* current();
-	View* pop();
+	void pop();
 	void push(View* v);
 	void display();
 	void display(View* v);

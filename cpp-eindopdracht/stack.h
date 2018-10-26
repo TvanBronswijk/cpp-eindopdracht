@@ -1,32 +1,18 @@
 #pragma once
-#include "collection.h"
+#include "ptrarray.h"
 
 template<typename T, size_t MAX>
-class Stack : public Collection<T, MAX> {
+class Stack : public PtrArray<T, MAX> {
 private:
-	int _current;
 public:
 	Stack() {
-		this->_current = -1;
-	}
-	void push(T* t) override {
-		if (this->_size < MAX) {
-			if (this->_arr[this->_current + 1] != nullptr)
-				delete this->_arr[this->_current + 1];
-			this->_current++;
-			this->_arr[this->_current] = t;
-			if (this->_current >= this->_size)
-				this->_size = this->_current + 1;
-		}
-		else {
-			throw -1;
-		}
+
 	}
 
 	T*& pop() {
-		if (this->_current >= 0)
+		if (this->_size > 0)
 		{
-			return this->_arr[this->_current--];
+			return this->_arr[--this->_size];
 		}
 		else
 		{
@@ -34,11 +20,7 @@ public:
 		}
 	}
 
-	int current() {
-		return this->_current;
-	}
-
 	T*& peek() {
-		return this->_arr[this->_current];
+		return this->_arr[this->_size - 1];
 	}
 };

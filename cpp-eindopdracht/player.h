@@ -1,5 +1,5 @@
 #pragma once
-#include "collection.h"
+#include "ptrarray.h"
 #include "item.h"
 
 struct Player
@@ -13,7 +13,7 @@ public:
 	int exp;
 	int attack;
 	int defence;
-	Collection<Item, 32> items;
+	PtrArray<Item, 32> items;
 	Player(const char* name);
 	~Player();
 

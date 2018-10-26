@@ -133,7 +133,7 @@
     <ClCompile Include="viewmanager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="collection.h" />
+    <ClInclude Include="array.h" />
     <ClInclude Include="combatview.h" />
     <ClInclude Include="dungeon.h" />
     <ClInclude Include="dungeongenerator.h" />
@@ -146,6 +146,7 @@
     <ClInclude Include="mapview.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="monstergenerator.h" />
+    <ClInclude Include="ptrarray.h" />
     <ClInclude Include="room.h" />
     <ClInclude Include="gamestate.h" />
     <ClInclude Include="roomgenerator.h" />

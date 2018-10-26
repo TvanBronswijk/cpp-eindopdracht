@@ -1,5 +1,5 @@
 #pragma once
-#include "collection.h"
+#include "ptrarray.h"
 #include "dungeon.h"
 #include "player.h"
 
@@ -7,7 +7,7 @@ class GameState
 {
 private:
 	Dungeon* dungeon;
-	Collection<Player, 32> players;
+	PtrArray<Player, 32> players;
 public:
 	GameState();
 	Dungeon* get_dungeon();
