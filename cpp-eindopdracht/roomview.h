@@ -6,6 +6,13 @@ class RoomView : public View
 {
 private:
 	Room* room;
+	void fight();
+	void move();
+	void search();
+	void rest();
+	void inventory();
+	void dungeon();
+	void exit();
 public:
 	RoomView(GameContext* context, Room* room);
 	std::ostream& display() override;

@@ -31,7 +31,7 @@ bool MainView::handle_input()
 
 void MainView::yes()
 {
-	context->view_manager->push(new RoomView(context, new Room(Room::LARGE, Room::CLEAN, Room::TABLE)));
+
 }
 
 void MainView::no()

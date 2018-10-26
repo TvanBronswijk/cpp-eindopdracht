@@ -8,7 +8,8 @@ private:
 	Collection<Player*, 32> players;
 public:
 	GameState();
-	void push(Player* p);
-	Player* getPlayer(const char* name);
+	void save_player(Player* p);
+	Player* get_player(const char* name);
+	void clear();
 	~GameState();
 };
