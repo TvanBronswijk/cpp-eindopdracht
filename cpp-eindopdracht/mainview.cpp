@@ -7,8 +7,9 @@ MainView::MainView(GameContext* context) : View(context)
 
 std::ostream& MainView::display()
 {
-	return std::cout 
+	return std::cout
 		<< "Hello, and welcome to Kerkers & Draken! Would you like to start a new game?"
+		<< std::endl
 		<< "[Y]es/[N]o?"
 		<< std::endl;
 }
@@ -25,6 +26,9 @@ bool MainView::handle_input()
 	case 'n':
 		no();
 		return true;
+	case 'c':
+		credits();
+		return true;
 	}
 	return false;
 }
@@ -38,5 +42,10 @@ void MainView::yes()
 
 void MainView::no()
 {
-	context->view_manager->pop();
+	back();
+}
+
+void MainView::credits()
+{
+	context->view_manager->push(new CreditsView(context));
 }

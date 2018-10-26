@@ -1,6 +1,7 @@
 #pragma once
 #include "player.h"
 #include "view.h"
+#include "creditsview.h"
 #include "roomview.h"
 
 class MainView : public View
@@ -8,6 +9,7 @@ class MainView : public View
 private:
 	void yes();
 	void no();
+	void credits();
 public:
 	MainView(GameContext* context);
 	std::ostream& display() override;

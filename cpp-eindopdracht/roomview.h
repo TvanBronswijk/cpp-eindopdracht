@@ -12,6 +12,7 @@ private:
 	void rest();
 	void inventory();
 	void dungeon();
+	void character();
 	void exit();
 public:
 	RoomView(GameContext* context, Room* room);

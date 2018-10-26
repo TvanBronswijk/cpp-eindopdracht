@@ -114,6 +114,9 @@
     <ClCompile Include="dungeon.cpp">
       <Filter>Source Files\Models\Game\Dungeon</Filter>
     </ClCompile>
+    <ClCompile Include="creditsview.cpp">
+      <Filter>Source Files\Views</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -181,6 +184,12 @@
     </ClInclude>
     <ClInclude Include="ptrarray.h">
       <Filter>Header Files\Models\Collections</Filter>
+    </ClInclude>
+    <ClInclude Include="characterview.h">
+      <Filter>Header Files\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="creditsview.h">
+      <Filter>Header Files\Views</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

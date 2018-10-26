@@ -5,7 +5,7 @@ ViewManager::ViewManager()
 
 }
 
-View * ViewManager::current()
+View*& ViewManager::current()
 {
 	return view_stack.peek();
 }
@@ -35,7 +35,10 @@ void ViewManager::display(View* v)
 
 bool ViewManager::handle_input()
 {
-	return view_stack.peek()->handle_input();
+	if (view_stack.size() > 0)
+		return view_stack.peek()->handle_input();
+	else
+		return true;
 }
 
 bool ViewManager::is_empty()

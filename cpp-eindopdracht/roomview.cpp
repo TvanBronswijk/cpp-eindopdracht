@@ -13,7 +13,7 @@ std::ostream& RoomView::display()
 		<< std::endl
 		<< "What do you want to do?"
 		<< std::endl
-		<< "[F]ight | [M]ove | [S]earch | [R]est | [I]nventory | [D]ungeon | [E]xit"
+		<< "[F]ight | [M]ove | [S]earch | [R]est | [I]nventory | [D]ungeon | [C]haracter | [E]xit"
 		<< std::endl;
 }
 
@@ -40,6 +40,9 @@ bool RoomView::handle_input()
 		return true;
 	case 'd':
 		dungeon();
+		return true;
+	case 'c':
+		character();
 		return true;
 	case 'e':
 		exit();
@@ -72,8 +75,12 @@ void RoomView::dungeon()
 {
 }
 
+void RoomView::character()
+{
+}
+
 void RoomView::exit()
 {
 	context->gamestate->clear();
-	context->view_manager->pop();
+	back();
 }

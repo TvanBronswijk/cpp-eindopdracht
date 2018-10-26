@@ -6,6 +6,7 @@ class View
 {
 protected:
 	GameContext* context;
+	void back();
 public:
 	View(GameContext* context);
 

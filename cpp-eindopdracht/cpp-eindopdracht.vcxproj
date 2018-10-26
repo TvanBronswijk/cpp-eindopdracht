@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="creditsview.cpp" />
     <ClCompile Include="dungeon.cpp" />
     <ClCompile Include="dungeongenerator.cpp" />
     <ClCompile Include="filereader.cpp" />
@@ -134,7 +135,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="array.h" />
+    <ClInclude Include="characterview.h" />
     <ClInclude Include="combatview.h" />
+    <ClInclude Include="creditsview.h" />
     <ClInclude Include="dungeon.h" />
     <ClInclude Include="dungeongenerator.h" />
     <ClInclude Include="filereader.h" />
