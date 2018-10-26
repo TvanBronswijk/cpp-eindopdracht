@@ -1,8 +1,8 @@
 #pragma once
-#include "player.h"
 #include "view.h"
 #include "creditsview.h"
 #include "roomview.h"
+#include "charactercreationview.h"
 
 class MainView : public View
 {

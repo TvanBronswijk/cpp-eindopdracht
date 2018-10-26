@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="charactercreationview.cpp" />
     <ClCompile Include="characterview.cpp" />
     <ClCompile Include="combatview.cpp" />
     <ClCompile Include="creditsview.cpp" />
@@ -139,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="array.h" />
+    <ClInclude Include="charactercreationview.h" />
     <ClInclude Include="characterview.h" />
     <ClInclude Include="combatview.h" />
     <ClInclude Include="creditsview.h" />

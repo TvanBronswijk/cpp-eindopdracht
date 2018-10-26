@@ -15,18 +15,14 @@ void GameState::set_dungeon(Dungeon * dungeon)
 	this->dungeon = dungeon;
 }
 
-void GameState::save_player(Player* p)
+void GameState::set_player(Player* p)
 {
-	players.push(p);
+	this->player = p;
 }
 
-Player* GameState::get_player(const char* name) 
+Player* GameState::get_player() 
 {
-	for (int i = 0; i < players.size(); i++) {
-		if (players.all()[i]->name == name) 
-			return players.all()[i];
-	}
-	return nullptr;
+	return player;
 }
 
 void GameState::clear()
@@ -36,5 +32,5 @@ void GameState::clear()
 
 GameState::~GameState()
 {
-
+	delete player;
 }

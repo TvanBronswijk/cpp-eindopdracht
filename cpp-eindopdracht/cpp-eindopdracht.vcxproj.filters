@@ -129,6 +129,9 @@
     <ClCompile Include="mapview.cpp">
       <Filter>Source Files\Views</Filter>
     </ClCompile>
+    <ClCompile Include="charactercreationview.cpp">
+      <Filter>Source Files\Views</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -201,6 +204,9 @@
       <Filter>Header Files\Views</Filter>
     </ClInclude>
     <ClInclude Include="creditsview.h">
+      <Filter>Header Files\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="charactercreationview.h">
       <Filter>Header Files\Views</Filter>
     </ClInclude>
   </ItemGroup>
