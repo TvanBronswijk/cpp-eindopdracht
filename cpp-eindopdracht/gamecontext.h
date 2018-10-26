@@ -2,7 +2,7 @@
 #include "viewmanager.h"
 #include "dungeongenerator.h"
 #include "monstergenerator.h"
-#include "roombuilder.h"
+#include "roomgenerator.h"
 #include "gamestate.h"
 
 class GameContext {
@@ -11,7 +11,7 @@ private:
 public:
 	ViewManager* view_manager;
 	MonsterGenerator* monster_generator;
-	RoomBuilder* room_builder;
+	RoomGenerator* room_generator;
 	DungeonGenerator* dungeon_generator;
 	GameState* gamestate;
 

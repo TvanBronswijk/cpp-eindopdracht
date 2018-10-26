@@ -5,6 +5,16 @@ GameState::GameState()
 
 }
 
+Dungeon * GameState::get_dungeon()
+{
+	return dungeon;
+}
+
+void GameState::set_dungeon(Dungeon * dungeon)
+{
+	this->dungeon = dungeon;
+}
+
 void GameState::save_player(Player* p)
 {
 	players.push(p);
@@ -21,7 +31,7 @@ Player* GameState::get_player(const char* name)
 
 void GameState::clear()
 {
-
+	delete dungeon;
 }
 
 GameState::~GameState()

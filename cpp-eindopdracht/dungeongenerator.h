@@ -1,12 +1,15 @@
 #pragma once
+#include "roomgenerator.h"
 #include "dungeon.h"
 
 class DungeonGenerator 
 {
 private:
-
+	RoomGenerator* room_generator;
 public:
-	Dungeon Generate(size_t w, size_t h);
+	DungeonGenerator(RoomGenerator* room_generator);
+	Dungeon* Generate(size_t w, size_t h);
+	~DungeonGenerator();
 };
 
 

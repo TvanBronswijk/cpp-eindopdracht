@@ -11,7 +11,7 @@ struct Room {
 private:
 	char* description;
 public:
-	Collection<Monster*, 32> monsters;
+	Collection<Monster, 32> monsters;
 	Room(SIZE size, STATE state, OBJECTS objects);
 	~Room();
 	

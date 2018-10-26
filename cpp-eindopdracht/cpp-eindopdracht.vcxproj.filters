@@ -105,10 +105,13 @@
     <ClCompile Include="monstergenerator.cpp">
       <Filter>Source Files\Services\Generators</Filter>
     </ClCompile>
-    <ClCompile Include="roombuilder.cpp">
+    <ClCompile Include="room.cpp">
+      <Filter>Source Files\Models\Game\Dungeon</Filter>
+    </ClCompile>
+    <ClCompile Include="roomgenerator.cpp">
       <Filter>Source Files\Services\Generators</Filter>
     </ClCompile>
-    <ClCompile Include="room.cpp">
+    <ClCompile Include="dungeon.cpp">
       <Filter>Source Files\Models\Game\Dungeon</Filter>
     </ClCompile>
   </ItemGroup>
@@ -164,9 +167,6 @@
     <ClInclude Include="monstergenerator.h">
       <Filter>Header Files\Services\Generators</Filter>
     </ClInclude>
-    <ClInclude Include="roombuilder.h">
-      <Filter>Header Files\Services\Generators</Filter>
-    </ClInclude>
     <ClInclude Include="stack.h">
       <Filter>Header Files\Models\Collections</Filter>
     </ClInclude>
@@ -175,6 +175,9 @@
     </ClInclude>
     <ClInclude Include="room.h">
       <Filter>Header Files\Models\Game\Dungeon</Filter>
+    </ClInclude>
+    <ClInclude Include="roomgenerator.h">
+      <Filter>Header Files\Services\Generators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

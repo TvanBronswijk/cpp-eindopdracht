@@ -13,7 +13,7 @@ public:
 	int exp;
 	int attack;
 	int defence;
-	Collection<Item*, 32> items;
+	Collection<Item, 32> items;
 	Player(const char* name);
 	~Player();
 

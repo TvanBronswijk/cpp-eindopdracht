@@ -5,7 +5,7 @@
 class ViewManager
 {
 private:
-	Stack<View*, 32> view_stack;
+	Stack<View, 32> view_stack;
 public:
 	ViewManager();
 	View* current();

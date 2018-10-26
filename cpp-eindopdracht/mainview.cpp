@@ -31,7 +31,9 @@ bool MainView::handle_input()
 
 void MainView::yes()
 {
-
+	std::cout << "Welcome to The Dungeon!" << std::endl;
+	context->gamestate->set_dungeon(context->dungeon_generator->Generate(10, 10));
+	context->view_manager->push(new RoomView(context, context->gamestate->get_dungeon()->Coord(1, 1)));
 }
 
 void MainView::no()

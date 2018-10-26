@@ -5,14 +5,14 @@
 #include <random>
 #include <ctime>
 
-class RoomBuilder {
+class RoomGenerator {
 
 private:
 	std::default_random_engine generator;
 	MonsterGenerator* monster_generator;
-	int Rand(int min, int max);
+	int Rand(size_t min, size_t max);
 public:
-	RoomBuilder(MonsterGenerator* monster_generator);
-	~RoomBuilder();
-	Room* CreateRoom(int min, int max);
+	RoomGenerator(MonsterGenerator* monster_generator);
+	~RoomGenerator();
+	Room* CreateRoom(size_t min, size_t max);
 };

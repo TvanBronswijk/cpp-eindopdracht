@@ -3,14 +3,16 @@
 template<typename T, size_t MAX>
 class Collection {
 protected:
-	T* _arr;
+	T** _arr;
 	size_t _size;
 public:
 	Collection() {
-		this->_arr = new T[MAX];
+		this->_arr = new T*[MAX];
+		for (int i = 0; i < MAX; i++)
+			this->_arr[i] = nullptr;
 		this->_size = 0;
 	}
-	virtual void push(T t) {
+	virtual void push(T* t) {
 		if (this->_size < MAX) {
 			this->_arr[this->_size++] = t;
 		}
@@ -18,11 +20,12 @@ public:
 			throw -1;
 		}
 	}
-	virtual T get(size_t index) {
+	virtual T*& get(size_t index) {
 		if (index < this->_size)
 			return this->_arr[index];
+		throw -1;
 	}
-	virtual T* all() {
+	virtual T** all() {
 		return _arr;
 	}
 	virtual size_t size() {

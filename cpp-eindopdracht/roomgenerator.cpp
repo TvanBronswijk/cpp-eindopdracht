@@ -1,18 +1,18 @@
-#include "roombuilder.h"
+#include "roomgenerator.h"
 
 
-RoomBuilder::RoomBuilder(MonsterGenerator* monster_generator)
+RoomGenerator::RoomGenerator(MonsterGenerator* monster_generator)
 {
 	generator.seed(time(0));
 	this->monster_generator = monster_generator;
 }
 
-int RoomBuilder::Rand(int min, int max) {
+int RoomGenerator::Rand(size_t min, size_t max) {
 	std::uniform_int_distribution<int> d(min, max);
     return d(generator);
 }
 
-Room* RoomBuilder::CreateRoom(int min, int max) {
+Room* RoomGenerator::CreateRoom(size_t min, size_t max) {
 	int size = this->Rand(0, 2);
 	int state = this->Rand(0, 1);
 	int objects = this->Rand(0, 2);
@@ -29,7 +29,7 @@ Room* RoomBuilder::CreateRoom(int min, int max) {
 	return room;
 }
 
-RoomBuilder::~RoomBuilder()
+RoomGenerator::~RoomGenerator()
 {
 }
 
