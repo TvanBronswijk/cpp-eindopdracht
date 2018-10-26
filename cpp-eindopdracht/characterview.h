@@ -5,9 +5,8 @@
 class CharacterView : public View
 {
 private:
-	Player* player;
 public:
-	CharacterView(GameContext* context, Player* player);
+	CharacterView(GameContext* context);
 	std::ostream& display() override;
 	bool handle_input() override;
 };

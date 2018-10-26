@@ -3,6 +3,7 @@
 
 RoomView::RoomView(GameContext* context, Room* room) : View(context)
 {
+	generator.seed(time(0));
 	this->room = room;
 }
 
@@ -53,30 +54,71 @@ bool RoomView::handle_input()
 
 void RoomView::fight()
 {
+	context->view_manager->push(new CombatView(context, room->monsters.all()));
 }
 
 void RoomView::move()
 {
+	//TODO: Moving
 }
 
 void RoomView::search()
 {
+	std::cout 
+		<< "Do you want to pick it up?" 
+		<< std::endl
+		<< "[Y]es/[N]o"
+		<< std::endl;
+
+	char a;
+	std::cin >> a;
+
+	switch (tolower(a)) {
+	case 'y':
+		//TODO: pick up Item on the ground
+		break;
+	case 'n':
+	default:
+		break;
+	}
 }
 
 void RoomView::rest()
 {
+	std::cout 
+		<< "resting..." 
+		<< std::endl;
+
+	std::uniform_int_distribution<int> d(0, 10);
+	if (d(generator) == 0) {
+		int monster_count = d(generator);
+		std::cout
+			<< "You were attacked by "
+			<< monster_count
+			<< " monsters!"
+			<< std::endl;
+
+		Monster** monsters = new Monster*[monster_count];
+		for (int i = 0; i < monster_count; i++)
+			monsters[i] = context->monster_generator->generate(1, 3);
+		context->view_manager->push(new CombatView(context, monsters));
+	}
+
 }
 
 void RoomView::inventory()
 {
+	context->view_manager->push(new InventoryView(context));
 }
 
 void RoomView::dungeon()
 {
+	context->view_manager->push(new MapView(context));
 }
 
 void RoomView::character()
 {
+	context->view_manager->push(new CharacterView(context));
 }
 
 void RoomView::exit()

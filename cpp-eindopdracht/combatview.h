@@ -5,9 +5,9 @@
 class CombatView : public View
 {
 private:
-	Monster* monsters;
+	Monster** monsters;
 public:
-	CombatView(GameContext& context, Monster* monsters);
+	CombatView(GameContext* context, Monster** monsters);
 	std::ostream& display() override;
 	bool handle_input() override;
 };
