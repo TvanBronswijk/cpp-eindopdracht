@@ -14,7 +14,7 @@ Room*& Dungeon::coord(size_t x, size_t y)
 
 Dungeon::~Dungeon()
 {
-	for (int i = 0; i < _w*_h; i++)
+	for (size_t i = 0; i < _w*_h; i++)
 		delete _rooms[i];
 	delete[] _rooms;
 }

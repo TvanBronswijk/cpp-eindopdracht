@@ -6,7 +6,7 @@ class PtrArray : public Array<T*, MAX> {
 private:
 public:
 	virtual ~PtrArray() override {
-		for (int i = 0; i < this->_size; i++)
+		for (size_t i = 0; i < this->_size; i++)
 			delete this->_arr[i];
 	}
 };
