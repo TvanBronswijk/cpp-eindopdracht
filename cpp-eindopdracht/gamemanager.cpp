@@ -7,6 +7,7 @@ GameManager::GameManager()
 
 void GameManager::init()
 {
+	context->monster_generator->init();
 	context->view_manager->push(new MainView(context));
 }
 

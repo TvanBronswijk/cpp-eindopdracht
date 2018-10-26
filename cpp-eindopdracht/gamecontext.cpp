@@ -5,7 +5,6 @@ GameContext::GameContext()
 	view_manager = new ViewManager();
 
 	monster_generator = new MonsterGenerator();
-	monster_generator->init();
 	room_generator = new RoomGenerator(monster_generator);
 	dungeon_generator = new DungeonGenerator(room_generator);
 
