@@ -21,4 +21,6 @@ public:
 	///</summary>
 	///<returns><c>true</c> if input handled correctly, otherwise <c>false</c>.</returns>
 	virtual bool handle_input() = 0;
+
+	virtual ~View();
 };

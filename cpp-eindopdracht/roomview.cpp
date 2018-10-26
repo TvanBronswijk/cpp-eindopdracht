@@ -54,7 +54,7 @@ bool RoomView::handle_input()
 
 void RoomView::fight()
 {
-	context->view_manager->push(new CombatView(context, room->monsters.all()));
+	context->view_manager->push(new CombatView(context, room->monsters));
 }
 
 void RoomView::move()
@@ -92,16 +92,16 @@ void RoomView::rest()
 	std::uniform_int_distribution<int> d(0, 10);
 	if (d(generator) == 0) {
 		int monster_count = d(generator);
+		for (int i = room->monsters->size(); i < monster_count; i++)
+			room->monsters->push(context->monster_generator->generate(1, 3));
+		
 		std::cout
-			<< "You were attacked by "
-			<< monster_count
+			<< "You were ambushed by "
+			<< room->monsters->size()
 			<< " monsters!"
-			<< std::endl;
-
-		Monster** monsters = new Monster*[monster_count];
-		for (int i = 0; i < monster_count; i++)
-			monsters[i] = context->monster_generator->generate(1, 3);
-		context->view_manager->push(new CombatView(context, monsters));
+			<< std::endl;	
+		
+		fight();
 	}
 
 }

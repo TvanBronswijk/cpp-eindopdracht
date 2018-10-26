@@ -115,15 +115,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="characterview.cpp" />
+    <ClCompile Include="combatview.cpp" />
     <ClCompile Include="creditsview.cpp" />
     <ClCompile Include="dungeon.cpp" />
     <ClCompile Include="dungeongenerator.cpp" />
     <ClCompile Include="filereader.cpp" />
     <ClCompile Include="gamecontext.cpp" />
     <ClCompile Include="gamemanager.cpp" />
+    <ClCompile Include="inventoryview.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainview.cpp" />
     <ClCompile Include="gamestate.cpp" />
+    <ClCompile Include="mapview.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="room.cpp" />
     <ClCompile Include="roomgenerator.cpp" />

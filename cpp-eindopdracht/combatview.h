@@ -1,13 +1,14 @@
 #pragma once
+#include "ptrarray.h"
 #include "monster.h"
 #include "view.h"
 
 class CombatView : public View
 {
 private:
-	Monster** monsters;
+	PtrArray<Monster, 32>* monsters;
 public:
-	CombatView(GameContext* context, Monster** monsters);
+	CombatView(GameContext* context, PtrArray<Monster, 32>* monsters);
 	std::ostream& display() override;
 	bool handle_input() override;
 };

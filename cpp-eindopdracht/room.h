@@ -11,7 +11,7 @@ struct Room {
 private:
 	char* description;
 public:
-	PtrArray<Monster, 32> monsters;
+	PtrArray<Monster, 32>* monsters;
 	Room(char* description);
 	~Room();
 	

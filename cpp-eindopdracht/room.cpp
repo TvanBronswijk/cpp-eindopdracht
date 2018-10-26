@@ -1,6 +1,7 @@
 #include "room.h"
 
 Room::Room(char* description) {	
+	this->monsters = new PtrArray<Monster, 32>();
 	this->description = description;
 }
 
@@ -12,4 +13,5 @@ const char* Room::to_string()
 Room::~Room()
 {
 	delete[] description;
+	delete monsters;
 }

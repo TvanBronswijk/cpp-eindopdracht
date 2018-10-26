@@ -7,8 +7,8 @@ protected:
 	size_t _size;
 public:
 	Array() {
-		this->_arr = new T[MAX];
-		this->_size = 0;
+		_arr = new T[MAX];
+		_size = 0;
 	}
 
 	virtual void push(T t) {

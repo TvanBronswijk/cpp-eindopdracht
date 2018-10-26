@@ -5,10 +5,6 @@ template<typename T, size_t MAX>
 class Stack : public PtrArray<T, MAX> {
 private:
 public:
-	Stack() {
-
-	}
-
 	T*& pop() {
 		if (this->_size > 0)
 		{

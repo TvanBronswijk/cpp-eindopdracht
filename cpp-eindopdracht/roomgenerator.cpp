@@ -25,7 +25,7 @@ Room* RoomGenerator::create_room(size_t min, size_t max)
 	//need to add the monster in the Room
 	for (size_t i = 0; i < amount_of_monsters; i++)
 	{
-		room->monsters.push(monster_generator->generate(min, max));
+		room->monsters->push(monster_generator->generate(min, max));
 	}
 
 	return room;
