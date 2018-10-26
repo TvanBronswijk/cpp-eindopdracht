@@ -27,7 +27,10 @@ void MonsterGenerator::init()
 		m->name = new char[64];
 		strcpy_s(m->name, 64, clms[0]);
 
-		m->level = atoi(clms[1]);
+		if (clms[1] == "BAAS")
+			m->level = 99;
+		else
+			m->level = atoi(clms[1]);
 
 		char** hit = StringUtil::split(clms[2], "x");
 		m->hitchance = atoi(hit[0]);

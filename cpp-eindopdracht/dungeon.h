@@ -9,6 +9,6 @@ private:
 	Room** _rooms;
 public:
 	Dungeon(size_t w, size_t h);
-	Room*& Coord(size_t x, size_t y);
+	Room*& coord(size_t x, size_t y);
 	~Dungeon();
 };

@@ -7,7 +7,7 @@ Dungeon::Dungeon(size_t w, size_t h)
 	this->_rooms = new Room*[w*h];
 }
 
-Room*& Dungeon::Coord(size_t x, size_t y)
+Room*& Dungeon::coord(size_t x, size_t y)
 {
 	return _rooms[x * _h + y];
 }

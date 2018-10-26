@@ -12,7 +12,7 @@ private:
 	char* description;
 public:
 	Collection<Monster, 32> monsters;
-	Room(SIZE size, STATE state, OBJECTS objects);
+	Room(char* description);
 	~Room();
 	
 	const char* to_string();
