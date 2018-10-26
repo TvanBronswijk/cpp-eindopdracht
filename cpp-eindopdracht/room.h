@@ -12,6 +12,14 @@ private:
 	char* description;
 public:
 	PtrArray<Monster, 32>* monsters;
+	Room* up;
+	Room* down;
+	Room* left;
+	Room* right;
+
+	size_t x;
+	size_t y;
+
 	Room(char* description);
 	~Room();
 	

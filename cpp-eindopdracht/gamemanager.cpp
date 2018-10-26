@@ -15,13 +15,14 @@ void GameManager::run()
 {
 	while (1)
 	{
-		context->view_manager->display();
+	    context->view_manager->display();
 		while (!context->view_manager->handle_input()) {
 			std::cout << "Invalid input." << std::endl;
 		}
 		if (context->view_manager->is_empty()) {
 			break;
 		}
+		std::cout << std::endl << std::endl;
 	}
 }
 

@@ -59,7 +59,49 @@ void RoomView::fight()
 
 void RoomView::move()
 {
-	//TODO: Moving
+	std::cout
+		<< "Which direction do you want to go?"
+		<< std::endl;
+	if (room->up != nullptr)
+		std::cout << "| [U]p |";
+	if (room->down != nullptr)
+		std::cout << "| [D]own |";
+	if (room->left != nullptr)
+		std::cout << "| [L]eft |";
+	if (room->right != nullptr)
+		std::cout << "| [R]ight |";
+	std::cout << std::endl;
+	
+	char a;
+	std::cin >> a;
+
+	Room* target;
+	switch (tolower(a)) {
+	case 'u':
+		target = room->up;
+		break;
+	case 'd':
+		target = room->down;
+		break;
+	case 'l':
+		target = room->left;
+		break;
+	case 'r':
+		target = room->right;
+		break;
+	default:
+		target = nullptr;
+		break;
+	}
+
+	if (target != nullptr) {
+		GameContext* cntx = this->context;
+		context->view_manager->pop();
+		context->view_manager->push(new RoomView(cntx, target));
+	}
+	else {
+		std::cout << "That's not a valid direction" << std::endl;
+	}
 }
 
 void RoomView::search()
