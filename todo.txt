@@ -8,11 +8,7 @@ Legenda:
 	[X] 	Geef een beschrijving van de kamer
 	[ ] 	Geef een omschrijving van de manieren waarop je de kamer kan verlaten
 	[ ] 	Geef een omschrijving van de monsters in de ruimte (indien aanwezig)
-	[X] 	Geef een omschrijving van de acties die de speler kan doen
-[~] 	De speler kan vechten
-	[X] 	De speler kan het gevecht niet verlaten totdat de monsters verslagen 
-		zijn, de speler is gevlucht, of de speler dood is
-	[ ]	
+	[X] 	Geef een omschrijving van de acties die de speler kan doen	
 [X]	De speler kan een kaart opvragen
 	[X] 	Daarin wordt getoond welke kamers hij bezocht heeft, en welke uitgangen
 		deze hadden
@@ -49,6 +45,8 @@ Legenda:
 	[X] 	Bekijk de eigenschappen van de held
 	[X] 	Verlaat het spel
 [~]	Acties Gevecht
+	[X] 	De speler kan het gevecht niet verlaten totdat de monsters verslagen 
+		zijn, de speler is gevlucht, of de speler dood is	
 	[~] 	Val een van je tegenstanders aan
 	[ ]	Vlucht in een bepaalde richting weg
 	[ ]	Gebruik een van je spullen
