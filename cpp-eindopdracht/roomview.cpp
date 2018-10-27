@@ -98,6 +98,7 @@ void RoomView::move()
 		GameContext* cntx = this->context;
 		context->view_manager->pop();
 		context->view_manager->push(new RoomView(cntx, target));
+		target->visited = true;
 	}
 	else {
 		std::cout << "That's not a valid direction" << std::endl;

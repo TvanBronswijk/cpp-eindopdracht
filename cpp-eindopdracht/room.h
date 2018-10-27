@@ -20,6 +20,8 @@ public:
 	size_t x;
 	size_t y;
 
+	bool visited;
+
 	Room(char* description);
 	~Room();
 	

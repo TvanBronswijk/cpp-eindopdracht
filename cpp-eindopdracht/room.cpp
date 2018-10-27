@@ -7,6 +7,7 @@ Room::Room(char* description) {
 	this->right = nullptr;
 	this->monsters = new PtrArray<Monster, 32>();
 	this->description = description;
+	this->visited = false;
 }
 
 const char* Room::to_string()
