@@ -3,9 +3,10 @@
 Player::Player(const char* name) {
 	this->name = name;
 	this->level = 1;
-	this->health = 100;
+	this->max_health = 100;
+	this->current_health = this->max_health;
 	this->attack = 10;
-	this->defence = 10;
+	this->defense = 10;
 	this->exp = 0;
 }
 

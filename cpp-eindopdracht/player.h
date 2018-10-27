@@ -8,11 +8,12 @@ private:
 
 public:
 	const char* name;
-	int level;
-	int health;
 	int exp;
+	int level;
+	int max_health;
+	int current_health;
 	int attack;
-	int defence;
+	int defense;
 	PtrArray<Item, 32> items;
 	Player(const char* name);
 	~Player();

@@ -5,6 +5,7 @@
 class CharacterView : public View
 {
 private:
+	void stats();
 public:
 	CharacterView(GameContext* context);
 	std::ostream& display() override;
