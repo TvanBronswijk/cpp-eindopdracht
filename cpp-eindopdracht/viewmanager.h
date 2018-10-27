@@ -8,7 +8,7 @@ private:
 	Stack<View, 32> view_stack;
 public:
 	ViewManager();
-	View*& current();
+	View* current();
 	bool pop();
 	bool push(View* v);
 	void display();

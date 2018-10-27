@@ -15,7 +15,7 @@ public:
 		if (_size < MAX) 
 			_arr[_size++] = t;
 		else
-			throw -1;
+			throw -10;
 	}
 
 	virtual T& get(size_t i) 
@@ -23,7 +23,7 @@ public:
 		if(i < _size)
 			return _arr[i]; 
 		else
-			throw -1;
+			throw -10;
 	}
 
 	virtual T* all() {

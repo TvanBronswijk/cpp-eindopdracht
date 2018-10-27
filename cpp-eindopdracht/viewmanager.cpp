@@ -5,9 +5,15 @@ ViewManager::ViewManager()
 
 }
 
-View*& ViewManager::current()
+View* ViewManager::current()
 {
-	return view_stack.peek();
+	try {
+		return view_stack.peek();
+	}
+	catch (int e) {
+		std::cout << "ERROR " << e << " : No views in the view stack." << std::endl;
+		return nullptr;
+	}
 }
 
 bool ViewManager::push(View* v)
@@ -17,7 +23,7 @@ bool ViewManager::push(View* v)
 		return true;
 	}
 	catch (int e) {
-		std::cout << "ERROR: The view stack reached it limit." << std::endl;
+		std::cout << "ERROR " << e << " : The view stack reached it limit." << std::endl;
 		return false;
 	}
 }
@@ -29,7 +35,7 @@ bool ViewManager::pop()
 		return true;
 	}
 	catch (int e) {
-		std::cout << "ERROR: You're trying to pop an empty view stack." << std::endl;
+		std::cout << "ERROR " << e << " : You're trying to pop an empty view stack." << std::endl;
 		return false;
 	}
 }

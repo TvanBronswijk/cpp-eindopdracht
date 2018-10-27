@@ -9,13 +9,13 @@ public:
 		if (this->_size > 0)
 			return this->_arr[--this->_size];
 		else
-			throw -1;
+			throw -100;
 	}
 
 	T*& peek() {
 		if (this->_size > 0)
 			return this->_arr[this->_size - 1];
 		else
-			throw -1;
+			throw -100;
 	}
 };

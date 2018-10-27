@@ -31,7 +31,7 @@ char** FileReader::read(const char* filename, size_t lc)
 	if (file.is_open())
 	{
 		char* line = new char[128];
-		for(int i = 0; i < lc; i++)
+		for(size_t i = 0; i < lc; i++)
 		{
 			result[i] = new char[128];
 			file.getline(line, 128);

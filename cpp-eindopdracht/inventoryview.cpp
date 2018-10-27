@@ -9,7 +9,7 @@ std::ostream & InventoryView::display()
 {
 	Player* player = this->context->gamestate->get_player();
 
-	for (int i = 0; i < player->items.size(); i++)
+	for (size_t i = 0; i < player->items.size(); i++)
 		std::cout 
 		<< i << ": " << player->items.get(i)->to_string()
 		<< std::endl;
