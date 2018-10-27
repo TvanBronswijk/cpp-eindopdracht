@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
-#include "monster.h"
+#include "coord.h"
 #include "ptrarray.h"
+#include "monster.h"
 
 struct Room {
 	enum SIZE {SMALL, MEDIUM, LARGE};
@@ -11,14 +12,12 @@ struct Room {
 private:
 	char* description;
 public:
+	Coord coord;
 	PtrArray<Monster, 32>* monsters;
 	Room* up;
 	Room* down;
 	Room* left;
 	Room* right;
-
-	size_t x;
-	size_t y;
 
 	bool visited;
 

@@ -13,7 +13,7 @@ int CombatView::Rand(size_t min, size_t max)
 }
 
 bool CombatView::checkMonstersHealth() {
-	for (int i = 0; i < monsters->size(); i++) {
+	for (size_t i = 0; i < monsters->size(); i++) {
 		Monster* monster = monsters->get(i);
 		if (monster->hp > 0) {
 			return false;
@@ -27,7 +27,7 @@ std::ostream & CombatView::display()
 	if (monsters->size() > 0) {
 		char text[3000] = "";
 		strcat_s(text, "you are fighting against: \r\n");
-		for (int i = 0; i < monsters->size(); i++) {
+		for (size_t i = 0; i < monsters->size(); i++) {
 			Monster* monster = monsters->get(i);
 			strcat_s(text, digits[i]);
 			strcat_s(text, ": ");
@@ -36,7 +36,7 @@ std::ostream & CombatView::display()
 		}
 		strcat_s(text, "\r\n");
 		strcat_s(text, "Actions off the enemy: \r\n");
-		for (int i = 0; i < monsters->size(); i++) {
+		for (size_t i = 0; i < monsters->size(); i++) {
 			Monster* monster = monsters->get(i);
 			strcat_s(text, digits[i]);
 			strcat_s(text, ": ");
@@ -81,7 +81,7 @@ bool CombatView::handle_input()
 void CombatView::fight() {
 	char text[3000] = "";
 
-	for (int i = 0; i < monsters->size(); i++) {
+	for (size_t i = 0; i < monsters->size(); i++) {
 		Monster* monster = monsters->get(i);
 		strcat_s(text, digits[i]);
 		strcat_s(text, ": ");

@@ -135,6 +135,9 @@
     <ClCompile Include="item.cpp">
       <Filter>Source Files\Models\Game\Items</Filter>
     </ClCompile>
+    <ClCompile Include="coord.cpp">
+      <Filter>Source Files\Models\Game\Dungeon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -211,6 +214,9 @@
     </ClInclude>
     <ClInclude Include="charactercreationview.h">
       <Filter>Header Files\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="coord.h">
+      <Filter>Header Files\Models\Game\Dungeon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
 #pragma once
+#include "coord.h"
 #include "room.h"
 
 struct Dungeon 
@@ -9,6 +10,7 @@ private:
 	Room** _rooms;
 public:
 	Dungeon(size_t w, size_t h);
+	Room*& coord(Coord coord);
 	Room*& coord(size_t x, size_t y);
 	size_t width();
 	size_t height();

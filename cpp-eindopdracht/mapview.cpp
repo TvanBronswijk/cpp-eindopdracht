@@ -8,13 +8,13 @@ MapView::MapView(GameContext * context) : View(context)
 std::ostream & MapView::display()
 {
 	std::cout
-		<< "~~~THE DUNGEON~~~"
+		<< "THE DUNGEON"
 		<< std::endl
 		<< std::endl;
 
 	Dungeon* dungeon = this->context->gamestate->get_dungeon();
 	std::cout << "#";
-	for (size_t y = 0; y < dungeon->height(); y++)
+	for (size_t i = 0; i < dungeon->width(); i++)
 		std::cout << "##";
 	std::cout << "#";
 	std::cout << std::endl;
@@ -44,7 +44,7 @@ std::ostream & MapView::display()
 		std::cout << std::endl;
 	}
 	std::cout << "#";
-	for (size_t y = 0; y < dungeon->height(); y++)
+	for (size_t i = 0; i < dungeon->width(); i++)
 		std::cout << "##";
 	std::cout << "#";
 	std::cout << std::endl;

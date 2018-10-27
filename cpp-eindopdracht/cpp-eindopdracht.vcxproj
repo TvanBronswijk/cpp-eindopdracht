@@ -118,6 +118,7 @@
     <ClCompile Include="charactercreationview.cpp" />
     <ClCompile Include="characterview.cpp" />
     <ClCompile Include="combatview.cpp" />
+    <ClCompile Include="coord.cpp" />
     <ClCompile Include="creditsview.cpp" />
     <ClCompile Include="dungeon.cpp" />
     <ClCompile Include="dungeongenerator.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="charactercreationview.h" />
     <ClInclude Include="characterview.h" />
     <ClInclude Include="combatview.h" />
+    <ClInclude Include="coord.h" />
     <ClInclude Include="creditsview.h" />
     <ClInclude Include="dungeon.h" />
     <ClInclude Include="dungeongenerator.h" />

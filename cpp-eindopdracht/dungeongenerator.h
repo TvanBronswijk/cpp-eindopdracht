@@ -1,4 +1,5 @@
 #pragma once
+#include "coord.h"
 #include "roomgenerator.h"
 #include "dungeon.h"
 

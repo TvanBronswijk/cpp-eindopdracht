@@ -95,9 +95,7 @@ void RoomView::move()
 	}
 
 	if (target != nullptr) {
-		GameContext* cntx = this->context;
-		context->view_manager->pop();
-		context->view_manager->push(new RoomView(cntx, target));
+		this->room = target;
 		target->visited = true;
 	}
 	else {
