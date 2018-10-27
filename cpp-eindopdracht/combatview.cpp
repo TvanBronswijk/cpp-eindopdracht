@@ -65,8 +65,7 @@ bool CombatView::handle_input()
 
 	switch (tolower(a)) {
 	case 'f':
-		fight();
-		return true;
+		return fight();
 	case 'r':
 		return true;
 	case 'd':
@@ -78,7 +77,7 @@ bool CombatView::handle_input()
 	return false;
 }
 
-void CombatView::fight() {
+bool CombatView::fight() {
 	char text[3000] = "";
 
 	for (size_t i = 0; i < monsters->size(); i++) {
@@ -101,4 +100,6 @@ void CombatView::fight() {
 		std::cout << text;
 	}
 	std::cout << text;
+
+	return true;
 }

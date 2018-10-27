@@ -25,39 +25,31 @@ bool RoomView::handle_input()
 
 	switch (tolower(a)) {
 	case 'f':
-		fight();
-		return true;
+		return fight();
 	case 'm':
-		move();
-		return true;
+		return move();
 	case 's':
-		search();
-		return true;
+		return search();
 	case 'r':
-		rest();
-		return true;
+		return rest();
 	case 'i':
-		inventory();
-		return true;
+		return inventory();
 	case 'd':
-		dungeon();
-		return true;
+		return dungeon();
 	case 'c':
-		character();
-		return true;
+		return character();
 	case 'e':
-		exit();
-		return true;
+		return exit();
 	}
 	return false;
 }
 
-void RoomView::fight()
+bool RoomView::fight()
 {
-	context->view_manager->push(new CombatView(context, room->monsters));
+	return context->view_manager->push(new CombatView(context, room->monsters));
 }
 
-void RoomView::move()
+bool RoomView::move()
 {
 	std::cout
 		<< "Which direction do you want to go?"
@@ -97,13 +89,15 @@ void RoomView::move()
 	if (target != nullptr) {
 		this->room = target;
 		target->visited = true;
+		return true;
 	}
 	else {
-		std::cout << "That's not a valid direction" << std::endl;
+		std::cout << "That's not a valid direction." << std::endl;
+		return true;
 	}
 }
 
-void RoomView::search()
+bool RoomView::search()
 {
 	std::cout 
 		<< "Do you want to pick it up?" 
@@ -117,14 +111,16 @@ void RoomView::search()
 	switch (tolower(a)) {
 	case 'y':
 		//TODO: pick up Item on the ground
+		return true;
 		break;
 	case 'n':
 	default:
+		return false;
 		break;
 	}
 }
 
-void RoomView::rest()
+bool RoomView::rest()
 {
 	std::cout 
 		<< "resting..." 
@@ -142,28 +138,28 @@ void RoomView::rest()
 			<< " monsters!"
 			<< std::endl;	
 		
-		fight();
+		return fight();
 	}
-
+	return true;
 }
 
-void RoomView::inventory()
+bool RoomView::inventory()
 {
-	context->view_manager->push(new InventoryView(context));
+	return context->view_manager->push(new InventoryView(context));
 }
 
-void RoomView::dungeon()
+bool RoomView::dungeon()
 {
-	context->view_manager->push(new MapView(context));
+	return context->view_manager->push(new MapView(context));
 }
 
-void RoomView::character()
+bool RoomView::character()
 {
-	context->view_manager->push(new CharacterView(context));
+	return context->view_manager->push(new CharacterView(context));
 }
 
-void RoomView::exit()
+bool RoomView::exit()
 {
 	context->gamestate->clear();
-	back();
+	return back();
 }

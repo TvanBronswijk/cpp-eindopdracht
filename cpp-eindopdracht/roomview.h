@@ -13,14 +13,14 @@ class RoomView : public View
 private:
 	std::default_random_engine generator;
 	Room* room;
-	void fight();
-	void move();
-	void search();
-	void rest();
-	void inventory();
-	void dungeon();
-	void character();
-	void exit();
+	bool fight();
+	bool move();
+	bool search();
+	bool rest();
+	bool inventory();
+	bool dungeon();
+	bool character();
+	bool exit();
 public:
 	RoomView(GameContext* context, Room* room);
 	std::ostream& display() override;

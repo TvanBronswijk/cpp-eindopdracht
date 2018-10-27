@@ -7,16 +7,15 @@ private:
 public:
 	T*& pop() {
 		if (this->_size > 0)
-		{
 			return this->_arr[--this->_size];
-		}
 		else
-		{
 			throw -1;
-		}
 	}
 
 	T*& peek() {
-		return this->_arr[this->_size - 1];
+		if (this->_size > 0)
+			return this->_arr[this->_size - 1];
+		else
+			throw -1;
 	}
 };

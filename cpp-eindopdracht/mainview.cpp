@@ -21,19 +21,16 @@ bool MainView::handle_input()
 
 	switch (tolower(a)) {
 	case 'y':
-		yes();
-		return true;
+		return yes();
 	case 'n':
-		no();
-		return true;
+		return no();
 	case 'c':
-		credits();
-		return true;
+		return credits();
 	}
 	return false;
 }
 
-void MainView::yes()
+bool MainView::yes()
 {
 	std::cout << "Welcome to The Dungeon!" << std::endl;
 	context->gamestate->set_dungeon(context->dungeon_generator->Generate(8, 8));
@@ -41,16 +38,15 @@ void MainView::yes()
 	Room* room = context->gamestate->get_dungeon()->coord(1, 1);
 	context->view_manager->push(new RoomView(context, room));
 	room->visited = true;
-
-	context->view_manager->push(new CharacterCreationView(context));
+	return context->view_manager->push(new CharacterCreationView(context));
 }
 
-void MainView::no()
+bool MainView::no()
 {
-	back();
+	return back();
 }
 
-void MainView::credits()
+bool MainView::credits()
 {
-	context->view_manager->push(new CreditsView(context));
+	return context->view_manager->push(new CreditsView(context));
 }

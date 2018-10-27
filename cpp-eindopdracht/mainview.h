@@ -7,9 +7,9 @@
 class MainView : public View
 {
 private:
-	void yes();
-	void no();
-	void credits();
+	bool yes();
+	bool no();
+	bool credits();
 public:
 	MainView(GameContext* context);
 	std::ostream& display() override;

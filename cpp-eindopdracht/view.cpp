@@ -10,7 +10,7 @@ View::~View()
 {
 }
 
-void View::back()
+bool View::back()
 {
-	this->context->view_manager->pop();
+	return this->context->view_manager->pop();
 }

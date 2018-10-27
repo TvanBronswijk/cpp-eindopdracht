@@ -6,7 +6,12 @@ class View
 {
 protected:
 	GameContext* context;
-	void back();
+
+	///<summary>
+	///Pop the view from the view stack.
+	///</summary>
+	///<returns><c>true</c> if the action is successfull</returns>
+	bool back();
 public:
 	View(GameContext* context);
 

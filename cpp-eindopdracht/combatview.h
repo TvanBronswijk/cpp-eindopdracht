@@ -12,7 +12,7 @@ private:
 	int Rand(size_t min, size_t max);
 	std::default_random_engine generator;
 	bool checkMonstersHealth();
-	void fight();
+	bool fight();
 public:
 	CombatView(GameContext* context, PtrArray<Monster, 32>* monsters);
 	std::ostream& display() override;

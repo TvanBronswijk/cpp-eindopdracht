@@ -35,16 +35,14 @@ bool CharacterView::handle_input()
 
 	switch (tolower(a)) {
 	case 's':
-		stats();
-		return true;
+		return stats();
 	case 'b':
-		back();
-		return true;
+		return back();
 	}
 	return false;
 }
 
-void CharacterView::stats()
+bool CharacterView::stats()
 {
 	Player* player = this->context->gamestate->get_player();
 	std::cout
@@ -56,4 +54,5 @@ void CharacterView::stats()
 		<< "Defense:	" << player->defense << std::endl
 		<< "Inventory:	" << player->items.size() << " items" << std::endl
 		<< std:: endl;
+	return true;
 }

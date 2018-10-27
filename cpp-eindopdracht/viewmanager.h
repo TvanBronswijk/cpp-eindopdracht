@@ -9,8 +9,8 @@ private:
 public:
 	ViewManager();
 	View*& current();
-	void pop();
-	void push(View* v);
+	bool pop();
+	bool push(View* v);
 	void display();
 	void display(View* v);
 	bool handle_input();
