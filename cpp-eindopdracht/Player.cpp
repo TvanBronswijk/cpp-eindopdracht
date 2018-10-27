@@ -16,5 +16,5 @@ const char* Player::to_string()
 
 
 Player::~Player() {
-
+	delete[] name;
 }

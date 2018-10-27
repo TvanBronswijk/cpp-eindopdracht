@@ -10,5 +10,7 @@ private:
 public:
 	Dungeon(size_t w, size_t h);
 	Room*& coord(size_t x, size_t y);
+	size_t width();
+	size_t height();
 	~Dungeon();
 };

@@ -50,36 +50,12 @@ std::ostream & CombatView::display()
 		}
 		strcat_s(text, "\r\n");
 		strcat_s(text, "What will you do? \r\n");
-		strcat_s(text, "[F]ight | [R]un | [D]rink posion | [E]quip item \r\n");
+		strcat_s(text, "[F]ight | [R]un | [D]rink potion | [I]nventory \r\n");
 
 		return std::cout << text;
 	}
 	back();
 	return std::cout << "there are no monsters";
-}
-
-void CombatView::fight() {
-	char text[3000] = "";
-
-	for (int i = 0; i < monsters->size(); i++) {
-		Monster* monster = monsters->get(i);
-		strcat_s(text, digits[i]);
-		strcat_s(text, ": ");
-		strcat_s(text, monster->name);
-		strcat_s(text, " has taken ");
-		if (Rand(0, 10) <= context->gamestate->get_player()->attack) {
-			strcat_s(text, digits[Rand(1,3)]);
-			strcat_s(text, " damage! \r\n");
-		}else
-			strcat_s(text, " no damage. \r\n");
-	}
-
-	if (checkMonstersHealth()) {
-		strcat_s(text, "you have defeated the monsters \r\n");
-		back();
-		std::cout << text;
-	}
-	std::cout << text;
 }
 
 bool CombatView::handle_input()
@@ -95,9 +71,34 @@ bool CombatView::handle_input()
 		return true;
 	case 'd':
 		return true;
-	case 'e':
+	case 'i':
 		return true;
 	}
 	back();
 	return false;
+}
+
+void CombatView::fight() {
+	char text[3000] = "";
+
+	for (int i = 0; i < monsters->size(); i++) {
+		Monster* monster = monsters->get(i);
+		strcat_s(text, digits[i]);
+		strcat_s(text, ": ");
+		strcat_s(text, monster->name);
+		strcat_s(text, " has taken ");
+		if (Rand(0, 10) <= context->gamestate->get_player()->attack) {
+			strcat_s(text, digits[Rand(1, 3)]);
+			strcat_s(text, " damage! \r\n");
+		}
+		else
+			strcat_s(text, " no damage. \r\n");
+	}
+
+	if (checkMonstersHealth()) {
+		strcat_s(text, "you have defeated the monsters \r\n");
+		back();
+		std::cout << text;
+	}
+	std::cout << text;
 }

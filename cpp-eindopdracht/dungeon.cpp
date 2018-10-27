@@ -12,6 +12,16 @@ Room*& Dungeon::coord(size_t x, size_t y)
 	return _rooms[x * _h + y];
 }
 
+size_t Dungeon::width()
+{
+	return _w;
+}
+
+size_t Dungeon::height()
+{
+	return _h;
+}
+
 Dungeon::~Dungeon()
 {
 	for (size_t i = 0; i < _w*_h; i++)

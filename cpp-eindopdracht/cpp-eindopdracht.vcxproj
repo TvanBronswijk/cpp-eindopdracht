@@ -125,6 +125,7 @@
     <ClCompile Include="gamecontext.cpp" />
     <ClCompile Include="gamemanager.cpp" />
     <ClCompile Include="inventoryview.cpp" />
+    <ClCompile Include="item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainview.cpp" />
     <ClCompile Include="gamestate.cpp" />

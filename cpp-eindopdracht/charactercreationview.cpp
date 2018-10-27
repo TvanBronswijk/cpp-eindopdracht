@@ -12,9 +12,9 @@ std::ostream & CharacterCreationView::display()
 
 bool CharacterCreationView::handle_input()
 {
-	char name[35];
+	char* name = new char[16];
 	std::cin >> name;
-	this->context->gamestate->set_player(new Player(name)); // name gaat verkeerd.
+	this->context->gamestate->set_player(new Player(name));
 	back();
 	return true;
 }

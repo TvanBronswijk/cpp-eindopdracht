@@ -55,14 +55,14 @@
     <Filter Include="Source Files\Services\Generators">
       <UniqueIdentifier>{79108d2b-beff-4d34-922f-125018041abe}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Models\Game\Items">
-      <UniqueIdentifier>{ba94dfca-cdfa-4703-9bdc-8749fbcde37d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Models\Game\Dungeon">
       <UniqueIdentifier>{95e1879d-a9ce-42d6-8018-62227fa89550}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Models\Game\Dungeon">
       <UniqueIdentifier>{4e84f1ef-f996-43b8-b579-2994b767b68f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Models\Game\Items">
+      <UniqueIdentifier>{ba94dfca-cdfa-4703-9bdc-8749fbcde37d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +131,9 @@
     </ClCompile>
     <ClCompile Include="charactercreationview.cpp">
       <Filter>Source Files\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="item.cpp">
+      <Filter>Source Files\Models\Game\Items</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
