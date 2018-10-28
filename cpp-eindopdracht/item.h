@@ -1,12 +1,15 @@
 #pragma once
+#include <iostream>
+
 class Item
 {
 private:
-	char* name;
+	const char* name;
 public:
-	Item(char* name);
-	virtual void excute() = 0;
+	Item(const char* name);
 	virtual void details() = 0;
-	virtual char* to_string();
+	virtual const char get_type() = 0;
+	virtual int get_int() = 0;
+	virtual const char* to_string();
 	virtual ~Item();
 };

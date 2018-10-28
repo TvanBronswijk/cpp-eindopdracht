@@ -118,6 +118,7 @@
     <ClCompile Include="charactercreationview.cpp" />
     <ClCompile Include="characterview.cpp" />
     <ClCompile Include="combatview.cpp" />
+    <ClCompile Include="consumable.cpp" />
     <ClCompile Include="coord.cpp" />
     <ClCompile Include="creditsview.cpp" />
     <ClCompile Include="dungeon.cpp" />
@@ -127,6 +128,7 @@
     <ClCompile Include="gamemanager.cpp" />
     <ClCompile Include="inventoryview.cpp" />
     <ClCompile Include="item.cpp" />
+    <ClCompile Include="itemgenerator.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainview.cpp" />
     <ClCompile Include="gamestate.cpp" />
@@ -139,12 +141,14 @@
     <ClCompile Include="stringutil.cpp" />
     <ClCompile Include="view.cpp" />
     <ClCompile Include="viewmanager.cpp" />
+    <ClCompile Include="weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="array.h" />
     <ClInclude Include="charactercreationview.h" />
     <ClInclude Include="characterview.h" />
     <ClInclude Include="combatview.h" />
+    <ClInclude Include="consumable.h" />
     <ClInclude Include="coord.h" />
     <ClInclude Include="creditsview.h" />
     <ClInclude Include="dungeon.h" />
@@ -154,6 +158,7 @@
     <ClInclude Include="gamemanager.h" />
     <ClInclude Include="inventoryview.h" />
     <ClInclude Include="item.h" />
+    <ClInclude Include="itemgenerator.h" />
     <ClInclude Include="mainview.h" />
     <ClInclude Include="mapview.h" />
     <ClInclude Include="player.h" />
@@ -167,6 +172,7 @@
     <ClInclude Include="stringutil.h" />
     <ClInclude Include="view.h" />
     <ClInclude Include="viewmanager.h" />
+    <ClInclude Include="weapon.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="monsters.txt" />

@@ -14,7 +14,9 @@ public:
 	int current_health;
 	int attack;
 	int defense;
-	PtrArray<Item, 32> items;
+	Item* equiped;
+	PtrArray<Item, 10> potions;
+	PtrArray<Item, 10> items;
 	Player(const char* name);
 	~Player();
 

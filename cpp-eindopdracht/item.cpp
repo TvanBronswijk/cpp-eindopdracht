@@ -1,11 +1,11 @@
 #include "item.h"
 
-Item::Item(char * name)
+Item::Item(const char* name)
 {
 	this->name = name;
 }
 
-char * Item::to_string()
+const char * Item::to_string()
 {
 	return name;
 }

@@ -24,38 +24,115 @@ bool CombatView::checkMonstersHealth() {
 
 std::ostream & CombatView::display()
 {
+	Player* player = context->gamestate->get_player();
 	if (monsters->size() > 0) {
-		char text[3000] = "";
-		strcat_s(text, "you are fighting against: \r\n");
+		std::cout << "you are fighting against: \r\n";
 		for (size_t i = 0; i < monsters->size(); i++) {
 			Monster* monster = monsters->get(i);
-			strcat_s(text, digits[i]);
-			strcat_s(text, ": ");
-			strcat_s(text, monster->name);
-			strcat_s(text, "\r\n");
+			std::cout << digits[i] << ": " << monster->name << " With " << monster->hp << " health. \r\n";
 		}
-		strcat_s(text, "\r\n");
-		strcat_s(text, "Actions off the enemy: \r\n");
+		std::cout << "\r\n" << "Actions off the enemy: \r\n";
 		for (size_t i = 0; i < monsters->size(); i++) {
 			Monster* monster = monsters->get(i);
-			strcat_s(text, digits[i]);
-			strcat_s(text, ": ");
-			strcat_s(text, monster->name);
+			std::cout << digits[i] << ": " << monster->name;
 			if (Rand(0, 99) <= monster->hitchance) {
-				strcat_s(text, " did ");
-				strcat_s(text, digits[Rand(0, 2)]);
-				strcat_s(text, " damage! \r\n");
-			}else
-			strcat_s(text, "did no damage. \r\n");
+				int rand = Rand(monster->min_damage, monster->max_damage);
+				std::cout << " did " << digits[rand] << " damage! \r\n";
+				player->current_health -= rand;
+			}
+			else
+				std::cout << " did no damage. \r\n";
 		}
-		strcat_s(text, "\r\n");
-		strcat_s(text, "What will you do? \r\n");
-		strcat_s(text, "[F]ight | [R]un | [D]rink potion | [I]nventory \r\n");
+		std::cout << "\r\n" << "Your current health is " << player->current_health;
+		std::cout << "\r\nWhat will you do ? \r\n";
+		std::cout << "[F]ight | [R]un | [D]rink potion | [I]nventory \r\n";
 
-		return std::cout << text;
+		return std::cout;
 	}
 	back();
 	return std::cout << "there are no monsters";
+}
+
+bool CombatView::fight() {
+	Player* player = context->gamestate->get_player();
+
+	for (size_t i = 0; i < monsters->size(); i++) {
+		Monster* monster = monsters->get(i);
+		std::cout << digits[i] << ": " << monster->name << " has taken ";
+		if (Rand(0, 99) <= player->attack) {
+			int rand;
+			int max_damage;
+
+			if (player->equiped == nullptr) max_damage = 3;
+			else max_damage = player->equiped->get_int();
+			rand = Rand(1, max_damage);
+			std::cout << digits[rand] << " damage! \r\n";
+			monster->hp -= rand;
+		}
+		else
+			std::cout << "no damage. \r\n";
+	}
+
+	if (checkMonstersHealth()) {
+		std::cout << "you have defeated the monsters \r\n";
+		back();
+	}
+
+	return true;
+}
+
+bool CombatView::run(){
+	std::cout << "You are running away from the monsters.";
+	back();
+	return true;
+}
+
+
+bool CombatView::drink_potion(){
+	Player* player = context->gamestate->get_player();
+	if (player->potions.size() > 0) {
+		player->current_health += player->potions.get(player->potions.size())->get_int();
+		player->potions.get(player->potions.size()) = nullptr;
+		std::cout << "You have drunk a potion. \r\n" << "You have: " << player->potions.size() << " left.";
+
+	}else
+		std::cout << "There are no potions!" ;
+
+	return true;
+}
+
+bool CombatView::handle_input_equip_item(Player* player) {
+	char a;
+	std::cin >> a;
+
+	for (size_t i = 0; i < 10; i++) {
+		if (a == digits[i][1]) { player->equiped = player->items.get(i); return true; }
+		else return false;
+	}
+	
+}
+
+bool CombatView::equip_item(){
+	Player* player = context->gamestate->get_player();
+	std::cout << "\r\n \r\n" << "Your selected item is: ";
+	if (player->equiped == nullptr) {
+		std::cout << "nothing.";
+	}else
+		std::cout << player->equiped->to_string();
+	std::cout << "\r\n \r\n";
+	if (player->items.size() > 0) {
+		for (size_t i = 0; i < player->items.size(); i++) {
+			std::cout << digits[i] << ": " << player->items.get(i)->to_string() << " | ";
+		}
+		std::cout << "\r\n \r\n" << "Select with item you want. (#)";
+		while (!handle_input_equip_item(player)) {
+			std::cout << "Wrong input. \r\n \r\n";
+		}
+
+		return true;
+	}
+	std::cout << "You do not have any items.";
+	return true;
 }
 
 bool CombatView::handle_input()
@@ -67,39 +144,11 @@ bool CombatView::handle_input()
 	case 'f':
 		return fight();
 	case 'r':
-		return true;
+		return run();
 	case 'd':
-		return true;
+		return drink_potion();
 	case 'i':
-		return true;
+		return equip_item();
 	}
-	back();
 	return false;
-}
-
-bool CombatView::fight() {
-	char text[3000] = "";
-
-	for (size_t i = 0; i < monsters->size(); i++) {
-		Monster* monster = monsters->get(i);
-		strcat_s(text, digits[i]);
-		strcat_s(text, ": ");
-		strcat_s(text, monster->name);
-		strcat_s(text, " has taken ");
-		if (Rand(0, 10) <= context->gamestate->get_player()->attack) {
-			strcat_s(text, digits[Rand(1, 3)]);
-			strcat_s(text, " damage! \r\n");
-		}
-		else
-			strcat_s(text, " no damage. \r\n");
-	}
-
-	if (checkMonstersHealth()) {
-		strcat_s(text, "you have defeated the monsters \r\n");
-		back();
-		std::cout << text;
-	}
-	std::cout << text;
-
-	return true;
 }
