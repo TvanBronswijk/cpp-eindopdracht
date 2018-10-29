@@ -9,6 +9,6 @@ private:
 public:
 	Weapon(const char* name, int damage);
 	const char get_type() override;
-	int get_int() override;
+	int get_value() override;
 	~Weapon();
 };

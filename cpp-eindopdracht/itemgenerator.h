@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include "random.h"
 #include "item.h"
 #include "consumable.h"

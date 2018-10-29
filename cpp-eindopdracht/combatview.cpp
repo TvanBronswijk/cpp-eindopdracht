@@ -39,7 +39,7 @@ std::ostream & CombatView::display()
 			if (monster->hp > 0) {
 				std::cout
 					<< i << ": " << monster->name;
-				if (context->random->get(0, 99) <= monster->hitchance) {
+				if (context->random->get(0, 99) <= monster->hitchance && context->random->get(0,99) >= player->defense) {
 					int rand = context->random->get(monster->min_damage, monster->max_damage);
 					std::cout
 						<< " did " << rand << " damage!"
@@ -104,8 +104,8 @@ bool CombatView::fight() {
 				int rand;
 				int max_damage;
 
-				if (player->equiped == nullptr) max_damage = 3;
-				else max_damage = player->equiped->get_int();
+				if (player->equiped == nullptr) max_damage = player->level;
+				else max_damage = player->equiped->get_value() + player->level;
 				rand = context->random->get(1, max_damage);
 				std::cout
 					<< rand << " damage! "
@@ -123,6 +123,9 @@ bool CombatView::fight() {
 		std::cout 
 			<< "you have defeated the monsters " 
 			<< std::endl;
+		
+		level_up();
+
 		delete monsters;
 		back();
 	}
@@ -140,7 +143,7 @@ bool CombatView::run(){
 bool CombatView::drink_potion(){
 	Player* player = context->gamestate->player;
 	if (player->potions.size() > 0) {
-		player->current_health += player->potions.get(player->potions.size() -1)->get_int();
+		player->current_health += player->potions.get(player->potions.size() -1)->get_value();
 		if (player->current_health > player->max_health) player->current_health = player->max_health;
 		player->potions.remove(player->potions.size() - 1);
 		std::cout 
@@ -157,10 +160,10 @@ bool CombatView::drink_potion(){
 
 bool CombatView::handle_input_equip_item(Player* player) {
 	int a;
-	std::cin >> a;
 
 	while (!(std::cin >> a)) {
 		std::cin.clear();
+		std::cout << "wrong input";
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
 
@@ -170,6 +173,24 @@ bool CombatView::handle_input_equip_item(Player* player) {
 	}
 	catch(int e) {
 		return false;
+	}
+}
+
+void CombatView::level_up() {
+	Player* player = context->gamestate->player;
+
+	player->exp += (monsters->size() * 50);
+	while (player->exp > player->exp_for_next_level) {
+		int exp = player->exp - player->exp_for_next_level;
+		player->exp = exp;
+		player->level += 1;
+		player->attack += 2;
+		player->defense += 3;
+		std::cout
+			<< "congratulations you have reached level "
+			<< player->level
+			<< "!!"
+			<< std::endl;
 	}
 }
 

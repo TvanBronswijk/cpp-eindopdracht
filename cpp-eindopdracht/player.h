@@ -9,6 +9,7 @@ private:
 public:
 	const char* name;
 	int exp;
+	int exp_for_next_level;
 	int level;
 	int max_health;
 	int current_health;

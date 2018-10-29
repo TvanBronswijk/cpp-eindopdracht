@@ -12,8 +12,37 @@ std::ostream& RoomView::display()
 	std::cout
 		<< this->room->to_string()
 		<< std::endl;
+
+
+	std::cout
+		<< std::endl
+		<< "description of the hallways:"
+		<< std::endl;
+	if (room->up != nullptr)
+		std::cout
+		<< "Up: "
+		<< room->up->hallway_to_string()
+		<< std::endl;
+	if (room->down != nullptr)
+		std::cout
+		<< "Down: "
+		<< room->down->hallway_to_string()
+		<< std::endl;
+	if (room->left != nullptr)
+		std::cout
+		<< "Left: "
+		<< room->left->hallway_to_string()
+		<< std::endl;
+	if (room->right != nullptr)
+		std::cout
+		<< "Right: "
+		<< room->right->hallway_to_string()
+		<< std::endl;
+
+
 	if (this->monsters != nullptr && this->monsters->size() > 0) {//TODO: error on monsters
 			std::cout
+				<< std::endl
 				<< "the monsters in the room are: "
 				<< std::endl;
 			for (size_t i = 0; i < this->monsters->size(); i++) {
@@ -26,7 +55,7 @@ std::ostream& RoomView::display()
 			}
 			std::cout << std::endl;
 	}
-	else std::cout << "there are no monsters in this room." << std::endl;
+	else std::cout << std::endl << "there are no monsters in this room." << std::endl;
 	std::cout
 		 << "What do you want to do?"
 		 << std::endl;
@@ -73,31 +102,6 @@ bool RoomView::move()
 		delete monsters;
 		monsters = nullptr;
 	}
-	std::cout
-		<< std::endl
-		<< "descriptions of the hallways:"
-		<< std::endl;
-	if (room->up != nullptr)
-		std::cout
-			<< "Up: "
-			<< room->up->hallway_to_string()
-			<< std::endl;
-	if (room->down != nullptr)
-		std::cout
-			<< "Down: "
-			<< room->down->hallway_to_string() 
-			<< std::endl;
-	if (room->left != nullptr)
-		std::cout
-			<< "Left: "
-			<< room->left->hallway_to_string() 
-			<< std::endl;
-	if (room->right != nullptr)
-		std::cout
-			<< "Right: "
-			<< room->right->hallway_to_string() 
-			<< std::endl;
-
 
 	std::cout
 		<< std::endl
