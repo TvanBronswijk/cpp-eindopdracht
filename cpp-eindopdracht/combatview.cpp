@@ -24,7 +24,7 @@ bool CombatView::checkMonstersHealth() {
 
 std::ostream & CombatView::display()
 {
-	Player* player = context->gamestate->get_player();
+	Player* player = context->gamestate->player;
 	if (monsters->size() > 0) {
 		std::cout << "you are fighting against: \r\n";
 		for (size_t i = 0; i < monsters->size(); i++) {
@@ -69,7 +69,7 @@ bool CombatView::handle_input(char c)
 }
 
 bool CombatView::fight() {
-	Player* player = context->gamestate->get_player();
+	Player* player = context->gamestate->player;
 
 	for (size_t i = 0; i < monsters->size(); i++) {
 		Monster* monster = monsters->get(i);
@@ -104,7 +104,7 @@ bool CombatView::run(){
 
 
 bool CombatView::drink_potion(){
-	Player* player = context->gamestate->get_player();
+	Player* player = context->gamestate->player;
 	if (player->potions.size() > 0) {
 		player->current_health += player->potions.get(player->potions.size())->get_int();
 		player->potions.get(player->potions.size()) = nullptr;
@@ -130,7 +130,7 @@ bool CombatView::handle_input_equip_item(Player* player) {
 }
 
 bool CombatView::equip_item(){
-	Player* player = context->gamestate->get_player();
+	Player* player = context->gamestate->player;
 	std::cout << "\r\n \r\n" << "Your selected item is: ";
 	if (player->equiped == nullptr) {
 		std::cout << "nothing.";

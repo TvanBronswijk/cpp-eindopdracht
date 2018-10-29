@@ -157,6 +157,5 @@ bool RoomView::character()
 
 bool RoomView::exit()
 {
-	context->gamestate->clear();
-	return back();
+	return context->view_manager->push(new ExitView(context));
 }

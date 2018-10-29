@@ -8,7 +8,7 @@ CharacterView::CharacterView(GameContext * context) : View(context)
 
 std::ostream & CharacterView::display()
 {
-	Player* player = this->context->gamestate->get_player();
+	Player* player = this->context->gamestate->player;
 
 	std::cout
 		<< "Hello, " << player->name << "!"
@@ -41,7 +41,7 @@ bool CharacterView::handle_input(char c)
 
 bool CharacterView::stats()
 {
-	Player* player = this->context->gamestate->get_player();
+	Player* player = this->context->gamestate->player;
 	std::cout
 		<< "Name:		" << player->name << std::endl
 		<< "Experience:	" << player->exp << std::endl

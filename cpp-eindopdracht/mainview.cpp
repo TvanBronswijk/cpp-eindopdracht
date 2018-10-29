@@ -29,13 +29,14 @@ bool MainView::handle_input(char c)
 
 bool MainView::yes()
 {
-	std::cout << "Welcome to The Dungeon!" << std::endl;
-	context->gamestate->set_dungeon(context->dungeon_generator->Generate(8, 8));
-
-	Room* room = context->gamestate->get_dungeon()->coord(1, 1);
-	context->view_manager->push(new RoomView(context, room));
+	context->gamestate = new GameState();
+	context->gamestate->dungeon = context->dungeon_generator->Generate(8, 8);
+	
+	Room* room = context->gamestate->dungeon->coord(1, 1);
 	room->visited = true;
-	return context->view_manager->push(new CharacterCreationView(context));
+
+	return context->view_manager->push(new RoomView(context, room)) 
+		&& context->view_manager->push(new CharacterCreationView(context));
 }
 
 bool MainView::no()
