@@ -35,7 +35,7 @@ std::ostream & MapView::display()
 		std::cout << std::endl;
 		std::cout << "#";
 		for (size_t x = 0; x < dungeon->width(); x++) {
-			if (dungeon->coord(x, y)->up != nullptr && (dungeon->coord(x, y)->visited || dungeon->coord(x, y)->up->visited))
+			if (dungeon->coord(x, y)->down != nullptr && (dungeon->coord(x, y)->visited || dungeon->coord(x, y)->down->visited))
 				std::cout << "| ";
 			else
 				std::cout << "  ";

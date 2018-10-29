@@ -1,19 +1,18 @@
 #pragma once
 #include <iostream>
-#include <random>
-#include <ctime>
+#include "random.h"
 #include "stringutil.h"
 #include "filereader.h"
 #include "monster.h"
 
 class MonsterGenerator{
 private:
-	std::default_random_engine generator;
+	Random* random;
 
 	int monster_count;
 	Monster** templates;
 public:
-	MonsterGenerator();
+	MonsterGenerator(Random* random);
 	~MonsterGenerator();
 
 	void init();

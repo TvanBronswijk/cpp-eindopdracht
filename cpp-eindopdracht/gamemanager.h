@@ -1,6 +1,5 @@
 #pragma once
-#include <random>
-#include <ctime>
+#include "random.h"
 #include "gamecontext.h"
 #include "mainview.h"
 

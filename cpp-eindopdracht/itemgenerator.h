@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
-#include <random>
-#include <ctime>
+#include "random.h"
 #include "item.h"
 #include "consumable.h"
 #include "weapon.h"
@@ -10,11 +9,11 @@
 class ItemGenerator {
 
 private:
-	std::default_random_engine generator;
-	int Rand(size_t min, size_t max);
+	Random* random;
+
 	Array<const char*, 10> items;
 public:
-	ItemGenerator();
+	ItemGenerator(Random* random);
 	~ItemGenerator();
 	Item* create_item();
 };

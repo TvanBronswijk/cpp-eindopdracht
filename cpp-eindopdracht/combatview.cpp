@@ -3,13 +3,6 @@
 CombatView::CombatView(GameContext* context, PtrArray<Monster, 32>* monsters) : View(context)
 {
 	this->monsters = monsters;
-	generator.seed(time(0));
-}
-
-int CombatView::Rand(size_t min, size_t max)
-{
-	std::uniform_int_distribution<int> d(min, max);
-	return d(generator);
 }
 
 bool CombatView::checkMonstersHealth() {
@@ -35,8 +28,8 @@ std::ostream & CombatView::display()
 		for (size_t i = 0; i < monsters->size(); i++) {
 			Monster* monster = monsters->get(i);
 			std::cout << digits[i] << ": " << monster->name;
-			if (Rand(0, 99) <= monster->hitchance) {
-				int rand = Rand(monster->min_damage, monster->max_damage);
+			if (context->random->get(99) <= monster->hitchance) {
+				int rand = context->random->get(monster->min_damage, monster->max_damage);
 				std::cout << " did " << digits[rand] << " damage! \r\n";
 				player->current_health -= rand;
 			}
@@ -74,13 +67,13 @@ bool CombatView::fight() {
 	for (size_t i = 0; i < monsters->size(); i++) {
 		Monster* monster = monsters->get(i);
 		std::cout << digits[i] << ": " << monster->name << " has taken ";
-		if (Rand(0, 99) <= player->attack) {
+		if (context->random->get(99) <= player->attack) {
 			int rand;
 			int max_damage;
 
 			if (player->equiped == nullptr) max_damage = 3;
 			else max_damage = player->equiped->get_int();
-			rand = Rand(1, max_damage);
+			rand = context->random->get(1, max_damage);
 			std::cout << digits[rand] << " damage! \r\n";
 			monster->hp -= rand;
 		}

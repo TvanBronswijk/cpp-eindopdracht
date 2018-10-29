@@ -4,10 +4,11 @@ GameContext::GameContext()
 {
 	view_manager = new ViewManager();
 
-	item_generator = new ItemGenerator();
-	monster_generator = new MonsterGenerator();
-	room_generator = new RoomGenerator(monster_generator, item_generator);
-	dungeon_generator = new DungeonGenerator(room_generator);
+	random = new Random();
+	item_generator = new ItemGenerator(random);
+	monster_generator = new MonsterGenerator(random);
+	room_generator = new RoomGenerator(random, monster_generator, item_generator);
+	dungeon_generator = new DungeonGenerator(random, room_generator);
 
 	gamestate = nullptr;
 }
@@ -15,6 +16,7 @@ GameContext::GameContext()
 GameContext::~GameContext()
 {
 	delete view_manager;
+	delete random;
 	delete item_generator;
 	delete monster_generator;
 	delete room_generator;

@@ -13,7 +13,11 @@ std::ostream & DungeonCreationView::display()
 bool DungeonCreationView::handle_input()
 {
 	int scale;
-	std::cin >> scale;
+	while (!(std::cin >> scale)) {
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
+
 	if (scale < 3)
 		scale = 3;
 	if (scale > 10)
