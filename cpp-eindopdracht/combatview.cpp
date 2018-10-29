@@ -5,16 +5,6 @@ CombatView::CombatView(GameContext* context, PtrArray<Monster, 8>* monsters) : V
 	this->monsters = monsters;
 }
 
-const bool CombatView::checkMonstersHealth() {
-	for (size_t i = 0; i < monsters->size(); i++) {
-		Monster* monster = monsters->get(i);
-		if (monster->hp > 0) {
-			return false;
-		}
-	}
-	return true;
-}
-
 std::ostream & CombatView::display()
 {
 	Player* player = context->gamestate->player;
@@ -236,7 +226,7 @@ const bool CombatView::equip_item(){
 	return true;
 }
 
-bool CombatView::checkMonstersHealth() {
+const bool CombatView::checkMonstersHealth() {
 	for (size_t i = 0; i < monsters->size(); i++) {
 		Monster* monster = monsters->get(i);
 		if (monster->hp > 0) {
