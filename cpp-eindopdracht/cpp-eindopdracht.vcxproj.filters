@@ -254,6 +254,9 @@
     <ClInclude Include="gameconfig.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
+    <ClInclude Include="set.h">
+      <Filter>Header Files\Models\Collections</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="monsters.txt">
