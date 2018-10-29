@@ -12,7 +12,6 @@
 class RoomView : public View
 {
 private:
-	std::default_random_engine generator;
 	Room* room;
 	PtrArray<Monster, 8>* monsters;
 
@@ -25,7 +24,6 @@ private:
 	bool dungeon();
 	bool character();
 	bool exit();
-	int rand(size_t min , size_t max);
 public:
 	RoomView(GameContext* context, Room* room);
 	std::ostream& display() override;

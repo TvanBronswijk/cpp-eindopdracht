@@ -25,7 +25,9 @@ bool DungeonCreationView::handle_input()
 
 	GameConfig* config = new GameConfig(scale, scale * 1.5, scale + 2);
 	context->gamestate->config = config;
-	context->gamestate->dungeons.push(context->dungeon_generator->generate(config->width(), config->height()));
+	for (size_t i = 0; i <= config->depth(); i++)
+		context->gamestate->dungeons.push(context->dungeon_generator->generate(config, i));
+
 	return back();
 }
 

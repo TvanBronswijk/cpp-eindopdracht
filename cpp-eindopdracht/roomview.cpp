@@ -3,7 +3,6 @@
 
 RoomView::RoomView(GameContext* context, Room* room) : View(context)
 {
-	generator.seed(time(0));
 	this->room = room;
 }
 
@@ -110,7 +109,7 @@ bool RoomView::move()
 	}
 
 	if (target != nullptr) {
-		int amount_of_monster = rand(0, 5);
+		int amount_of_monster = context->random->get(0, 5);
 		if(amount_of_monster != 0){
 			monsters = new PtrArray<Monster,8>();
 			for (size_t i = 0; i < amount_of_monster; i++) {
@@ -171,10 +170,8 @@ bool RoomView::rest()
 		<< "resting..." 
 		<< std::endl;
 
-	std::uniform_int_distribution<int> d(0, 10);
-	if (d(generator) == 0) {
-		std::uniform_int_distribution<int> a(1, 5);
-		int amount_of_monsters = a(generator);
+	if (context->random->get(0,10) == 0) {
+		int amount_of_monsters = context->random->get(1,5);
 		PtrArray<Monster, 8>* monsters = new PtrArray<Monster, 8>();
 		for (int i = monsters->size(); i < amount_of_monsters; i++)
 			monsters->push(context->monster_generator->generate(1, 3));
@@ -210,11 +207,6 @@ bool RoomView::exit()
 	return context->view_manager->push(new ExitView(context));
 }
 
-int RoomView::rand(size_t min, size_t max)
-{
-	std::uniform_int_distribution<int> d(min, max);
-	return d(generator);
-}
-
 RoomView::~RoomView() {
+	delete monsters;
 }

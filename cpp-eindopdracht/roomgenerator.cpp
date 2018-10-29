@@ -16,6 +16,7 @@ Room* RoomGenerator::create_room()
 	int amount_of_monsters = random->get(3);
 
 	Room* room = new Room(generate_description(Room::SIZE(size), Room::STATE(state), Room::OBJECTS(objects)));
+	room->type = Room::NORMAL;
 
 	if (random->get(0, 100) < 100) {
 		room->item = item_generator->create_item();
