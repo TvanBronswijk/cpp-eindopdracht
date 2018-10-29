@@ -19,6 +19,7 @@ public:
 	Room* down;
 	Room* left;
 	Room* right;
+	
 	Item* item;
 
 	bool visited;

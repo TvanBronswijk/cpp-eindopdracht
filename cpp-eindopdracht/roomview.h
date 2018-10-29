@@ -7,6 +7,7 @@
 #include "combatview.h"
 #include "inventoryview.h"
 #include "mapview.h"
+#include "exitview.h"
 
 class RoomView : public View
 {

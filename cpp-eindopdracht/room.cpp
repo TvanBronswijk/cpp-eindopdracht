@@ -8,6 +8,7 @@ Room::Room(char* description) {
 	this->monsters = new PtrArray<Monster, 32>();
 	this->description = description;
 	this->visited = false;
+	this->item = nullptr;
 }
 
 const char* Room::to_string()
@@ -19,4 +20,5 @@ Room::~Room()
 {
 	delete[] description;
 	delete monsters;
+	delete item;
 }

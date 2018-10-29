@@ -106,7 +106,9 @@ bool RoomView::move()
 		return true;
 	}
 	else {
-		std::cout << "That's not a valid direction." << std::endl;
+		std::cout 
+			<< "That's not a valid direction." 
+			<< std::endl;
 		return true;
 	}
 }
@@ -116,7 +118,7 @@ bool RoomView::search()
 	if (this->room->item != nullptr) {
 		std::cout
 			<< "you have found a "
-			<< this->room->item->details()
+			<< this->room->item->get_details()
 			<< std::endl
 			<< "Do you want to pick it up?"
 			<< std::endl
@@ -129,9 +131,9 @@ bool RoomView::search()
 		switch (tolower(a)) {
 		case 'y':
 			if (Weapon* weapon = dynamic_cast<Weapon*>(room->item)) {
-				this->context->gamestate->get_player()->items.push(room->item); //TODO: afvangen wanneer vol is.
+				this->context->gamestate->player->items.push(room->item); //TODO: afvangen wanneer vol is.
 			}else
-			this->context->gamestate->get_player()->potions.push(room->item); //TODO: afvangen wanneer vol is.
+			this->context->gamestate->player->potions.push(room->item); //TODO: afvangen wanneer vol is.
 			room->item = nullptr;
 			return true;
 			break;
@@ -185,6 +187,5 @@ bool RoomView::character()
 
 bool RoomView::exit()
 {
-	context->gamestate->clear();
-	return back();
+	return context->view_manager->push(new ExitView(context));
 }

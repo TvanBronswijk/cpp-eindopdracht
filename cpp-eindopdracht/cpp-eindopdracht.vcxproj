@@ -123,6 +123,7 @@
     <ClCompile Include="creditsview.cpp" />
     <ClCompile Include="dungeon.cpp" />
     <ClCompile Include="dungeongenerator.cpp" />
+    <ClCompile Include="exitview.cpp" />
     <ClCompile Include="filereader.cpp" />
     <ClCompile Include="gamecontext.cpp" />
     <ClCompile Include="gamemanager.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="creditsview.h" />
     <ClInclude Include="dungeon.h" />
     <ClInclude Include="dungeongenerator.h" />
+    <ClInclude Include="exitview.h" />
     <ClInclude Include="filereader.h" />
     <ClInclude Include="gamecontext.h" />
     <ClInclude Include="gamemanager.h" />

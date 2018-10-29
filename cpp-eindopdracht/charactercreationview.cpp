@@ -24,9 +24,9 @@ bool CharacterCreationView::handle_input()
 			return false;
 		}
 	}
-	this->context->gamestate->set_player(new Player(name));
+	this->context->gamestate->player = new Player(name);
 	back();
-
+	std::cout << "Welcome to The Dungeon!" << std::endl;
 	return true;
 }
 

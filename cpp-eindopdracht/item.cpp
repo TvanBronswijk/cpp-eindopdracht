@@ -2,16 +2,19 @@
 
 Item::Item(const char* name, const char* details)
 {
-	this->name = name;
-	this->detail = details;
+	this->name = new char[64];
+	strcpy_s(this->name, 64, name);
+	this->details = new char[512];
+	strcpy_s(this->details, 64, details);
+	delete[] details;
 }
 
-const char * Item::details()
+const char* Item::get_details()
 {
-	return detail;
+	return details;
 }
 
-const char * Item::to_string()
+const char* Item::to_string()
 {
 	return name;
 }
@@ -19,5 +22,5 @@ const char * Item::to_string()
 Item::~Item()
 {
 	delete[] name;
-	delete[] detail;
+	delete[] details;
 }

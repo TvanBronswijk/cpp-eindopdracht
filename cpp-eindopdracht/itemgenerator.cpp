@@ -28,5 +28,5 @@ Item* ItemGenerator::create_item() {
 }
 
 ItemGenerator::~ItemGenerator() {
-	items.~PtrArray();
+
 }

@@ -147,6 +147,9 @@
     <ClCompile Include="itemgenerator.cpp">
       <Filter>Source Files\Services\Generators</Filter>
     </ClCompile>
+    <ClCompile Include="exitview.cpp">
+      <Filter>Source Files\Views</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -235,6 +238,9 @@
     </ClInclude>
     <ClInclude Include="itemgenerator.h">
       <Filter>Header Files\Services\Generators</Filter>
+    </ClInclude>
+    <ClInclude Include="exitview.h">
+      <Filter>Header Files\Views</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

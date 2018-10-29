@@ -12,7 +12,7 @@ std::ostream & MapView::display()
 		<< std::endl
 		<< std::endl;
 
-	Dungeon* dungeon = this->context->gamestate->get_dungeon();
+	Dungeon* dungeon = this->context->gamestate->dungeon;
 	std::cout << "#";
 	for (size_t i = 0; i < dungeon->width(); i++)
 		std::cout << "##";

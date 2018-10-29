@@ -24,7 +24,7 @@ bool CombatView::checkMonstersHealth() {
 
 std::ostream & CombatView::display()
 {
-	Player* player = context->gamestate->get_player();
+	Player* player = context->gamestate->player;
 	if (monsters->size() > 0) {
 		std::cout 
 			<< "you are fighting against:" 
@@ -95,7 +95,7 @@ bool CombatView::handle_input(char c)
 }
 
 bool CombatView::fight() {
-	Player* player = context->gamestate->get_player();
+	Player* player = context->gamestate->player;
 
 	for (size_t i = 0; i < monsters->size(); i++) {
 		Monster* monster = monsters->get(i);
@@ -135,15 +135,13 @@ bool CombatView::fight() {
 }
 
 bool CombatView::run(){
-	std::cout 
-		<< "You are running away from the monsters.";
-	back();
-	return true;
+	std::cout << "You are running away from the monsters.";
+	return 	back();
 }
 
 
 bool CombatView::drink_potion(){
-	Player* player = context->gamestate->get_player();
+	Player* player = context->gamestate->player;
 	if (player->potions.size() > 0) {
 		player->current_health += player->potions.get(player->potions.size())->get_int();
 		player->potions.get(player->potions.size()) = nullptr;

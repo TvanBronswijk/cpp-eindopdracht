@@ -1,13 +1,15 @@
 #pragma once
-#include "player.h"
 #include "view.h"
+#include "mainview.h"
 
-class CharacterView : public View
+class ExitView : public View
 {
 private:
 	bool handle_input(char c) override;
-	bool stats();
+	bool yes();
+	bool no();
+	bool clear();
 public:
-	CharacterView(GameContext* context);
+	ExitView(GameContext* context);
 	std::ostream& display() override;
 };
