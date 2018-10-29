@@ -4,6 +4,7 @@
 #include "dungeongenerator.h"
 #include "monstergenerator.h"
 #include "roomgenerator.h"
+#include "itemgenerator.h"
 #include "gamestate.h"
 
 class GameContext {

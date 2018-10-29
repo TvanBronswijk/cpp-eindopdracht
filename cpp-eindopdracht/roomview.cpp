@@ -13,6 +13,24 @@ std::ostream& RoomView::display()
 		<< this->room->to_string()
 		<< std::endl;
 
+	if (room->up != nullptr)
+		std::cout
+		<< "Up: " << room->up->hallway()
+		<< std::endl;
+	if (room->down != nullptr)
+		std::cout
+		<< "Down: " << room->down->hallway()
+		<< std::endl;
+	if (room->left != nullptr)
+		std::cout
+		<< "Left: " << room->left->hallway()
+		<< std::endl;
+	if (room->right != nullptr)
+		std::cout
+		<< "Right: " << room->right->hallway()
+		<< std::endl;
+
+
 	if (this->monsters != nullptr && this->monsters->size() > 0) {//TODO: error on monsters
 		std::cout << "In the room you find a ";
 		for (size_t i = 0; i < this->monsters->size(); i++) {
@@ -85,6 +103,7 @@ bool RoomView::move()
 	}
 
 	std::cout
+		<< std::endl
 		<< "Which direction do you want to go?"
 		<< std::endl;
 	if (room->up != nullptr)

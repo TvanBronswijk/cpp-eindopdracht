@@ -5,7 +5,7 @@ Consumable::Consumable(const char* name, int health) : Item(name, generate_detai
 	this->_health = health;
 }
 
-int Consumable::get_int() {
+const int Consumable::get_value() {
 	return this->_health;
 }
 

@@ -4,7 +4,7 @@ Weapon::Weapon(const char* name, int damage) : Item(name, generate_details(name,
 	this->_damage = damage;
 }
 
-int Weapon::get_int() {
+const int Weapon::get_value() {
 	return this->_damage;
 }
 

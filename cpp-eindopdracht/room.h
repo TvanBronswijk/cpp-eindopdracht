@@ -1,19 +1,19 @@
 #pragma once
-#include <iostream>
 #include "coord.h"
-#include "ptrarray.h"
-#include "monster.h"
 #include "item.h"
 
 struct Room {
 	enum SIZE {SMALL, MEDIUM, LARGE};
 	enum STATE {CLEAN, MESSY};
 	enum OBJECTS {TABLE, BED, NOTHING};
+	enum HALLWAY_TYPE {WOOD, STONE, BROKEN};
+	enum HALLWAY_OBSTACLE {BRIDGE, DOOR, GATE, STAIRCASE};
 
 	enum TYPE{NORMAL, UP, DOWN, START, BOSS};
 
 private:
 	char* description;
+	char* hallway_description;
 public:
 	TYPE type;
 	Coord coord;
@@ -26,8 +26,9 @@ public:
 	
 	Item* item;
 
-	Room(char* description);
+	Room(char* description, char* hallway_description);
 	~Room();
 	
 	const char* to_string();
+	const char* hallway();
 };
