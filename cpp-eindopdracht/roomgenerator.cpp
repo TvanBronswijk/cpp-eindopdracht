@@ -17,6 +17,7 @@ Room* RoomGenerator::create_room()
 
 	Room* room = new Room(generate_description(Room::SIZE(size), Room::STATE(state), Room::OBJECTS(objects)), 
 		generate_hallway_description(Room::SIZE(random->get(2)), Room::TYPE(random->get(2)), Room::OBSTACLE(random->get(3))));
+	room->type = Room::NORMAL;
 
 	if (random->get(0, 100) < 100) {
 		room->item = item_generator->create_item();

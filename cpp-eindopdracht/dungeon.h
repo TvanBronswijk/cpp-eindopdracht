@@ -14,5 +14,6 @@ public:
 	Room*& coord(size_t x, size_t y);
 	size_t width();
 	size_t height();
+	Room*& find(Room::TYPE type);
 	~Dungeon();
 };

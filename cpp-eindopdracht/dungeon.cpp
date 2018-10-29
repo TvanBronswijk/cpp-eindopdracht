@@ -27,6 +27,13 @@ size_t Dungeon::height()
 	return _h;
 }
 
+Room*& Dungeon::find(Room::TYPE type)
+{
+	for (size_t i = 0; i < _w*_h; i++)
+		if (_rooms[i]->type == type)
+			return _rooms[i];
+}
+
 Dungeon::~Dungeon()
 {
 	for (size_t i = 0; i < _w*_h; i++)

@@ -9,11 +9,16 @@ struct Room {
 	enum TYPE {WOOD, STONE, BROKEN};
 	enum OBSTACLE {BRIDGE, DOOR, GATE, STAIRCASE};
 
+	enum TYPE{NORMAL, UP, DOWN, START, BOSS};
+
 private:
 	char* description;
 	char* hallway_description;
 public:
+	TYPE type;
 	Coord coord;
+	bool visited;
+
 	Room* up;
 	Room* down;
 	Room* left;

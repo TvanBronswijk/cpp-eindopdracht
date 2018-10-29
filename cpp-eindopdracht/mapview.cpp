@@ -22,7 +22,23 @@ std::ostream & MapView::display()
 		std::cout << "#";
 		for (size_t x = 0; x < dungeon->width(); x++) {
 			if (dungeon->coord(x, y)->visited)
-				std::cout << "X";
+				switch (dungeon->coord(x, y)->type) {
+				case Room::NORMAL:
+					std::cout << "X";
+					break;
+				case Room::UP:
+					std::cout << ">";
+					break;
+				case Room::DOWN:
+					std::cout << "<";
+					break;
+				case Room::START:
+					std::cout << "S";
+					break;
+				case Room::BOSS:
+					std::cout << "B";
+					break;
+				}
 			else
 				std::cout << ".";
 
