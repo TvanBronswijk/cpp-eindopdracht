@@ -10,7 +10,7 @@ Dungeon* DungeonGenerator::Generate(size_t w, size_t h)
 	Dungeon* result = new Dungeon(w, h);
 	for (size_t x = 0; x < w; x++) {
 		for (size_t y = 0; y < h; y++) {
-			Room* room = room_generator->create_room(1, 3);
+			Room* room = room_generator->create_room();
 			result->coord(x, y) = room;
 			room->coord = Coord(x, y);
 

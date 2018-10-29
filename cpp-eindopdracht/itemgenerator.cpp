@@ -1,6 +1,7 @@
 #include "itemgenerator.h"
 
 ItemGenerator::ItemGenerator() {
+	generator.seed(time(0));
 	items.push("Shortsword");
 	items.push("Hammer");
 	items.push("Speer");
@@ -24,7 +25,7 @@ Item* ItemGenerator::create_item() {
 		return new Consumable("Potion", 20);
 	}
 	else
-		return new Weapon(items.get(Rand(0, 9)), Rand(0, 10));
+		return new Weapon(items.get(Rand(0, 9)), Rand(1, 10));
 }
 
 ItemGenerator::~ItemGenerator() {

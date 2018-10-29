@@ -14,7 +14,6 @@ private:
 	char* description;
 public:
 	Coord coord;
-	PtrArray<Monster, 32>* monsters;
 	Room* up;
 	Room* down;
 	Room* left;

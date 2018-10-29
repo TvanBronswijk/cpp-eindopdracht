@@ -1,6 +1,6 @@
 #include "combatview.h"
 
-CombatView::CombatView(GameContext* context, PtrArray<Monster, 32>* monsters) : View(context)
+CombatView::CombatView(GameContext* context, PtrArray<Monster, 8>* monsters) : View(context)
 {
 	this->monsters = monsters;
 	generator.seed(time(0));
@@ -25,7 +25,7 @@ bool CombatView::checkMonstersHealth() {
 std::ostream & CombatView::display()
 {
 	Player* player = context->gamestate->player;
-	if (monsters->size() > 0) {
+	if (monsters != nullptr) {
 		std::cout 
 			<< "you are fighting against:" 
 			<< std::endl;
@@ -79,6 +79,11 @@ std::ostream & CombatView::display()
 
 bool CombatView::handle_input(char c)
 {
+	Player* player = context->gamestate->player;
+	if (player->current_health <= 0) {
+		delete monsters;
+		return context->view_manager->push(new ExitView(context));
+	}
 	switch (tolower(c)) {
 	case 'f':
 		return fight();
@@ -126,8 +131,6 @@ bool CombatView::fight() {
 			<< "you have defeated the monsters " 
 			<< std::endl;
 		delete monsters;
-		monsters = nullptr;
-
 		back();
 	}
 
@@ -136,6 +139,7 @@ bool CombatView::fight() {
 
 bool CombatView::run(){
 	std::cout << "You are running away from the monsters.";
+	delete monsters;
 	return 	back();
 }
 
@@ -160,13 +164,19 @@ bool CombatView::drink_potion(){
 bool CombatView::handle_input_equip_item(Player* player) { //TODO: reapeat error
 	int a;
 	std::cin >> a;
-	char* digit;
-	if (player->items.get(a) != nullptr) {
+
+	while (!(std::cin >> a)) {
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
+
+	try{
 		player->equiped = player->items.get(a);
 		return true;
 	}
-		else 
-			return false;
+	catch(int e) {
+		return false;
+	}
 }
 
 bool CombatView::equip_item(){
@@ -192,7 +202,8 @@ bool CombatView::equip_item(){
 		std::cout 
 			<< std::endl 
 			<< std::endl 
-			<< "Select with item you want. (#)";
+			<< "Select with item you want. (#)"
+			<< std::endl;
 		while (!handle_input_equip_item(player)) {
 			std::cout 
 				<< "Wrong input." 

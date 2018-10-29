@@ -12,12 +12,12 @@ std::ostream& RoomView::display()
 	std::cout
 		<< this->room->to_string()
 		<< std::endl;
-	if (this->room->monsters != nullptr && this->room->monsters->size() > 0) {//TODO: error on monsters
+	if (this->monsters != nullptr && this->monsters->size() > 0) {//TODO: error on monsters
 			std::cout
 				<< "the monsters in the room are: "
 				<< std::endl;
-			for (size_t i = 0; i < this->room->monsters->size(); i++) {
-				Monster* monster = this->room->monsters->get(i);
+			for (size_t i = 0; i < this->monsters->size(); i++) {
+				Monster* monster = this->monsters->get(i);
 				std::cout
 					<< i
 					<< ": "
@@ -60,11 +60,20 @@ bool RoomView::handle_input(char c)
 
 bool RoomView::fight()
 {
-	return context->view_manager->push(new CombatView(context, room->monsters));
+
+	PtrArray<Monster, 8>* monsters = this->monsters;
+	if (monsters == nullptr) { return false; }
+	this->monsters = nullptr;
+	return context->view_manager->push(new CombatView(context, monsters));
 }
 
 bool RoomView::move()
 {
+	if (monsters != nullptr) {
+		delete monsters;
+		monsters = nullptr;
+	}
+
 	std::cout
 		<< "Which direction do you want to go?"
 		<< std::endl;
@@ -101,6 +110,15 @@ bool RoomView::move()
 	}
 
 	if (target != nullptr) {
+		int amount_of_monster = rand(0, 5);
+		if(amount_of_monster != 0){
+			monsters = new PtrArray<Monster,8>();
+			for (size_t i = 0; i < amount_of_monster; i++) {
+				monsters->push(this->context->monster_generator->generate(1, 3)); //TODO: need to be calculated on the level.
+			}
+			
+		}
+
 		this->room = target;
 		target->visited = true;
 		return true;
@@ -155,17 +173,19 @@ bool RoomView::rest()
 
 	std::uniform_int_distribution<int> d(0, 10);
 	if (d(generator) == 0) {
-		int monster_count = d(generator);
-		for (int i = room->monsters->size(); i < monster_count; i++)
-			room->monsters->push(context->monster_generator->generate(1, 3));
+		std::uniform_int_distribution<int> a(1, 5);
+		int amount_of_monsters = a(generator);
+		PtrArray<Monster, 8>* monsters = new PtrArray<Monster, 8>();
+		for (int i = monsters->size(); i < amount_of_monsters; i++)
+			monsters->push(context->monster_generator->generate(1, 3));
 		
 		std::cout
 			<< "You were ambushed by "
-			<< room->monsters->size()
+			<< monsters->size()
 			<< " monsters!"
 			<< std::endl;	
 		
-		return fight();
+		return context->view_manager->push(new CombatView(context, monsters));
 	}
 	return true;
 }
@@ -188,4 +208,13 @@ bool RoomView::character()
 bool RoomView::exit()
 {
 	return context->view_manager->push(new ExitView(context));
+}
+
+int RoomView::rand(size_t min, size_t max)
+{
+	std::uniform_int_distribution<int> d(min, max);
+	return d(generator);
+}
+
+RoomView::~RoomView() {
 }

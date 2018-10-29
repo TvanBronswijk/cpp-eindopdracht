@@ -1,10 +1,9 @@
 #include "roomgenerator.h"
 
 
-RoomGenerator::RoomGenerator(MonsterGenerator* monster_generator , ItemGenerator* item_generator)
+RoomGenerator::RoomGenerator(ItemGenerator* item_generator)
 {
 	generator.seed(time(0));
-	this->monster_generator = monster_generator;
 	this->item_generator = item_generator;
 }
 
@@ -14,7 +13,7 @@ int RoomGenerator::Rand(size_t min, size_t max)
     return d(generator);
 }
 
-Room* RoomGenerator::create_room(size_t min, size_t max) 
+Room* RoomGenerator::create_room() 
 {
 	int size = this->Rand(0, 2);
 	int state = this->Rand(0, 1);
@@ -22,11 +21,6 @@ Room* RoomGenerator::create_room(size_t min, size_t max)
 	int amount_of_monsters = this->Rand(0, 3);
 
 	Room* room = new Room(generate_description(Room::SIZE(size), Room::STATE(state), Room::OBJECTS(objects)));
-	
-	for (int i = 0; i < amount_of_monsters; i++)
-	{
-		room->monsters->push(monster_generator->generate(min, max));
-	}
 
 	if (Rand(0, 100) < 100) {
 		room->item = item_generator->create_item();

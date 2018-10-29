@@ -6,7 +6,7 @@ GameContext::GameContext()
 
 	item_generator = new ItemGenerator();
 	monster_generator = new MonsterGenerator();
-	room_generator = new RoomGenerator(monster_generator, item_generator);
+	room_generator = new RoomGenerator(item_generator);
 	dungeon_generator = new DungeonGenerator(room_generator);
 
 	gamestate = nullptr;
