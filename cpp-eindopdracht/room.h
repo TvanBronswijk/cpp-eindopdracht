@@ -26,8 +26,6 @@ public:
 	
 	Item* item;
 
-	bool visited;
-
 	Room(char* description, char* hallway_description);
 	~Room();
 	
