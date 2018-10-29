@@ -6,7 +6,7 @@ Legenda:
 [X]	Maak een Console Application
 [~]	Omschrijf de Kamer
 	[X] 	Geef een beschrijving van de kamer
-	[ ] 	Geef een omschrijving van de manieren waarop je de kamer kan verlaten
+	[X] 	Geef een omschrijving van de manieren waarop je de kamer kan verlaten
 	[X] 	Geef een omschrijving van de monsters in de ruimte (indien aanwezig)
 	[X] 	Geef een omschrijving van de acties die de speler kan doen	
 [X]	De speler kan een kaart opvragen
