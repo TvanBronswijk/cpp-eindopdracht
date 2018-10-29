@@ -139,17 +139,26 @@ bool RoomView::move()
 	}
 
 	if (target != nullptr) {
-		int amount_of_monster = context->random->get(0, 5);
-		if(amount_of_monster != 0){
-			monsters = new PtrArray<Monster,8>();
-			for (size_t i = 0; i < amount_of_monster; i++) {
-				monsters->push(this->context->monster_generator->generate(context->gamestate->current_depth+1, context->gamestate->current_depth + 3));
-			}
+		if (target->type == Room::BOSS) {
+			std::cout << "You found the Boss Room!" << std::endl;
+			PtrArray<Monster, 8>* monsters = new PtrArray<Monster, 8>();
+			monsters->push(this->context->monster_generator->generate(90, 100));
+			std::cout << "A " << monsters->get(0)->name << " approaches..." << std::endl;
+			return context->view_manager->push(new CombatView(context, monsters));
 		}
+		else {
+			int amount_of_monster = context->random->get(0, 5);
+			if (amount_of_monster != 0) {
+				monsters = new PtrArray<Monster, 8>();
+				for (size_t i = 0; i < amount_of_monster; i++) {
+					monsters->push(this->context->monster_generator->generate(context->gamestate->current_depth + 1, context->gamestate->current_depth + 3));
+				}
+			}
 
-		this->room = target;
-		target->visited = true;
-		return true;
+			this->room = target;
+			target->visited = true;
+			return true;
+		}
 	}
 	else {
 		std::cout 
@@ -233,7 +242,7 @@ bool RoomView::character()
 
 bool RoomView::exit()
 {
-	return context->view_manager->push(new ExitView(context));
+	return context->view_manager->push(new ExitView(context)) && context->view_manager->push(new SaveView(context));
 }
 
 bool RoomView::go()

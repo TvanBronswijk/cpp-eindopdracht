@@ -5,16 +5,6 @@ CombatView::CombatView(GameContext* context, PtrArray<Monster, 8>* monsters) : V
 	this->monsters = monsters;
 }
 
-bool CombatView::checkMonstersHealth() {
-	for (size_t i = 0; i < monsters->size(); i++) {
-		Monster* monster = monsters->get(i);
-		if (monster->hp > 0) {
-			return false;
-		}
-	}
-	return true;
-}
-
 std::ostream & CombatView::display()
 {
 	Player* player = context->gamestate->player;
@@ -27,28 +17,6 @@ std::ostream & CombatView::display()
 			if (monster->hp > 0) {
 				std::cout
 					<< i << ": " << monster->name << " With " << monster->hp << " health."
-					<< std::endl;
-			}
-		}
-		std::cout 
-			<< std::endl 
-			<< "Actions off the enemy:" 
-			<< std::endl;
-		for (size_t i = 0; i < monsters->size(); i++) {
-			Monster* monster = monsters->get(i);
-			if (monster->hp > 0) {
-				std::cout
-					<< i << ": " << monster->name;
-				if (context->random->get(0, 99) <= monster->hitchance && context->random->get(0,99) >= player->defense) {
-					int rand = context->random->get(monster->min_damage, monster->max_damage);
-					std::cout
-						<< " did " << rand << " damage!"
-						<< std::endl;
-					player->current_health -= rand;
-				}
-				else
-					std::cout
-					<< " did no damage."
 					<< std::endl;
 			}
 		}
@@ -95,6 +63,29 @@ bool CombatView::handle_input(char c)
 bool CombatView::fight() {
 	Player* player = context->gamestate->player;
 
+	std::cout
+		<< std::endl
+		<< "Actions off the enemy:"
+		<< std::endl;
+	for (size_t i = 0; i < monsters->size(); i++) {
+		Monster* monster = monsters->get(i);
+		if (monster->hp > 0) {
+			std::cout
+				<< i << ": " << monster->name;
+			if (context->random->get(0, 99) <= monster->hitchance && context->random->get(0, 99) >= player->defense) {
+				int rand = context->random->get(monster->min_damage, monster->max_damage);
+				std::cout
+					<< " did " << rand << " damage!"
+					<< std::endl;
+				player->current_health -= rand;
+			}
+			else
+				std::cout
+				<< " did no damage."
+				<< std::endl;
+		}
+	}
+
 	for (size_t i = 0; i < monsters->size(); i++) {
 		Monster* monster = monsters->get(i);
 		if (monster->hp > 0) {
@@ -104,7 +95,8 @@ bool CombatView::fight() {
 				int rand;
 				int max_damage;
 
-				if (player->equiped == nullptr) max_damage = player->level;
+				if (player->equiped == nullptr) 
+					max_damage = player->level;
 				else max_damage = player->equiped->get_value() + player->level;
 				rand = context->random->get(1, max_damage);
 				std::cout
@@ -118,6 +110,7 @@ bool CombatView::fight() {
 				<< std::endl;
 		}
 	}
+
 
 	if (checkMonstersHealth()) {
 		std::cout 
@@ -230,5 +223,21 @@ bool CombatView::equip_item(){
 		return true;
 	}
 	std::cout << "You do not have any items.";
+	return true;
+}
+
+bool CombatView::checkMonstersHealth() {
+	for (size_t i = 0; i < monsters->size(); i++) {
+		Monster* monster = monsters->get(i);
+		if (monster->hp > 0) {
+			return false;
+		}
+	}
+
+	if (monsters->get(0)->level >= 99) {
+		delete monsters;
+		return context->view_manager->push(new ExitView(context)) && context->view_manager->push(new SaveView(context));
+	}
+
 	return true;
 }

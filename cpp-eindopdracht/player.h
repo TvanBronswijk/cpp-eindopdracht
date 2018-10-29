@@ -16,8 +16,8 @@ public:
 	int attack;
 	int defense;
 	Item* equiped;
-	Set<Item, 10> potions;
-	Set<Item, 10> items;
+	Set<Item, 64> potions;
+	Set<Item, 64> items;
 	Player(const char* name);
 	~Player();
 

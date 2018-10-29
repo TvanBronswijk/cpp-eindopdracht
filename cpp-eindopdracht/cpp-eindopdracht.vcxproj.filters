@@ -159,6 +159,9 @@
     <ClCompile Include="random.cpp">
       <Filter>Source Files\Services</Filter>
     </ClCompile>
+    <ClCompile Include="saveview.cpp">
+      <Filter>Source Files\Views</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -262,6 +265,9 @@
     </ClInclude>
     <ClInclude Include="random.h">
       <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="saveview.h">
+      <Filter>Header Files\Views</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

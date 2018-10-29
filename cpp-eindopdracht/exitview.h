@@ -5,9 +5,8 @@
 class ExitView : public View
 {
 private:
+	bool handle_input() override;
 	bool handle_input(char c) override;
-	bool yes();
-	bool no();
 	bool clear();
 public:
 	ExitView(GameContext* context);

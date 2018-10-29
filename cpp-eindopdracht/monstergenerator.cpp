@@ -27,7 +27,7 @@ void MonsterGenerator::init()
 		m->name = new char[64];
 		strcpy_s(m->name, 64, clms[0]);
 
-		if (clms[1] == "BAAS")
+		if (strcmp(clms[1], "BAAS") == 0)
 			m->level = 99;
 		else
 			m->level = atoi(clms[1]);

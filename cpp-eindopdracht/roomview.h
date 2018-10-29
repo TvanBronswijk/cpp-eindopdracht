@@ -8,6 +8,7 @@
 #include "inventoryview.h"
 #include "mapview.h"
 #include "exitview.h"
+#include "saveview.h"
 
 class RoomView : public View
 {
