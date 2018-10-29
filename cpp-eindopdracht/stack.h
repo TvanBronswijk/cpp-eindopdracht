@@ -16,6 +16,6 @@ public:
 		if (this->_size > 0)
 			return this->_arr[this->_size - 1];
 		else
-			throw -100;
+			throw -101;
 	}
 };

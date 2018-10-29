@@ -5,7 +5,7 @@ DungeonGenerator::DungeonGenerator(RoomGenerator* room_generator)
 	this->room_generator = room_generator;
 }
 
-Dungeon* DungeonGenerator::Generate(size_t w, size_t h)
+Dungeon* DungeonGenerator::generate(size_t w, size_t h)
 {
 	Dungeon* result = new Dungeon(w, h);
 	for (size_t x = 0; x < w; x++) {

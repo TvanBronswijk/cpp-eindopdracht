@@ -23,7 +23,7 @@ public:
 		if(i < _size)
 			return _arr[i]; 
 		else
-			throw -10;
+			throw -11;
 	}
 
 	virtual T* all() {

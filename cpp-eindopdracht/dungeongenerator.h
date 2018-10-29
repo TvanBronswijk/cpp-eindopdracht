@@ -9,7 +9,7 @@ private:
 	RoomGenerator* room_generator;
 public:
 	DungeonGenerator(RoomGenerator* room_generator);
-	Dungeon* Generate(size_t w, size_t h);
+	Dungeon* generate(size_t w, size_t h);
 	~DungeonGenerator();
 };
 

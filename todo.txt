@@ -13,11 +13,11 @@ Legenda:
 	[X] 	Daarin wordt getoond welke kamers hij bezocht heeft, en welke uitgangen
 		deze hadden
 [~]	Random Kaart
-	[~] 	De kaart van de te bezoeken ruimtes wordt random ingevuld bij het binnengaan
+	[X] 	De kaart van de te bezoeken ruimtes wordt random ingevuld bij het binnengaan
 		van een kerker
-	[~]	De kaart kan een willekeurig formaat hebben, door de speler in te stellen
-	[ ] Het algoritme moet rekening houden dat alle delen van de kerker te bezoeken zijn
-	[~]	De eerste laag heeft een random start locatie
+	[X]	De kaart kan een willekeurig formaat hebben, door de speler in te stellen
+	[X] 	Het algoritme moet rekening houden dat alle delen van de kerker te bezoeken zijn
+	[ ]	De eerste laag heeft een random start locatie
 	[ ]	Er zijn trappen naar boven en beneden (waar nodig)
 	[~]	De bovenste laag is het minst gevaarlijk, de onderste het gevaarlijkst
 	[ ]	De onderste laag heeft een eindvijand
