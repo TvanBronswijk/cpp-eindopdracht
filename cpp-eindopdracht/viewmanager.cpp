@@ -40,16 +40,16 @@ bool ViewManager::pop()
 	}
 }
 
-void ViewManager::display()
+std::ostream& ViewManager::display()
 {
 	if (view_stack.size() > 0)
-		view_stack.peek()->display();
+		return view_stack.peek()->display();
 }
 
-void ViewManager::display(View* v)
+std::ostream& ViewManager::display(View* v)
 {
-	this->push(v);
-	this->display();
+	if(this->push(v))
+		return this->display();
 }
 
 bool ViewManager::handle_input()
