@@ -3,13 +3,6 @@
 CombatView::CombatView(GameContext* context, PtrArray<Monster, 8>* monsters) : View(context)
 {
 	this->monsters = monsters;
-	generator.seed(time(0));
-}
-
-int CombatView::Rand(size_t min, size_t max)
-{
-	std::uniform_int_distribution<int> d(min, max);
-	return d(generator);
 }
 
 bool CombatView::checkMonstersHealth() {

@@ -1,7 +1,8 @@
 #include "dungeongenerator.h"
 
-DungeonGenerator::DungeonGenerator(RoomGenerator* room_generator)
+DungeonGenerator::DungeonGenerator(Random* random, RoomGenerator* room_generator)
 {
+	this->random = random;
 	this->room_generator = room_generator;
 }
 
@@ -21,8 +22,8 @@ Dungeon* DungeonGenerator::generate(size_t w, size_t h)
 			}
 			if (y > 0) {
 				Room* other = result->coord(x, y - 1);
-				other->up = room;
-				room->down = other;
+				other->down = room;
+				room->up = other;
 			}
 		}
 	}

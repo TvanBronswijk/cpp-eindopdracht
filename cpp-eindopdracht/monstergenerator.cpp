@@ -1,8 +1,8 @@
 #include "monstergenerator.h"
 
-MonsterGenerator::MonsterGenerator()
+MonsterGenerator::MonsterGenerator(Random* random)
 {
-	generator.seed(time(0));
+	this->random = random;
 }
 
 MonsterGenerator::~MonsterGenerator()
@@ -63,10 +63,9 @@ void MonsterGenerator::init()
 Monster* MonsterGenerator::generate(int min_level, int max_level)
 {
 	Monster* tmpl = nullptr;
-	std::uniform_int_distribution<int> d(0, monster_count-1);
 	while (tmpl == nullptr)
 	{
-		Monster* m = templates[d(generator)];
+		Monster* m = templates[random->get(monster_count-1)];
 		if (m->level >= min_level && m->level <= max_level)
 			tmpl = m;
 

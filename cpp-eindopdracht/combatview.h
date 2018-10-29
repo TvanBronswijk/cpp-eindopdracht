@@ -9,8 +9,6 @@ class CombatView : public View
 {
 private:
 	PtrArray<Monster, 8>* monsters;
-	int Rand(size_t min, size_t max);
-	std::default_random_engine generator;
 	bool checkMonstersHealth();
 	bool fight();
 	bool run();

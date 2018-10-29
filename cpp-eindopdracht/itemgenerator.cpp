@@ -1,7 +1,7 @@
 #include "itemgenerator.h"
 
-ItemGenerator::ItemGenerator() {
-	generator.seed(time(0));
+ItemGenerator::ItemGenerator(Random* random) {
+	this->random = random;
 	items.push("Shortsword");
 	items.push("Hammer");
 	items.push("Speer");
@@ -14,18 +14,12 @@ ItemGenerator::ItemGenerator() {
 	items.push("Longsword");
 }
 
-int ItemGenerator::Rand(size_t min, size_t max)
-{
-	std::uniform_int_distribution<int> d(min, max);
-	return d(generator);
-}
-
 Item* ItemGenerator::create_item() {
-	if(Rand(0, 1) == 1){
+	if(random->get(1) == 1){
 		return new Consumable("Potion", 20);
 	}
 	else
-		return new Weapon(items.get(Rand(0, 9)), Rand(1, 10));
+		return new Weapon(items.get(random->get(9)), random->get(1,10));
 }
 
 ItemGenerator::~ItemGenerator() {
