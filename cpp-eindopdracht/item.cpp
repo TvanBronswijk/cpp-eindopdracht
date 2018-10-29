@@ -1,8 +1,14 @@
 #include "item.h"
 
-Item::Item(const char* name)
+Item::Item(const char* name, const char* details)
 {
 	this->name = name;
+	this->detail = details;
+}
+
+const char * Item::details()
+{
+	return detail;
 }
 
 const char * Item::to_string()
@@ -13,4 +19,5 @@ const char * Item::to_string()
 Item::~Item()
 {
 	delete[] name;
+	delete[] detail;
 }

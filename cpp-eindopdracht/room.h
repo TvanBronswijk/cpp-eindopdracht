@@ -3,6 +3,7 @@
 #include "coord.h"
 #include "ptrarray.h"
 #include "monster.h"
+#include "item.h"
 
 struct Room {
 	enum SIZE {SMALL, MEDIUM, LARGE};
@@ -18,6 +19,7 @@ public:
 	Room* down;
 	Room* left;
 	Room* right;
+	Item* item;
 
 	bool visited;
 

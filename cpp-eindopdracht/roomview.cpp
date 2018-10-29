@@ -9,11 +9,28 @@ RoomView::RoomView(GameContext* context, Room* room) : View(context)
 
 std::ostream& RoomView::display()
 {
-	return std::cout
+	std::cout
 		<< this->room->to_string()
-		<< std::endl
-		<< "What do you want to do?"
-		<< std::endl
+		<< std::endl;
+	 if (this->room->monsters->size() > 0) {
+		 std::cout
+			 << "the monsters in the room are: "
+			 << std::endl;
+		 for (size_t i = 0; i < this->room->monsters->size(); i++) {
+			 Monster* monster = this->room->monsters->get(i);
+			 std::cout
+				 << i
+				 << ": "
+				 << monster->name
+				 << std::endl;
+		 }
+		 std::cout << std::endl;
+	 }
+	 else std::cout << "there are no monsters in this room." << std::endl;
+	 std::cout
+		 << "What do you want to do?"
+		 << std::endl;
+	return std::cout 
 		<< "[F]ight | [M]ove | [S]earch | [R]est | [I]nventory | [D]ungeon | [C]haracter | [E]xit"
 		<< std::endl;
 }
@@ -99,25 +116,36 @@ bool RoomView::move()
 
 bool RoomView::search()
 {
-	std::cout 
-		<< "Do you want to pick it up?" 
-		<< std::endl
-		<< "[Y]es/[N]o"
-		<< std::endl;
+	if (this->room->item != nullptr) {
+		std::cout
+			<< "you have found a "
+			<< this->room->item->details()
+			<< std::endl
+			<< "Do you want to pick it up?"
+			<< std::endl
+			<< "[Y]es/[N]o"
+			<< std::endl;
 
-	char a;
-	std::cin >> a;
+		char a;
+		std::cin >> a;
 
-	switch (tolower(a)) {
-	case 'y':
-		//TODO: pick up Item on the ground
-		return true;
-		break;
-	case 'n':
-	default:
-		return false;
-		break;
+		switch (tolower(a)) {
+		case 'y':
+			if (Weapon* weapon = dynamic_cast<Weapon*>(room->item)) {
+				this->context->gamestate->get_player()->items.push(room->item); //TODO: afvangen wanneer vol is.
+			}else
+			this->context->gamestate->get_player()->potions.push(room->item); //TODO: afvangen wanneer vol is.
+			room->item = nullptr;
+			return true;
+			break;
+		case 'n':
+			return true;
+		default:
+			return false;
+			break;
+		}
 	}
+	else { std::cout << "There is no item."; return true; }
 }
 
 bool RoomView::rest()

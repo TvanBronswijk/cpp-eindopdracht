@@ -5,9 +5,9 @@ class Consumable : public Item
 {
 private:
 	int _heath;
+	const char* details(const char* name, int health);
 public:
 	Consumable(const char* name, int health);
-	void details() override;
 	const char get_type() override;
 	int get_int() override;
 	~Consumable();
