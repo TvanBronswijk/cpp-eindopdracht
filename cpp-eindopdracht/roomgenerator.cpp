@@ -15,7 +15,8 @@ Room* RoomGenerator::create_room()
 	int objects = random->get(2);
 	int amount_of_monsters = random->get(3);
 
-	Room* room = new Room(generate_description(Room::SIZE(size), Room::STATE(state), Room::OBJECTS(objects)));
+	Room* room = new Room(generate_description(Room::SIZE(size), Room::STATE(state), Room::OBJECTS(objects)), 
+		generate_hallway_description(Room::SIZE(random->get(2)), Room::TYPE(random->get(2)), Room::OBSTACLE(random->get(3))));
 
 	if (random->get(0, 100) < 100) {
 		room->item = item_generator->create_item();
@@ -60,6 +61,51 @@ char* RoomGenerator::generate_description(Room::SIZE size, Room::STATE state, Ro
 		break;
 	case Room::NOTHING:
 		strcat_s(description, 512, "nothing.");
+		break;
+	}
+
+	return description;
+}
+
+char* RoomGenerator::generate_hallway_description(Room::SIZE size, Room::TYPE type, Room::OBSTACLE obstacle)
+{
+	char* description = new char[512];
+
+	strcpy_s(description, 512, "There is a ");
+	switch (size) {
+	case Room::SMALL:
+		strcat_s(description, 512, "small, ");
+		break;
+	case Room::MEDIUM:
+		strcat_s(description, 512, "regular-sized, ");
+		break;
+	case Room::LARGE:
+		strcat_s(description, 512, "large, ");
+		break;
+	}
+	switch (type) {
+	case Room::WOOD:
+		strcat_s(description, 512, "wooden ");
+		break;
+	case Room::STONE:
+		strcat_s(description, 512, "stone ");
+		break;
+	case Room::BROKEN:
+		strcat_s(description, 512, "broken ");
+		break;
+	}
+	switch (obstacle) {
+	case Room::BRIDGE:
+		strcat_s(description, 512, "brige to go over.");
+		break;
+	case Room::STAIRCASE:
+		strcat_s(description, 512, "staircase to climb.");
+		break;
+	case Room::DOOR:
+		strcat_s(description, 512, "door to go through.");
+		break;
+	case Room::GATE:
+		strcat_s(description, 512, "gate to pass.");
 		break;
 	}
 

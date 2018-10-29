@@ -73,8 +73,34 @@ bool RoomView::move()
 		delete monsters;
 		monsters = nullptr;
 	}
+	std::cout
+		<< std::endl
+		<< "descriptions of the hallways:"
+		<< std::endl;
+	if (room->up != nullptr)
+		std::cout
+			<< "Up: "
+			<< room->up->hallway_to_string()
+			<< std::endl;
+	if (room->down != nullptr)
+		std::cout
+			<< "Down: "
+			<< room->down->hallway_to_string() 
+			<< std::endl;
+	if (room->left != nullptr)
+		std::cout
+			<< "Left: "
+			<< room->left->hallway_to_string() 
+			<< std::endl;
+	if (room->right != nullptr)
+		std::cout
+			<< "Right: "
+			<< room->right->hallway_to_string() 
+			<< std::endl;
+
 
 	std::cout
+		<< std::endl
 		<< "Which direction do you want to go?"
 		<< std::endl;
 	if (room->up != nullptr)

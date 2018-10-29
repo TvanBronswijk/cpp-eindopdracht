@@ -140,8 +140,9 @@ bool CombatView::run(){
 bool CombatView::drink_potion(){
 	Player* player = context->gamestate->player;
 	if (player->potions.size() > 0) {
-		player->current_health += player->potions.get(player->potions.size())->get_int();
-		player->potions.get(player->potions.size()) = nullptr;
+		player->current_health += player->potions.get(player->potions.size() -1)->get_int();
+		if (player->current_health > player->max_health) player->current_health = player->max_health;
+		player->potions.remove(player->potions.size() - 1);
 		std::cout 
 			<< "You have drunk a potion." 
 			<< std::endl 
@@ -154,7 +155,7 @@ bool CombatView::drink_potion(){
 	return true;
 }
 
-bool CombatView::handle_input_equip_item(Player* player) { //TODO: reapeat error
+bool CombatView::handle_input_equip_item(Player* player) {
 	int a;
 	std::cin >> a;
 

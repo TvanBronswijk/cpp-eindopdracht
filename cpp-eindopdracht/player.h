@@ -1,5 +1,5 @@
 #pragma once
-#include "ptrarray.h"
+#include "set.h"
 #include "item.h"
 
 struct Player
@@ -15,8 +15,8 @@ public:
 	int attack;
 	int defense;
 	Item* equiped;
-	PtrArray<Item, 10> potions;
-	PtrArray<Item, 10> items;
+	Set<Item, 10> potions;
+	Set<Item, 10> items;
 	Player(const char* name);
 	~Player();
 
