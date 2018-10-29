@@ -34,7 +34,7 @@ Dungeon* DungeonGenerator::generate(GameConfig* config, size_t level)
 		Coord random_exit = random_coord(config, random_start);
 		result->coord(random_exit.x, random_exit.y)->type = Room::DOWN;
 	}
-	else if (level == config->depth()) {
+	else if (level == config->depth() - 1) {
 		Coord random_start = random_coord(config, Coord(0, 0));
 		result->coord(random_start.x, random_start.y)->type = Room::UP;
 		Coord random_exit = random_coord(config, random_start);

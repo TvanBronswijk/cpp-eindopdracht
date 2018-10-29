@@ -113,9 +113,8 @@ bool RoomView::move()
 		if(amount_of_monster != 0){
 			monsters = new PtrArray<Monster,8>();
 			for (size_t i = 0; i < amount_of_monster; i++) {
-				monsters->push(this->context->monster_generator->generate(1, 3)); //TODO: need to be calculated on the level.
+				monsters->push(this->context->monster_generator->generate(context->gamestate->current_depth+1, context->gamestate->current_depth + 3));
 			}
-			
 		}
 
 		this->room = target;
@@ -174,7 +173,7 @@ bool RoomView::rest()
 		int amount_of_monsters = context->random->get(1,5);
 		PtrArray<Monster, 8>* monsters = new PtrArray<Monster, 8>();
 		for (int i = monsters->size(); i < amount_of_monsters; i++)
-			monsters->push(context->monster_generator->generate(1, 3));
+			monsters->push(context->monster_generator->generate(1, context->gamestate->current_depth + 3));
 		
 		std::cout
 			<< "You were ambushed by "
