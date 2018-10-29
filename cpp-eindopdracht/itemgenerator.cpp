@@ -11,7 +11,6 @@ ItemGenerator::ItemGenerator() {
 	items.push("crossbow");
 	items.push("Katana");
 	items.push("Longsword");
-	items.push("Morning Star");
 }
 
 int ItemGenerator::Rand(size_t min, size_t max)
@@ -29,5 +28,5 @@ Item* ItemGenerator::create_item() {
 }
 
 ItemGenerator::~ItemGenerator() {
-	items.~PtrArray();
+
 }

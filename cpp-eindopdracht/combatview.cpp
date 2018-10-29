@@ -98,8 +98,7 @@ bool CombatView::fight() {
 
 bool CombatView::run(){
 	std::cout << "You are running away from the monsters.";
-	back();
-	return true;
+	return 	back();
 }
 
 

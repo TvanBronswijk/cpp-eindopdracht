@@ -13,6 +13,7 @@ public:
 	MonsterGenerator* monster_generator;
 	RoomGenerator* room_generator;
 	DungeonGenerator* dungeon_generator;
+	ItemGenerator* item_generator;
 
 	GameState* gamestate;
 

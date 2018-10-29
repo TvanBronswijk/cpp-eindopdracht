@@ -4,8 +4,9 @@ GameContext::GameContext()
 {
 	view_manager = new ViewManager();
 
+	item_generator = new ItemGenerator();
 	monster_generator = new MonsterGenerator();
-	room_generator = new RoomGenerator(monster_generator);
+	room_generator = new RoomGenerator(monster_generator, item_generator);
 	dungeon_generator = new DungeonGenerator(room_generator);
 
 	gamestate = nullptr;
@@ -14,8 +15,10 @@ GameContext::GameContext()
 GameContext::~GameContext()
 {
 	delete view_manager;
+	delete item_generator;
 	delete monster_generator;
 	delete room_generator;
 	delete dungeon_generator;
 	delete gamestate;
+
 }
