@@ -9,6 +9,6 @@ private:
 public:
 	Consumable(const char* name, int health);
 	const char get_type() override;
-	int get_value() override;
+	const int get_value() override;
 	~Consumable();
 };

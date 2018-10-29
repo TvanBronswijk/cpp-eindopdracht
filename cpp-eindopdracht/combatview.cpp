@@ -186,6 +186,7 @@ void CombatView::level_up() {
 		player->level += 1;
 		player->attack += 2;
 		player->defense += 3;
+		player->max_health += 5;
 		std::cout
 			<< "congratulations you have reached level "
 			<< player->level

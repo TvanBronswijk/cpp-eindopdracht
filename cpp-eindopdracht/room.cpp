@@ -24,5 +24,6 @@ const char* Room::hallway_to_string()
 Room::~Room()
 {
 	delete[] description;
+	delete[] hallway_description;
 	delete item;
 }
