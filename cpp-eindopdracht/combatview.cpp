@@ -26,31 +26,55 @@ std::ostream & CombatView::display()
 {
 	Player* player = context->gamestate->get_player();
 	if (monsters->size() > 0) {
-		std::cout << "you are fighting against: \r\n";
+		std::cout 
+			<< "you are fighting against:" 
+			<< std::endl;
 		for (size_t i = 0; i < monsters->size(); i++) {
 			Monster* monster = monsters->get(i);
-			std::cout << digits[i] << ": " << monster->name << " With " << monster->hp << " health. \r\n";
-		}
-		std::cout << "\r\n" << "Actions off the enemy: \r\n";
-		for (size_t i = 0; i < monsters->size(); i++) {
-			Monster* monster = monsters->get(i);
-			std::cout << digits[i] << ": " << monster->name;
-			if (Rand(0, 99) <= monster->hitchance) {
-				int rand = Rand(monster->min_damage, monster->max_damage);
-				std::cout << " did " << digits[rand] << " damage! \r\n";
-				player->current_health -= rand;
+			if (monster->hp > 0) {
+				std::cout
+					<< i << ": " << monster->name << " With " << monster->hp << " health."
+					<< std::endl;
 			}
-			else
-				std::cout << " did no damage. \r\n";
 		}
-		std::cout << "\r\n" << "Your current health is " << player->current_health;
-		std::cout << "\r\nWhat will you do ? \r\n";
-		std::cout << "[F]ight | [R]un | [D]rink potion | [I]nventory \r\n";
+		std::cout 
+			<< std::endl 
+			<< "Actions off the enemy:" 
+			<< std::endl;
+		for (size_t i = 0; i < monsters->size(); i++) {
+			Monster* monster = monsters->get(i);
+			if (monster->hp > 0) {
+				std::cout
+					<< i << ": " << monster->name;
+				if (Rand(0, 99) <= monster->hitchance) {
+					int rand = Rand(monster->min_damage, monster->max_damage);
+					std::cout
+						<< " did " << rand << " damage!"
+						<< std::endl;
+					player->current_health -= rand;
+				}
+				else
+					std::cout
+					<< " did no damage."
+					<< std::endl;
+			}
+		}
+		std::cout 
+			<< std::endl 
+			<< "Your current health is " << player->current_health;
+		std::cout 
+			<< std::endl 
+			<< "What will you do ? " 
+			<< std::endl;
+		std::cout 
+			<< "[F]ight | [R]un | [D]rink potion | [I]nventory " 
+			<< std::endl;
 
 		return std::cout;
 	}
-	back();
-	return std::cout << "there are no monsters";
+	return std::cout 
+		<< "there are no monsters. [B]ack"
+		<< std::endl;
 }
 
 bool CombatView::handle_input(char c)
@@ -63,7 +87,9 @@ bool CombatView::handle_input(char c)
 	case 'd':
 		return drink_potion();
 	case 'i':
-		return equip_item();
+		return equip_item(); 
+	case 'b':
+		return back();
 	}
 	return false;
 }
@@ -73,23 +99,35 @@ bool CombatView::fight() {
 
 	for (size_t i = 0; i < monsters->size(); i++) {
 		Monster* monster = monsters->get(i);
-		std::cout << digits[i] << ": " << monster->name << " has taken ";
-		if (Rand(0, 99) <= player->attack) {
-			int rand;
-			int max_damage;
+		if (monster->hp > 0) {
+			std::cout
+				<< i << ": " << monster->name << " has taken ";
+			if (Rand(0, 99) <= player->attack) {
+				int rand;
+				int max_damage;
 
-			if (player->equiped == nullptr) max_damage = 3;
-			else max_damage = player->equiped->get_int();
-			rand = Rand(1, max_damage);
-			std::cout << digits[rand] << " damage! \r\n";
-			monster->hp -= rand;
+				if (player->equiped == nullptr) max_damage = 3;
+				else max_damage = player->equiped->get_int();
+				rand = Rand(1, max_damage);
+				std::cout
+					<< rand << " damage! "
+					<< std::endl;
+				monster->hp -= rand;
+			}
+			else
+				std::cout
+				<< "no damage. "
+				<< std::endl;
 		}
-		else
-			std::cout << "no damage. \r\n";
 	}
 
 	if (checkMonstersHealth()) {
-		std::cout << "you have defeated the monsters \r\n";
+		std::cout 
+			<< "you have defeated the monsters " 
+			<< std::endl;
+		delete monsters;
+		monsters = nullptr;
+
 		back();
 	}
 
@@ -97,7 +135,8 @@ bool CombatView::fight() {
 }
 
 bool CombatView::run(){
-	std::cout << "You are running away from the monsters.";
+	std::cout 
+		<< "You are running away from the monsters.";
 	back();
 	return true;
 }
@@ -108,42 +147,59 @@ bool CombatView::drink_potion(){
 	if (player->potions.size() > 0) {
 		player->current_health += player->potions.get(player->potions.size())->get_int();
 		player->potions.get(player->potions.size()) = nullptr;
-		std::cout << "You have drunk a potion. \r\n" << "You have: " << player->potions.size() << " left.";
+		std::cout 
+			<< "You have drunk a potion." 
+			<< std::endl 
+			<< "You have: " << player->potions.size() << " left.";
 
 	}else
-		std::cout << "There are no potions!" ;
+		std::cout 
+			<< "There are no potions!" ;
 
 	return true;
 }
 
-bool CombatView::handle_input_equip_item(Player* player) {
-	char a;
+bool CombatView::handle_input_equip_item(Player* player) { //TODO: reapeat error
+	int a;
 	std::cin >> a;
-
-	for (size_t i = 0; i < 10; i++) {
-		if (a == digits[i][1])
-			player->equiped = player->items.get(i);
+	char* digit;
+	if (player->items.get(a) != nullptr) {
+		player->equiped = player->items.get(a);
+		return true;
+	}
 		else 
 			return false;
-	}
-	return true;
 }
 
 bool CombatView::equip_item(){
 	Player* player = context->gamestate->get_player();
-	std::cout << "\r\n \r\n" << "Your selected item is: ";
+	std::cout 
+		<< std::endl 
+		<< std::endl 
+		<< "Your selected item is:";
 	if (player->equiped == nullptr) {
-		std::cout << "nothing.";
+		std::cout 
+			<< "nothing.";
 	}else
-		std::cout << player->equiped->to_string();
-	std::cout << "\r\n \r\n";
+		std::cout 
+		<< player->equiped->to_string();
+		std::cout 
+			<< std::endl 
+			<< std::endl;
 	if (player->items.size() > 0) {
 		for (size_t i = 0; i < player->items.size(); i++) {
-			std::cout << digits[i] << ": " << player->items.get(i)->to_string() << " | ";
+			std::cout 
+				<< i << ": " << player->items.get(i)->to_string() << " | ";
 		}
-		std::cout << "\r\n \r\n" << "Select with item you want. (#)";
+		std::cout 
+			<< std::endl 
+			<< std::endl 
+			<< "Select with item you want. (#)";
 		while (!handle_input_equip_item(player)) {
-			std::cout << "Wrong input. \r\n \r\n";
+			std::cout 
+				<< "Wrong input." 
+				<< std::endl 
+				<< std::endl;
 		}
 
 		return true;

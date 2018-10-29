@@ -12,22 +12,22 @@ std::ostream& RoomView::display()
 	std::cout
 		<< this->room->to_string()
 		<< std::endl;
-	 if (this->room->monsters->size() > 0) {
-		 std::cout
-			 << "the monsters in the room are: "
-			 << std::endl;
-		 for (size_t i = 0; i < this->room->monsters->size(); i++) {
-			 Monster* monster = this->room->monsters->get(i);
-			 std::cout
-				 << i
-				 << ": "
-				 << monster->name
-				 << std::endl;
-		 }
-		 std::cout << std::endl;
-	 }
-	 else std::cout << "there are no monsters in this room." << std::endl;
-	 std::cout
+	if (this->room->monsters != nullptr && this->room->monsters->size() > 0) {//TODO: error on monsters
+			std::cout
+				<< "the monsters in the room are: "
+				<< std::endl;
+			for (size_t i = 0; i < this->room->monsters->size(); i++) {
+				Monster* monster = this->room->monsters->get(i);
+				std::cout
+					<< i
+					<< ": "
+					<< monster->name
+					<< std::endl;
+			}
+			std::cout << std::endl;
+	}
+	else std::cout << "there are no monsters in this room." << std::endl;
+	std::cout
 		 << "What do you want to do?"
 		 << std::endl;
 	return std::cout 
