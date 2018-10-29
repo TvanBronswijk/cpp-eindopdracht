@@ -1,5 +1,5 @@
 #pragma once
-#include "array.h"
+#include "ptrarray.h"
 
 template<typename T, size_t MAX>
 class Set : public PtrArray<T, MAX> {
