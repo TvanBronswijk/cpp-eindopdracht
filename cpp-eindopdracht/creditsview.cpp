@@ -14,10 +14,8 @@ std::ostream & CreditsView::display()
 		<< std::endl;
 }
 
-bool CreditsView::handle_input()
+bool CreditsView::handle_input(char c)
 {
-	char a;
-	std::cin >> a;
 	back();
 	return true;
 }

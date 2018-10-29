@@ -14,12 +14,9 @@ std::ostream& MainView::display()
 		<< std::endl;
 }
 
-bool MainView::handle_input()
+bool MainView::handle_input(char c)
 {
-	char a;
-	std::cin >> a;
-
-	switch (tolower(a)) {
+	switch (tolower(c)) {
 	case 'y':
 		return yes();
 	case 'n':

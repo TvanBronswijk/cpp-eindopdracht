@@ -25,16 +25,12 @@ std::ostream & InventoryView::display()
 		<< std::endl;
 }
 
-bool InventoryView::handle_input()
+bool InventoryView::handle_input(char c)
 {
-	char a;
-	std::cin >> a;
-
-	if (tolower(a) == 'b') {
+	switch(tolower(c)) {
+	case 'b':
 		back();
 		return true;
 	}
-	else {
-		return false;
-	}
+	return false;
 }

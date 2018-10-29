@@ -13,6 +13,8 @@ class RoomView : public View
 private:
 	std::default_random_engine generator;
 	Room* room;
+
+	bool handle_input(char c) override;
 	bool fight();
 	bool move();
 	bool search();
@@ -24,5 +26,4 @@ private:
 public:
 	RoomView(GameContext* context, Room* room);
 	std::ostream& display() override;
-	bool handle_input() override;
 };

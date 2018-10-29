@@ -28,12 +28,9 @@ std::ostream & CharacterView::display()
 		<< std::endl;
 }
 
-bool CharacterView::handle_input()
+bool CharacterView::handle_input(char c)
 {
-	char a;
-	std::cin >> a;
-
-	switch (tolower(a)) {
+	switch (tolower(c)) {
 	case 's':
 		return stats();
 	case 'b':

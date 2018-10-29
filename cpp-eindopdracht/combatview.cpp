@@ -53,6 +53,21 @@ std::ostream & CombatView::display()
 	return std::cout << "there are no monsters";
 }
 
+bool CombatView::handle_input(char c)
+{
+	switch (tolower(c)) {
+	case 'f':
+		return fight();
+	case 'r':
+		return run();
+	case 'd':
+		return drink_potion();
+	case 'i':
+		return equip_item();
+	}
+	return false;
+}
+
 bool CombatView::fight() {
 	Player* player = context->gamestate->get_player();
 
@@ -106,10 +121,12 @@ bool CombatView::handle_input_equip_item(Player* player) {
 	std::cin >> a;
 
 	for (size_t i = 0; i < 10; i++) {
-		if (a == digits[i][1]) { player->equiped = player->items.get(i); return true; }
-		else return false;
+		if (a == digits[i][1])
+			player->equiped = player->items.get(i);
+		else 
+			return false;
 	}
-	
+	return true;
 }
 
 bool CombatView::equip_item(){
@@ -133,22 +150,4 @@ bool CombatView::equip_item(){
 	}
 	std::cout << "You do not have any items.";
 	return true;
-}
-
-bool CombatView::handle_input()
-{
-	char a;
-	std::cin >> a;
-
-	switch (tolower(a)) {
-	case 'f':
-		return fight();
-	case 'r':
-		return run();
-	case 'd':
-		return drink_potion();
-	case 'i':
-		return equip_item();
-	}
-	return false;
 }
