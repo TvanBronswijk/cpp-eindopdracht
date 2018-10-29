@@ -39,8 +39,8 @@ std::ostream & CombatView::display()
 			if (monster->hp > 0) {
 				std::cout
 					<< i << ": " << monster->name;
-				if (Rand(0, 99) <= monster->hitchance) {
-					int rand = Rand(monster->min_damage, monster->max_damage);
+				if (context->random->get(0, 99) <= monster->hitchance) {
+					int rand = context->random->get(monster->min_damage, monster->max_damage);
 					std::cout
 						<< " did " << rand << " damage!"
 						<< std::endl;
@@ -100,13 +100,13 @@ bool CombatView::fight() {
 		if (monster->hp > 0) {
 			std::cout
 				<< i << ": " << monster->name << " has taken ";
-			if (Rand(0, 99) <= player->attack) {
+			if (context->random->get(0, 99) <= player->attack) {
 				int rand;
 				int max_damage;
 
 				if (player->equiped == nullptr) max_damage = 3;
 				else max_damage = player->equiped->get_int();
-				rand = Rand(1, max_damage);
+				rand = context->random->get(1, max_damage);
 				std::cout
 					<< rand << " damage! "
 					<< std::endl;
