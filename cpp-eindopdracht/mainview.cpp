@@ -27,19 +27,19 @@ bool MainView::handle_input(char c)
 	return false;
 }
 
-bool MainView::yes()
+const bool MainView::yes()
 {
 	context->gamestate = new GameState();
 	return context->view_manager->push(new CharacterCreationView(context))
 		&& context->view_manager->push(new DungeonCreationView(context));
 }
 
-bool MainView::no()
+const bool MainView::no()
 {
 	return back();
 }
 
-bool MainView::credits()
+const bool MainView::credits()
 {
 	return context->view_manager->push(new CreditsView(context));
 }

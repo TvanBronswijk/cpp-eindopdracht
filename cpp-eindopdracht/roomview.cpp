@@ -86,7 +86,7 @@ bool RoomView::handle_input(char c)
 	return false;
 }
 
-bool RoomView::fight()
+const bool RoomView::fight()
 {
 
 	PtrArray<Monster, 8>* monsters = this->monsters;
@@ -95,7 +95,7 @@ bool RoomView::fight()
 	return context->view_manager->push(new CombatView(context, monsters));
 }
 
-bool RoomView::move()
+const bool RoomView::move()
 {
 	if (monsters != nullptr) {
 		delete monsters;
@@ -168,7 +168,7 @@ bool RoomView::move()
 	}
 }
 
-bool RoomView::search()
+const bool RoomView::search()
 {
 	if (this->room->item != nullptr) {
 		std::cout
@@ -202,7 +202,7 @@ bool RoomView::search()
 	else { std::cout << "There is no item."; return true; }
 }
 
-bool RoomView::rest()
+const bool RoomView::rest()
 {
 	std::cout 
 		<< "resting..." 
@@ -225,27 +225,27 @@ bool RoomView::rest()
 	return true;
 }
 
-bool RoomView::inventory()
+const bool RoomView::inventory()
 {
 	return context->view_manager->push(new InventoryView(context));
 }
 
-bool RoomView::dungeon()
+const bool RoomView::dungeon()
 {
 	return context->view_manager->push(new MapView(context));
 }
 
-bool RoomView::character()
+const bool RoomView::character()
 {
 	return context->view_manager->push(new CharacterView(context));
 }
 
-bool RoomView::exit()
+const bool RoomView::exit()
 {
 	return context->view_manager->push(new ExitView(context)) && context->view_manager->push(new SaveView(context));
 }
 
-bool RoomView::go()
+const bool RoomView::go()
 {
 	if (room->type == Room::DOWN) {
 		context->gamestate->current_depth++;
