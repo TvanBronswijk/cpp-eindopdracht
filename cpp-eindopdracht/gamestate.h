@@ -1,11 +1,11 @@
 #pragma once
-#include "ptrarray.h"
+#include "gameconfig.h"
 #include "dungeon.h"
 #include "player.h"
 
 struct GameState
 {
-public:
+	GameConfig* config;
 	Dungeon* dungeon;
 	Player* player;
 

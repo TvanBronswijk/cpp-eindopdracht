@@ -11,6 +11,8 @@ std::ostream & CharacterCreationView::display()
 
 bool CharacterCreationView::handle_input()
 {
+	GameContext* context = this->context;
+
 	char* name = new char[16];
 	for (int i = 0; i < 16; i++)
 		name[i] = '\0';
@@ -24,10 +26,11 @@ bool CharacterCreationView::handle_input()
 			return false;
 		}
 	}
-	this->context->gamestate->player = new Player(name);
+	context->gamestate->player = new Player(name);
 	back();
+
 	std::cout << "Welcome to The Dungeon!" << std::endl;
-	return true;
+	return context->view_manager->push(new RoomView(context, context->gamestate->dungeon->coord(1,1)));
 }
 
 bool CharacterCreationView::handle_input(char c)

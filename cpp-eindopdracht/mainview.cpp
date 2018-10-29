@@ -30,13 +30,8 @@ bool MainView::handle_input(char c)
 bool MainView::yes()
 {
 	context->gamestate = new GameState();
-	context->gamestate->dungeon = context->dungeon_generator->Generate(8, 8);
-	
-	Room* room = context->gamestate->dungeon->coord(1, 1);
-	room->visited = true;
-
-	return context->view_manager->push(new RoomView(context, room)) 
-		&& context->view_manager->push(new CharacterCreationView(context));
+	return context->view_manager->push(new CharacterCreationView(context))
+		&& context->view_manager->push(new DungeonCreationView(context));
 }
 
 bool MainView::no()
