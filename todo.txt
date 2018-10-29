@@ -52,7 +52,10 @@ Legenda:
 	[X]	Gebruik een van je spullen
 
 Minimum eisen die nog niet voldaan zijn:
-	1, 2, 6, 8, 9, 15, 16, 17, 18, 20
+	1.	Optijd Ingeleverd 
+	2. 	Werkend Spel, inclusief alle requirements
+	6. 	Const Correcte code
+	16.	Karakter saven en laden
 	
 	
 
