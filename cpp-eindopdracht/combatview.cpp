@@ -170,7 +170,7 @@ bool CombatView::handle_input_equip_item(Player* player) { //TODO: reapeat error
 }
 
 bool CombatView::equip_item(){
-	Player* player = context->gamestate->get_player();
+	Player* player = context->gamestate->player;
 	std::cout 
 		<< std::endl 
 		<< std::endl 

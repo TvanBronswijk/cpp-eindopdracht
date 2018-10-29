@@ -7,7 +7,7 @@ Legenda:
 [~]	Omschrijf de Kamer
 	[X] 	Geef een beschrijving van de kamer
 	[ ] 	Geef een omschrijving van de manieren waarop je de kamer kan verlaten
-	[ ] 	Geef een omschrijving van de monsters in de ruimte (indien aanwezig)
+	[X] 	Geef een omschrijving van de monsters in de ruimte (indien aanwezig)
 	[X] 	Geef een omschrijving van de acties die de speler kan doen	
 [X]	De speler kan een kaart opvragen
 	[X] 	Daarin wordt getoond welke kamers hij bezocht heeft, en welke uitgangen
@@ -16,8 +16,8 @@ Legenda:
 	[~] 	De kaart van de te bezoeken ruimtes wordt random ingevuld bij het binnengaan
 		van een kerker
 	[~]	De kaart kan een willekeurig formaat hebben, door de speler in te stellen
-	[ ] 	Het algoritme moet rekening houden dat alle delen van de kerker te bezoeken zijn
-	[ ]	De eerste laag heeft een random start locatie
+	[ ] Het algoritme moet rekening houden dat alle delen van de kerker te bezoeken zijn
+	[~]	De eerste laag heeft een random start locatie
 	[ ]	Er zijn trappen naar boven en beneden (waar nodig)
 	[~]	De bovenste laag is het minst gevaarlijk, de onderste het gevaarlijkst
 	[ ]	De onderste laag heeft een eindvijand
@@ -30,15 +30,15 @@ Legenda:
 		[ ] 	Zodra deze verslagen is heb je gewonnen
 [X]	De Held
 	[X] 	Een speler kan een held maken (of opgeslagen held laden)
-[ ]	Spullen
-	[ ] 	Random spullen op de grond
-	[ ] 	Spullen kunnen opgepakt worden
+[X]	Spullen
+	[X] 	Random spullen op de grond
+	[X] 	Spullen kunnen opgepakt worden
 [X]	Het Spelsysteem
 	[X] 	Monsters worden ingeladen aan de hand van monsters.txt
 [~]	Acties ruimte
 	[X] 	Vecht
 	[X] 	Vlucht
-	[~] 	Pak item op
+	[X] 	Pak item op
 	[X] 	Rust uit (met kans op random tegenstanders)
 	[X] 	Bekijk inventory
 	[X] 	Bekijk kaart
