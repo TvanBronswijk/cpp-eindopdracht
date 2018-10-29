@@ -7,11 +7,11 @@
 class MainView : public View
 {
 private:
+	bool handle_input(char c) override;
 	bool yes();
 	bool no();
 	bool credits();
 public:
 	MainView(GameContext* context);
 	std::ostream& display() override;
-	bool handle_input() override;
 };

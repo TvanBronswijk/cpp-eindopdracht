@@ -55,16 +55,12 @@ std::ostream & MapView::display()
 		<< std::endl;
 }
 
-bool MapView::handle_input()
+bool MapView::handle_input(char c)
 {
-	char a;
-	std::cin >> a;
-
-	if (tolower(a) == 'b') {
+	switch (tolower(c)) {
+	case 'b':
 		back();
 		return true;
 	}
-	else {
-		return false;
-	}
+	return false;
 }

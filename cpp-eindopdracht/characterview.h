@@ -6,8 +6,8 @@ class CharacterView : public View
 {
 private:
 	bool stats();
+	bool handle_input(char c) override;
 public:
 	CharacterView(GameContext* context);
 	std::ostream& display() override;
-	bool handle_input() override;
 };

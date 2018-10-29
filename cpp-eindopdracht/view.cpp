@@ -6,11 +6,18 @@ View::View(GameContext* context)
 	this->context = context;
 }
 
-View::~View()
+bool View::handle_input()
 {
+	char a;
+	std::cin >> a;
+	return handle_input(a);
 }
 
 bool View::back()
 {
 	return this->context->view_manager->pop();
+}
+
+View::~View()
+{
 }

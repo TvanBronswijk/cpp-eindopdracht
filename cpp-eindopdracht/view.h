@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <iomanip>
 
 class GameContext;
 class View
@@ -12,6 +13,13 @@ protected:
 	///</summary>
 	///<returns><c>true</c> if the action is successfull</returns>
 	bool back();
+
+
+	///<summary>
+	///Handles the input from <c>cin</c>.
+	///</summary>
+	///<returns><c>true</c> if input handled correctly, otherwise <c>false</c>.</returns>
+	virtual bool handle_input(char c) = 0;
 public:
 	View(GameContext* context);
 
@@ -25,7 +33,7 @@ public:
 	///Handles the input from <c>cin</c>.
 	///</summary>
 	///<returns><c>true</c> if input handled correctly, otherwise <c>false</c>.</returns>
-	virtual bool handle_input() = 0;
+	virtual bool handle_input();
 
 	virtual ~View();
 };

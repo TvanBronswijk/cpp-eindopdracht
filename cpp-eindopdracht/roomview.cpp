@@ -35,12 +35,9 @@ std::ostream& RoomView::display()
 		<< std::endl;
 }
 
-bool RoomView::handle_input()
+bool RoomView::handle_input(char c)
 {
-	char a;
-	std::cin >> a;
-
-	switch (tolower(a)) {
+	switch (tolower(c)) {
 	case 'f':
 		return fight();
 	case 'm':

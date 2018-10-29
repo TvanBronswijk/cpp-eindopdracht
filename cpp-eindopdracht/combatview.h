@@ -17,8 +17,8 @@ private:
 	bool drink_potion();
 	bool equip_item();
 	bool handle_input_equip_item(Player* player);
+	bool handle_input(char c) override;
 public:
 	CombatView(GameContext* context, PtrArray<Monster, 32>* monsters);
 	std::ostream& display() override;
-	bool handle_input() override;
 };

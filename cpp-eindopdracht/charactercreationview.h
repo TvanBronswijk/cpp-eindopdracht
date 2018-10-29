@@ -5,6 +5,8 @@
 
 class CharacterCreationView : public View
 {
+private: 
+	virtual bool handle_input(char c) override;
 public:
 	CharacterCreationView(GameContext* context);
 	std::ostream& display() override;

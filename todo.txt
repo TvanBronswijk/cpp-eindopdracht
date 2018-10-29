@@ -44,12 +44,12 @@ Legenda:
 	[X] 	Bekijk kaart
 	[X] 	Bekijk de eigenschappen van de held
 	[X] 	Verlaat het spel
-[~]	Acties Gevecht
+[X]	Acties Gevecht
 	[X] 	De speler kan het gevecht niet verlaten totdat de monsters verslagen 
 		zijn, de speler is gevlucht, of de speler dood is	
-	[~] 	Val een van je tegenstanders aan
-	[ ]	Vlucht in een bepaalde richting weg
-	[ ]	Gebruik een van je spullen
+	[X] 	Val een van je tegenstanders aan
+	[X]	Vlucht in een bepaalde richting weg
+	[X]	Gebruik een van je spullen
 
 Minimum eisen die nog niet voldaan zijn:
 	1, 2, 6, 8, 9, 15, 16, 17, 18, 20
