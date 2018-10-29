@@ -16,7 +16,7 @@ const char* Room::to_string()
 	return this->description;
 }
 
-const char* Room::hallway_to_string()
+const char* Room::hallway()
 {
 	return this->hallway_description;
 }

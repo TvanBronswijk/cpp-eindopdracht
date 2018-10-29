@@ -4,6 +4,7 @@
 RoomView::RoomView(GameContext* context, Room* room) : View(context)
 {
 	this->room = room;
+	this->room->visited = true;
 }
 
 std::ostream& RoomView::display()
@@ -12,52 +13,49 @@ std::ostream& RoomView::display()
 		<< this->room->to_string()
 		<< std::endl;
 
-
-	std::cout
-		<< std::endl
-		<< "description of the hallways:"
-		<< std::endl;
 	if (room->up != nullptr)
 		std::cout
-		<< "Up: "
-		<< room->up->hallway_to_string()
+		<< "Up: " << room->up->hallway()
 		<< std::endl;
 	if (room->down != nullptr)
 		std::cout
-		<< "Down: "
-		<< room->down->hallway_to_string()
+		<< "Down: " << room->down->hallway()
 		<< std::endl;
 	if (room->left != nullptr)
 		std::cout
-		<< "Left: "
-		<< room->left->hallway_to_string()
+		<< "Left: " << room->left->hallway()
 		<< std::endl;
 	if (room->right != nullptr)
 		std::cout
-		<< "Right: "
-		<< room->right->hallway_to_string()
+		<< "Right: " << room->right->hallway()
 		<< std::endl;
 
 
 	if (this->monsters != nullptr && this->monsters->size() > 0) {//TODO: error on monsters
-			std::cout
-				<< std::endl
-				<< "the monsters in the room are: "
-				<< std::endl;
-			for (size_t i = 0; i < this->monsters->size(); i++) {
-				Monster* monster = this->monsters->get(i);
-				std::cout
-					<< i
-					<< ": "
-					<< monster->name
-					<< std::endl;
-			}
-			std::cout << std::endl;
+		std::cout << "In the room you find a ";
+		for (size_t i = 0; i < this->monsters->size(); i++) {
+			std::cout << this->monsters->get(i)->name;
+			if (i != this->monsters->size()-1)
+				std::cout << ", a ";
+		}
+		std::cout << "." << std::endl;
 	}
-	else std::cout << std::endl << "there are no monsters in this room." << std::endl;
+	else 
+		std::cout << "there are no monsters in this room." << std::endl;
+
+	if (room->type == Room::DOWN)
+		std::cout << "There's a stairwell leading downwards..." << std::endl;
+	else if (room->type == Room::UP)
+		std::cout << "A stair is winds back up." << std::endl;
+	
 	std::cout
 		 << "What do you want to do?"
 		 << std::endl;
+
+	if (room->type == Room::DOWN)
+		std::cout << "[G]o Down | ";
+	else if (room->type == Room::UP)
+		std::cout << "[G]o Up | ";
 	return std::cout 
 		<< "[F]ight | [M]ove | [S]earch | [R]est | [I]nventory | [D]ungeon | [C]haracter | [E]xit"
 		<< std::endl;
@@ -80,6 +78,8 @@ bool RoomView::handle_input(char c)
 		return dungeon();
 	case 'c':
 		return character();
+	case 'g':
+		return go();
 	case 'e':
 		return exit();
 	}
@@ -234,6 +234,25 @@ bool RoomView::character()
 bool RoomView::exit()
 {
 	return context->view_manager->push(new ExitView(context));
+}
+
+bool RoomView::go()
+{
+	if (room->type == Room::DOWN) {
+		context->gamestate->current_depth++;
+		room = context->gamestate->get_dungeon()->find(Room::UP);
+		room->visited = true;
+		return true;
+	}
+	else if (room->type == Room::UP) {
+		context->gamestate->current_depth--;
+		room = context->gamestate->get_dungeon()->find(Room::DOWN);
+		room->visited = true;
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 RoomView::~RoomView() {

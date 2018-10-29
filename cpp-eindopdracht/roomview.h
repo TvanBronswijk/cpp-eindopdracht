@@ -23,6 +23,7 @@ private:
 	bool inventory();
 	bool dungeon();
 	bool character();
+	bool go();
 	bool exit();
 public:
 	RoomView(GameContext* context, Room* room);

@@ -6,8 +6,8 @@ struct Room {
 	enum SIZE {SMALL, MEDIUM, LARGE};
 	enum STATE {CLEAN, MESSY};
 	enum OBJECTS {TABLE, BED, NOTHING};
-	enum TYPE {WOOD, STONE, BROKEN};
-	enum OBSTACLE {BRIDGE, DOOR, GATE, STAIRCASE};
+	enum HALLWAY_TYPE {WOOD, STONE, BROKEN};
+	enum HALLWAY_OBSTACLE {BRIDGE, DOOR, GATE, STAIRCASE};
 
 	enum TYPE{NORMAL, UP, DOWN, START, BOSS};
 
@@ -30,5 +30,5 @@ public:
 	~Room();
 	
 	const char* to_string();
-	const char* hallway_to_string();
+	const char* hallway();
 };

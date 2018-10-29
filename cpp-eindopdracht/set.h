@@ -5,7 +5,7 @@ template<typename T, size_t MAX>
 class Set : public PtrArray<T, MAX> {
 private:
 public:
-	void remove(int i)
+	void remove(size_t i)
 	{
 		if (i < this->_size) {
 			delete this->_arr[i];

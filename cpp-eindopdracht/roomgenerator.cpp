@@ -16,7 +16,7 @@ Room* RoomGenerator::create_room()
 	int amount_of_monsters = random->get(3);
 
 	Room* room = new Room(generate_description(Room::SIZE(size), Room::STATE(state), Room::OBJECTS(objects)), 
-		generate_hallway_description(Room::SIZE(random->get(2)), Room::TYPE(random->get(2)), Room::OBSTACLE(random->get(3))));
+		generate_hallway_description(Room::SIZE(random->get(2)), Room::HALLWAY_TYPE(random->get(2)), Room::HALLWAY_OBSTACLE(random->get(3))));
 	room->type = Room::NORMAL;
 
 	if (random->get(0, 100) < 100) {
@@ -68,7 +68,7 @@ char* RoomGenerator::generate_description(Room::SIZE size, Room::STATE state, Ro
 	return description;
 }
 
-char* RoomGenerator::generate_hallway_description(Room::SIZE size, Room::TYPE type, Room::OBSTACLE obstacle)
+char* RoomGenerator::generate_hallway_description(Room::SIZE size, Room::HALLWAY_TYPE type, Room::HALLWAY_OBSTACLE obstacle)
 {
 	char* description = new char[512];
 

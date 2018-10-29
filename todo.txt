@@ -17,9 +17,9 @@ Legenda:
 		van een kerker
 	[X]	De kaart kan een willekeurig formaat hebben, door de speler in te stellen
 	[X] 	Het algoritme moet rekening houden dat alle delen van de kerker te bezoeken zijn
-	[ ]	De eerste laag heeft een random start locatie
-	[ ]	Er zijn trappen naar boven en beneden (waar nodig)
-	[~]	De bovenste laag is het minst gevaarlijk, de onderste het gevaarlijkst
+	[X]	De eerste laag heeft een random start locatie
+	[X]	Er zijn trappen naar boven en beneden (waar nodig)
+	[X]	De bovenste laag is het minst gevaarlijk, de onderste het gevaarlijkst
 	[ ]	De onderste laag heeft een eindvijand
 [X]	Random Ruimtes
 	[X] 	De beschrijving van een ruimte moet random gegenereerd worden
