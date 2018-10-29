@@ -6,9 +6,9 @@ class ExitView : public View
 {
 private:
 	bool handle_input(char c) override;
-	bool yes();
-	bool no();
-	bool clear();
+	const bool yes();
+	const bool no();
+	const bool clear();
 public:
 	ExitView(GameContext* context);
 	std::ostream& display() override;

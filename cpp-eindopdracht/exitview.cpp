@@ -26,19 +26,19 @@ bool ExitView::handle_input(char c)
 	return false;
 }
 
-bool ExitView::yes()
+const bool ExitView::yes()
 {
 	//TODO
 
 	return clear();
 }
 
-bool ExitView::no()
+const bool ExitView::no()
 {
 	return clear();
 }
 
-bool ExitView::clear()
+const bool ExitView::clear()
 {
 	GameContext* context = this->context;
 	while (!context->view_manager->is_empty())

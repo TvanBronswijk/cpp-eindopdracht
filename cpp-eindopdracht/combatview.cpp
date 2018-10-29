@@ -5,7 +5,7 @@ CombatView::CombatView(GameContext* context, PtrArray<Monster, 8>* monsters) : V
 	this->monsters = monsters;
 }
 
-bool CombatView::checkMonstersHealth() {
+const bool CombatView::checkMonstersHealth() {
 	for (size_t i = 0; i < monsters->size(); i++) {
 		Monster* monster = monsters->get(i);
 		if (monster->hp > 0) {
@@ -92,7 +92,7 @@ bool CombatView::handle_input(char c)
 	return false;
 }
 
-bool CombatView::fight() {
+const bool CombatView::fight() {
 	Player* player = context->gamestate->player;
 
 	for (size_t i = 0; i < monsters->size(); i++) {
@@ -133,14 +133,14 @@ bool CombatView::fight() {
 	return true;
 }
 
-bool CombatView::run(){
+const bool CombatView::run(){
 	std::cout << "You are running away from the monsters.";
 	delete monsters;
 	return 	back();
 }
 
 
-bool CombatView::drink_potion(){
+const bool CombatView::drink_potion(){
 	Player* player = context->gamestate->player;
 	if (player->potions.size() > 0) {
 		player->current_health += player->potions.get(player->potions.size() -1)->get_value();
@@ -158,7 +158,7 @@ bool CombatView::drink_potion(){
 	return true;
 }
 
-bool CombatView::handle_input_equip_item(Player* player) {
+const bool CombatView::handle_input_equip_item(Player* player) {
 	int a;
 
 	while (!(std::cin >> a)) {
@@ -195,7 +195,7 @@ void CombatView::level_up() {
 	}
 }
 
-bool CombatView::equip_item(){
+const bool CombatView::equip_item(){
 	Player* player = context->gamestate->player;
 	std::cout 
 		<< std::endl 

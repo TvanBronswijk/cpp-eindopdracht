@@ -16,15 +16,15 @@ private:
 	PtrArray<Monster, 8>* monsters;
 
 	bool handle_input(char c) override;
-	bool fight();
-	bool move();
-	bool search();
-	bool rest();
-	bool inventory();
-	bool dungeon();
-	bool character();
-	bool go();
-	bool exit();
+	const bool fight();
+	const bool move();
+	const bool search();
+	const bool rest();
+	const bool inventory();
+	const bool dungeon();
+	const bool character();
+	const bool go();
+	const bool exit();
 public:
 	RoomView(GameContext* context, Room* room);
 	std::ostream& display() override;
