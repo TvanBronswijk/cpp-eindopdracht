@@ -27,10 +27,8 @@ bool CharacterCreationView::handle_input()
 		}
 	}
 	context->gamestate->player = new Player(name);
-	back();
 
-	std::cout << "Welcome to The Dungeon!" << std::endl;
-	return context->view_manager->push(new RoomView(context, context->gamestate->get_dungeon()->find(Room::START)));
+	return back();
 }
 
 bool CharacterCreationView::handle_input(char c)

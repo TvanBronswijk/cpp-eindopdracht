@@ -28,7 +28,7 @@ bool SaveView::handle_input(char c)
 
 bool SaveView::yes()
 {
-	//TODO
+	context->save_manager->save(context->gamestate->player);
 	return context->view_manager->pop();
 }
 

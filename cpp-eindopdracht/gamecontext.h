@@ -1,5 +1,6 @@
 #pragma once
 #include "random.h"
+#include "savemanager.h"
 #include "viewmanager.h"
 #include "dungeongenerator.h"
 #include "monstergenerator.h"
@@ -13,7 +14,9 @@ private:
 public:
 	Random* random;
 
+	SaveManager* save_manager;
 	ViewManager* view_manager;
+
 	MonsterGenerator* monster_generator;
 	RoomGenerator* room_generator;
 	DungeonGenerator* dungeon_generator;

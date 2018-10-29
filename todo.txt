@@ -20,14 +20,14 @@ Legenda:
 	[X]	De eerste laag heeft een random start locatie
 	[X]	Er zijn trappen naar boven en beneden (waar nodig)
 	[X]	De bovenste laag is het minst gevaarlijk, de onderste het gevaarlijkst
-	[ ]	De onderste laag heeft een eindvijand
+	[X]	De onderste laag heeft een eindvijand
 [X]	Random Ruimtes
 	[X] 	De beschrijving van een ruimte moet random gegenereerd worden
 [~]	Random Tegenstanders
 	[X]	Tegenstanders worden gegeneerd op basis van een range
-	[ ]	Eindvijand
-		[ ] 	Er is maar 1 eindvijand per perker
-		[ ] 	Zodra deze verslagen is heb je gewonnen
+	[X]	Eindvijand
+		[X] 	Er is maar 1 eindvijand per perker
+		[X] 	Zodra deze verslagen is heb je gewonnen
 [X]	De Held
 	[X] 	Een speler kan een held maken (of opgeslagen held laden)
 [X]	Spullen
@@ -50,12 +50,6 @@ Legenda:
 	[X] 	Val een van je tegenstanders aan
 	[X]	Vlucht in een bepaalde richting weg
 	[X]	Gebruik een van je spullen
-
-Minimum eisen die nog niet voldaan zijn:
-	1.	Optijd Ingeleverd 
-	2. 	Werkend Spel, inclusief alle requirements
-	6. 	Const Correcte code
-	16.	Karakter saven en laden
 	
 	
 

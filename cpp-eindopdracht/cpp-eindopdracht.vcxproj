@@ -124,6 +124,7 @@
     <ClCompile Include="dungeon.cpp" />
     <ClCompile Include="dungeoncreationview.cpp" />
     <ClCompile Include="dungeongenerator.cpp" />
+    <ClCompile Include="enterview.cpp" />
     <ClCompile Include="exitview.cpp" />
     <ClCompile Include="filereader.cpp" />
     <ClCompile Include="gameconfig.cpp" />
@@ -142,6 +143,7 @@
     <ClCompile Include="roomgenerator.cpp" />
     <ClCompile Include="monstergenerator.cpp" />
     <ClCompile Include="roomview.cpp" />
+    <ClCompile Include="savemanager.cpp" />
     <ClCompile Include="saveview.cpp" />
     <ClCompile Include="stringutil.cpp" />
     <ClCompile Include="view.cpp" />
@@ -159,6 +161,7 @@
     <ClInclude Include="dungeon.h" />
     <ClInclude Include="dungeoncreationview.h" />
     <ClInclude Include="dungeongenerator.h" />
+    <ClInclude Include="enterview.h" />
     <ClInclude Include="exitview.h" />
     <ClInclude Include="filereader.h" />
     <ClInclude Include="gameconfig.h" />
@@ -177,6 +180,7 @@
     <ClInclude Include="gamestate.h" />
     <ClInclude Include="roomgenerator.h" />
     <ClInclude Include="roomview.h" />
+    <ClInclude Include="savemanager.h" />
     <ClInclude Include="saveview.h" />
     <ClInclude Include="set.h" />
     <ClInclude Include="stack.h" />
