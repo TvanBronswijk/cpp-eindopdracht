@@ -3,6 +3,8 @@
 GameState::GameState()
 {
 	current_depth = 0;
+	config = nullptr;
+	player = nullptr;
 }
 
 Dungeon* GameState::get_dungeon()

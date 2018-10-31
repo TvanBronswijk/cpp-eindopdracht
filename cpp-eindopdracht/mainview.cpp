@@ -57,6 +57,8 @@ const bool MainView::load()
 	}
 	catch (int e) {
 		std::cout << "Incorrect save.";
+		delete context->gamestate;
+		context->gamestate = nullptr;
 		return false;
 	}
 }
